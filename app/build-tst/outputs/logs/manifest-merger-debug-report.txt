@@ -1,0 +1,371 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d57b07d7d170216aa46471380ec5e53/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7ebb45790cce07146d30e4a754741bd5/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-tasks:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/fa78a128ba482559195b9f5e77eda87a/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:16:1-23:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/9c3ff628b9f5421205172a580f71270a/AndroidManifest.xml:17:1-22:12
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:2:1-16:12
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:17:1-55:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/660848c419d8d4ac4e619b7d32216dc8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/e070b76129f8e4118fc741cbcd91c775/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/bb7197b6d29b50f0693c4219e2105cb5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/63b7337e4caad6b3aa23b228d9c02d1b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/40cd88116ffd14443e2d0d3492b159cc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/f8634ac0800788a32710c2fcc31891e6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/b53917b5df086e6c2efb6825ffcb42ea/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dbaa1c55648512bf6f055f05949c4da5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/76873ecb2d674527feb09fedfaf7a1e4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/629702a734679e944029c37cb4918f1d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/7c8b52e086a1f93a2497e733a5ec8d30/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+	package
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:3:5-34
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:1-83:12
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:6:5-64
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:21:5-65
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:6:22-62
+uses-feature#android.hardware.camera
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:7:5-59
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:24:5-26:36
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:24:5-26:36
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:7:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:8:5-69
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:32:5-34:36
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:32:5-34:36
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:8:19-67
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:9:5-80
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:11:5-81
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:10:22-77
+application
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:16:5-78:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7ebb45790cce07146d30e4a754741bd5/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7ebb45790cce07146d30e4a754741bd5/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/fa78a128ba482559195b9f5e77eda87a/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/fa78a128ba482559195b9f5e77eda87a/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:19:5-21:19
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:13:5-14:19
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:13:5-14:19
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:45:5-53:19
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:45:5-53:19
+	android:supportsRtl
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:21:9-35
+	android:label
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:19:9-38
+	android:icon
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:18:9-43
+	android:allowBackup
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:17:9-35
+	android:theme
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:23:9-40
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:22:9-54
+activity#io.securypto.dsgv1.firstpage
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:29:9-38:20
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:29:63-99
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:29:19-62
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:30:13-37:29
+action#android.intent.action.MAIN
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:31:17-69
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:33:17-77
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:33:27-74
+activity#io.securypto.dsgv1.page4
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:44:9-166
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:44:117-153
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:44:59-116
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:44:19-58
+activity#io.securypto.dsgv1.page_new_installation
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:45:9-181
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:45:133-169
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:45:75-132
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:45:19-74
+activity#io.securypto.dsgv1.help1
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:48:9-165
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:48:117-153
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:48:59-116
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:48:19-58
+activity#io.securypto.dsgv1.qrshow
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:50:9-170
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:50:121-157
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:50:60-120
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:50:19-59
+activity#io.securypto.dsgv1.qrshowpub
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:52:9-173
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:52:124-160
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:52:63-123
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:52:19-62
+activity#io.securypto.dsgv1.qrshowdata
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:54:9-174
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:54:125-161
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:54:64-124
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:54:19-63
+activity#io.securypto.dsgv1.login_succes
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:56:9-172
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:56:124-160
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:56:66-123
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:56:19-65
+activity#io.securypto.dsgv1.contacts_manager
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:59:9-180
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:59:131-167
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:59:70-130
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:59:19-69
+activity#io.securypto.dsgv1.qrscanner
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:61:9-172
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:61:124-160
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:61:63-123
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:61:19-62
+activity#io.securypto.dsgv1.write_a_msg
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:63:9-174
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:63:126-162
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:63:65-125
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:63:19-64
+activity#io.securypto.dsgv1.wallet
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:65:9-169
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:65:121-157
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:65:60-120
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:65:19-59
+activity#io.securypto.dsgv1.decmanual
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:67:9-172
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:67:124-160
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:67:63-123
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:67:19-62
+activity#io.securypto.dsgv1.backup
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:69:9-166
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:69:118-154
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:69:60-117
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:69:19-59
+activity#io.securypto.dsgv1.restore
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:70:9-167
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:70:119-155
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:70:61-118
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:70:19-60
+activity#io.securypto.dsgv1.showfromclip
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:72:9-175
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:72:127-163
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:72:66-126
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:72:19-65
+activity#io.securypto.dsgv1.contactmanual
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:74:9-176
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:74:128-164
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:74:67-127
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:74:19-66
+activity#io.securypto.dsgv1.passwdmanager
+ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:76:9-176
+	android:screenOrientation
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:76:128-164
+	android:parentActivityName
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:76:67-127
+	android:name
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml:76:19-66
+uses-sdk
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d57b07d7d170216aa46471380ec5e53/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d57b07d7d170216aa46471380ec5e53/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7ebb45790cce07146d30e4a754741bd5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7ebb45790cce07146d30e4a754741bd5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/fa78a128ba482559195b9f5e77eda87a/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/fa78a128ba482559195b9f5e77eda87a/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/9c3ff628b9f5421205172a580f71270a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/9c3ff628b9f5421205172a580f71270a/AndroidManifest.xml:20:5-44
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:7:5-9:41
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/matrix/.gradle/caches/transforms-2/files-2.1/7d4d966b17434bb01f2c1552a9ae8ad4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:19:5-43
+MERGED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:19:5-43
+MERGED from [com.android.support:support-fragment:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/660848c419d8d4ac4e619b7d32216dc8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/660848c419d8d4ac4e619b7d32216dc8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/e070b76129f8e4118fc741cbcd91c775/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/e070b76129f8e4118fc741cbcd91c775/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/bb7197b6d29b50f0693c4219e2105cb5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/bb7197b6d29b50f0693c4219e2105cb5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/63b7337e4caad6b3aa23b228d9c02d1b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/63b7337e4caad6b3aa23b228d9c02d1b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/40cd88116ffd14443e2d0d3492b159cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/40cd88116ffd14443e2d0d3492b159cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/f8634ac0800788a32710c2fcc31891e6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/f8634ac0800788a32710c2fcc31891e6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/b53917b5df086e6c2efb6825ffcb42ea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/matrix/.gradle/caches/transforms-2/files-2.1/b53917b5df086e6c2efb6825ffcb42ea/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dbaa1c55648512bf6f055f05949c4da5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dbaa1c55648512bf6f055f05949c4da5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/76873ecb2d674527feb09fedfaf7a1e4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/76873ecb2d674527feb09fedfaf7a1e4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/629702a734679e944029c37cb4918f1d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/629702a734679e944029c37cb4918f1d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/7c8b52e086a1f93a2497e733a5ec8d30/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/7c8b52e086a1f93a2497e733a5ec8d30/AndroidManifest.xml:20:5-44
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		ADDED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+		INJECTED from /home/matrix/Desktop/ANDROID/DSG-SCU/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:19:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:20:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/2a99ec4ac66c523bc8d810ec7bd2163d/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/dac3827b25cf17373920351cb7b746bb/AndroidManifest.xml:19:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/c9099fe806db3f970422ce63471b6b7a/AndroidManifest.xml:20:20-65
+uses-feature#android.hardware.camera.front
+ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:27:5-29:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:29:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:28:9-53
+uses-feature#android.hardware.camera.flash
+ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:35:5-37:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:37:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:36:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:38:5-40:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:40:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:39:9-57
+uses-feature#android.hardware.wifi
+ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:41:5-43:36
+	android:required
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:43:9-33
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:42:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:46:9-52:63
+	android:screenOrientation
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:49:13-56
+	android:clearTaskOnLaunch
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:48:13-45
+	android:stateNotNeeded
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:50:13-42
+	android:windowSoftInputMode
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:52:13-60
+	android:theme
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:51:13-54
+	android:name
+		ADDED from [com.journeyapps:zxing-android-embedded:3.2.0] /home/matrix/.gradle/caches/transforms-2/files-2.1/f30a927a57928e1fb6a1e128488400ae/AndroidManifest.xml:47:13-74

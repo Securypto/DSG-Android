@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.securypto.myapp1"
+    android:targetSandboxVersion="2"
+    android:versionCode="5"
+    android:versionName="5" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Include required permissions for Google Maps API to run. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+
+    <application
+        android:name="io.securypto.myapp1.GlobalClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="DigiSafeGuard"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="io.securypto.myapp1.page4"
+            android:parentActivityName="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="io.securypto.myapp1.page_new_installation"
+            android:parentActivityName="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.help1"
+            android:parentActivityName="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.qrshow"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="io.securypto.myapp1.qrshowpub"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="io.securypto.myapp1.qrshowdata"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="io.securypto.myapp1.login_succes"
+            android:parentActivityName="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.contacts_manager"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.qrscanner"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.write_a_msg"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.wallet"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.decmanual"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.backup"
+            android:parentActivityName="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.restore"
+            android:parentActivityName="io.securypto.myapp1.firstpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.showfromclip"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.contactmanual"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="io.securypto.myapp1.passwdmanager"
+            android:parentActivityName="io.securypto.myapp1.login_succes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+    </application>
+
+</manifest>

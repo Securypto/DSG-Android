@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.securypto.DSGV1">
+
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="DigiSafeGuard"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:name="io.securypto.dsgv1.GlobalClass"
+        android:theme="@style/AppTheme"
+
+        >
+
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false"
+            android:authorities="${applicationId}">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths"/>
+
+        </provider>
+
+
+
+
+
+
+        <activity android:name="io.securypto.dsgv1.firstpage" android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+
+
+            </intent-filter>
+        </activity>
+
+
+
+
+
+        <activity android:name="io.securypto.dsgv1.page4" android:parentActivityName="io.securypto.dsgv1.firstpage" android:screenOrientation="portrait"> </activity>
+
+        <activity android:name="io.securypto.dsgv1.page_new_installation" android:parentActivityName="io.securypto.dsgv1.firstpage" android:screenOrientation="portrait"></activity>
+
+
+
+
+        <activity android:name="io.securypto.dsgv1.qrshow" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"> </activity>
+
+        <activity android:name="io.securypto.dsgv1.qrshowpub" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"> </activity>
+
+        <activity android:name="io.securypto.dsgv1.qrshowdata" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"> </activity>
+
+        <activity android:name="io.securypto.dsgv1.login_succes" android:parentActivityName="io.securypto.dsgv1.firstpage" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.settings" android:parentActivityName="io.securypto.dsgv1.firstpage" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.contacts_manager" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait" ></activity>
+
+        <activity android:name="io.securypto.dsgv1.qrscanner" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.write_a_msg" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.wallet" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.decmanual" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.backup" android:parentActivityName="io.securypto.dsgv1.firstpage" android:screenOrientation="portrait"></activity>
+
+
+        <activity android:name="io.securypto.dsgv1.showfromclip" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.contactmanual" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+        <activity android:name="io.securypto.dsgv1.passwdmanager" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
+
+    </application>
+
+
+
+
+
+</manifest>

@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sun Jul 07 13:06:38 CEST 2019
+0.baseType=DIRECTORY
+0.base=/home/matrix/Desktop/ANDROID/DSG-SCU/app/build/intermediates/dex/release/mergeDexRelease/out
+0.path=classes.dex
+0.set=DEX
+count=1
