@@ -252,7 +252,7 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
 
-    //test new
+    //test
 
 
     private void confirmdeletedialog(final String selected_file_by_user) {
