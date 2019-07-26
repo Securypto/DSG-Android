@@ -32,7 +32,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
@@ -485,6 +487,26 @@ else{
 
 
 
+
+    public static void savefile(Context context, Uri sourceuri, String destinationFilename)
+    {
+        try {
+
+
+            InputStream in = context.getContentResolver().openInputStream(sourceuri);
+            OutputStream out = new FileOutputStream(new File(destinationFilename));
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+            out.close();
+            in.close();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

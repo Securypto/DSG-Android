@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -15,6 +17,16 @@ import android.widget.VideoView;
 
 
 import android.content.ClipboardManager;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URI;
 
 import io.securypto.DSGV1.R;
 
@@ -35,15 +47,72 @@ public class firstpage extends AppCompatActivity {
 
 
 
+/*
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+        if ("android.intent.action.SEND".equals(action) && type != null && "text/plain".equals(type)) {
+            Toast.makeText(getApplicationContext(), ""+intent.getStringExtra("android.intent.extra.TEXT"), Toast.LENGTH_SHORT).show();
+        }
+*/
 
 
 
 
         startvideo();
 
+        onSharedIntent();
+
 
 
     }
+
+
+
+
+
+
+    public void onSharedIntent() {
+        Intent receiverdIntent = getIntent();
+        String receivedAction = receiverdIntent.getAction();
+        String receivedType = receiverdIntent.getType();
+
+
+        if (receivedAction != null) {
+
+            if (receivedAction.equals(Intent.ACTION_SEND)) {
+
+                // check mime type
+                if (receivedType.startsWith("text/")) {
+
+                    String receivedText = receiverdIntent.getStringExtra(Intent.EXTRA_TEXT);
+                    if (receivedText != null) {
+                        //do your stuff
+                        Toast.makeText(getApplicationContext(), receivedText, Toast.LENGTH_SHORT).show();
+                    }
+                } else if (receivedType.startsWith("image/")) {
+
+                    Uri receiveUri = (Uri) receiverdIntent
+                            .getParcelableExtra(Intent.EXTRA_STREAM);
+
+                    if (receiveUri != null) {
+                        //do your stuff
+
+                        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/sendbyuser.jpg";
+                        babak.savefile(getApplicationContext(), receiveUri, destinationFilename);
+                        //Toast.makeText(getApplicationContext(), receiveUri.toString(), Toast.LENGTH_SHORT).show();
+
+
+                    }
+                }
+
+            } else if (receivedAction.equals(Intent.ACTION_MAIN)) {
+
+                // Log.e(TAG, "onSharedIntent: nothing shared" );
+            }
+        }
+    }
+
 
 
 

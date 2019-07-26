@@ -40,15 +40,15 @@
 
         android:text="This vault doesn't have any contact yet.\n\n
 
-To send a message you need the vault address of the receiver.
+* To send a message you need the vault address of the receiver.
 \n\n
-1. Ask your contact for his public vault addres.\n
+1. Ask your contact for his public vault address.\n
 2. Click on import contact.\n
-3. Import his vault addres by scanning his vault addres QR code or import manually using the clipboard if you got his address as a plain text.
+3. Import his vault address by scanning his vault address QR code or import manually using the clipboard if you got his address as a plain text.\n
 \n\n
-*You need to do this only once for every contact.
+* You need to do this only once for every contact.
 \n\n
-*As contact name you can choose whatever you want. All contact names will be encrypted too and are not visible if a hacker get physical access to your device.
+* As contact name you can choose whatever you want. All contact names will be encrypted too and are not visible if a hacker gets physical access to your device.
 "
 
 
