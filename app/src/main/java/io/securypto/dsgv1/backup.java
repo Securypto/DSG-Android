@@ -1,11 +1,13 @@
 package io.securypto.dsgv1;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.graphics.PixelFormat;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -306,6 +309,8 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(formElementsView);
         builder.setCancelable(false);
         builder.show();
+
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {

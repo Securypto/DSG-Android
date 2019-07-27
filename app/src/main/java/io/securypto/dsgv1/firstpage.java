@@ -88,19 +88,22 @@ public class firstpage extends AppCompatActivity {
                     String receivedText = receiverdIntent.getStringExtra(Intent.EXTRA_TEXT);
                     if (receivedText != null) {
                         //do your stuff
-                        Toast.makeText(getApplicationContext(), receivedText, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), receivedText, Toast.LENGTH_SHORT).show();
                     }
-                } else if (receivedType.startsWith("image/")) {
-
-                    Uri receiveUri = (Uri) receiverdIntent
-                            .getParcelableExtra(Intent.EXTRA_STREAM);
+//                } else if (receivedType.startsWith("image/")) {
+                } else  {
+                    Uri receiveUri = (Uri) receiverdIntent.getParcelableExtra(Intent.EXTRA_STREAM);
 
                     if (receiveUri != null) {
                         //do your stuff
 
-                        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/sendbyuser.jpg";
+                        String extension = receivedType.substring(receivedType.lastIndexOf("/"));
+                        extension = extension.replaceAll("/", "");
+                        if(extension == ""){extension ="UNKNOW";}
+
+                        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/sendbyuser."+extension;
                         babak.savefile(getApplicationContext(), receiveUri, destinationFilename);
-                        //Toast.makeText(getApplicationContext(), receiveUri.toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), extension, Toast.LENGTH_SHORT).show();
 
 
                     }
