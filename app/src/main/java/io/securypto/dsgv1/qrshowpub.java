@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -16,6 +17,11 @@ import android.widget.VideoView;
 
 
 import com.google.zxing.WriterException;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import io.securypto.DSGV1.R;
 
@@ -53,6 +59,18 @@ public class qrshowpub extends AppCompatActivity {
             bitmap = babak.texttoqr(contextqr, current_valt_Pub_key_final, 500);
             qrholder.setImageBitmap(bitmap);
 
+
+            try {
+                String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrpub.jpg";
+                File newfile = babak.savebitmap(bitmap, destinationFilename);
+            }
+            catch(IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+
         } catch (WriterException e) {
             e.printStackTrace();
         }
@@ -69,6 +87,10 @@ startvideo();
 
 
     }
+
+
+
+
 
 
 
@@ -101,8 +123,20 @@ startvideo();
         final String current_valt_Pub_key = globalVariable.get_current_valt_Pub_key();
         String current_valt_Pub_key_final = "DigiSafeGuard-PUBLIC-KEY:" + current_valt_Pub_key;
         Context context_share_txt= qrshowpub.this;
-        babak.sharetxt(context_share_txt, "DigiSafeGuard Pub Key", current_valt_Pub_key_final, "Share DSG");
+
+        //share text
+        //babak.sharetxt(context_share_txt, "DigiSafeGuard Pub Key", current_valt_Pub_key_final, "Share DSG");
+
+        //share file jpg
+        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrpub.jpg";
+        babak.sharefile(context_share_txt,  destinationFilename, "DigiSafeGuard Pub Key", "image/jpg");
+
+
     }
+
+
+
+
 
 
 

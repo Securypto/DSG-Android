@@ -17,13 +17,23 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/release/app-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/release/app-release.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,85 +61,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/page_new_installation.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="759">
+              <caret line="129" column="44" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="119" selection-start-line="119" selection-end-line="119" />
               <folding>
-                <element signature="e#1887#2090#0" expanded="true" />
-                <element signature="e#2089#2090#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#6045#6311#0" expanded="true" />
+                <element signature="e#6310#6311#0" expanded="true" />
+                <element signature="e#6718#6921#0" expanded="true" />
+                <element signature="e#6920#6921#0" expanded="true" />
+                <element signature="e#7950#10219#0" expanded="true" />
+                <element signature="e#10218#10219#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+            <state relative-caret-position="741">
+              <caret line="185" selection-start-line="185" selection-end-line="185" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4209#4412#0" expanded="true" />
-                <element signature="e#4411#4412#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/loading.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activiy_backup.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="93" selection-start-line="93" selection-end-line="94" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/page_new_installation.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="172" selection-start-line="172" selection-end-line="172" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="328" column="12" selection-start-line="328" selection-start-column="12" selection-end-line="328" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3502#3941#0" expanded="true" />
-                <element signature="e#3940#3941#0" expanded="true" />
-                <element signature="e#4354#4557#0" expanded="true" />
-                <element signature="e#4556#4557#0" expanded="true" />
-                <element signature="e#4880#5902#0" expanded="true" />
-                <element signature="e#5901#5902#0" expanded="true" />
-                <element signature="e#6876#7159#0" expanded="true" />
-                <element signature="e#7158#7159#0" expanded="true" />
-                <element signature="e#7204#7494#0" expanded="true" />
-                <element signature="e#7493#7494#0" expanded="true" />
-                <element signature="e#7945#8574#0" expanded="true" />
-                <element signature="e#8573#8574#0" expanded="true" />
-                <element signature="e#8619#8909#0" expanded="true" />
-                <element signature="e#8908#8909#0" expanded="true" />
-                <element signature="e#9900#10249#0" expanded="true" />
-                <element signature="e#10248#10249#0" expanded="true" />
+                <element signature="e#1947#1955#0" expanded="true" />
+                <element signature="e#4520#4656#0" expanded="true" />
+                <element signature="e#4655#4656#0" expanded="true" />
+                <element signature="e#4926#5060#0" expanded="true" />
+                <element signature="e#5059#5060#0" expanded="true" />
+                <element signature="e#5404#5607#0" expanded="true" />
+                <element signature="e#5606#5607#0" expanded="true" />
+                <element signature="e#5991#6194#0" expanded="true" />
+                <element signature="e#6193#6194#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,27 +111,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="444">
+              <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrscanner.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/GlobalClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="242" column="71" selection-start-line="242" selection-start-column="66" selection-end-line="242" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+            <state relative-caret-position="460">
+              <caret line="52" column="43" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -166,10 +129,55 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="509" column="5" selection-start-line="509" selection-start-column="5" selection-end-line="509" selection-end-column="5" />
+            <state relative-caret-position="4348">
+              <caret line="383" column="32" selection-start-line="383" selection-start-column="23" selection-end-line="383" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="418" column="56" selection-start-line="418" selection-start-column="41" selection-end-line="418" selection-end-column="56" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contacts_manager_page.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="24" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="639">
+              <caret line="129" selection-start-line="129" selection-end-line="131" selection-end-column="103" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/write_a_msg.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="106" column="50" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1161#1364#0" expanded="true" />
+                <element signature="e#1363#1364#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -189,36 +197,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exter</find>
-      <find>babak</find>
-      <find>case</find>
-      <find>500</find>
-      <find>textViewnocontact</find>
-      <find>create_passwd_manager_file</find>
-      <find>confirmDialogDemoshowdata</find>
-      <find>globa</find>
-      <find>key</find>
-      <find>getKeyPair</find>
-      <find>help</find>
-      <find>dele</find>
-      <find>confirmdele</find>
-      <find>deletedia</find>
-      <find>send</find>
-      <find>save</find>
-      <find>zip</find>
-      <find>share</find>
-      <find>gen_keys_real</find>
-      <find>shareFile</find>
-      <find>gen_pub_priv_key_and_safe</find>
-      <find>loadi</find>
-      <find>user</find>
-      <find>filesen</find>
-      <find>savef</find>
-      <find>load</find>
-      <find>repla</find>
-      <find>intro</find>
+      <find>read</find>
+      <find>BufferedInputStream</find>
       <find>publicKeyBytesBase64_gelezen</find>
-      <find>firs</find>
+      <find>privateKeyBytesBase64_gelezen</find>
+      <find>scanQRImage</find>
+      <find>openFileInput</find>
+      <find>startrefreh</find>
+      <find>sharetxt</find>
+      <find>dial</find>
+      <find>addnewpasswdView</find>
+      <find>confirmDialogDemoshowdata</find>
+      <find>vault_name_short</find>
+      <find>contactpubtoimport2</find>
+      <find>shareFile</find>
+      <find>dialog</find>
+      <find>savebitmap</find>
+      <find>return</find>
+      <find>base64</find>
+      <find>contact_ma</find>
+      <find>toas</find>
+      <find>wrong</find>
+      <find>sharefile</find>
+      <find>share</find>
+      <find>button_share1</find>
+      <find>video</find>
+      <find>import by</find>
+      <find>current_data_msg_for_qr</find>
+      <find>Button_Return1</find>
+      <find>msgstukken</find>
+      <find>qrho</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -234,7 +242,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/form_elements.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_helppage1.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_restore.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_wallet.xml" />
@@ -262,29 +269,30 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/xml_roundedtextedit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/xml_roundedtextedittrans.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_qrshowpub.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/write_a_msg.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_write_a_msg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showfromclip.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_showfromclip.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_passwdmanager.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/page_new_installation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/passwdmanager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/encclass.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_firstpage.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/page_new_installation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_contacts_manager_page.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activiy_backup.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/loading.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/form_new_contact.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java" />
       </list>
     </option>
   </component>
@@ -533,7 +541,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32939914" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32180294" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32180294" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32939914" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Preview" order="0" side_tool="true" weight="0.32977587" />
@@ -581,9 +589,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="VCS" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_lock_open_black_24dp.png" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_lock_open_black_24dp.png" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_lock_open_black_24dp.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_lock_open_black_24dp.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/file_provider_paths.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/file_provider_paths.xml" />
@@ -661,14 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_decmanual.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="75" selection-start-line="75" selection-end-line="75" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/xml_roundedtextedit.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -685,41 +682,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
-          <folding>
-            <element signature="e#1785#1988#0" expanded="true" />
-            <element signature="e#1987#1988#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_write_a_msg.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showfromclip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="e#1321#1524#0" expanded="true" />
-            <element signature="e#1523#1524#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_showfromclip.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -730,20 +697,6 @@
           <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="72" column="35" selection-start-line="72" selection-start-column="27" selection-end-line="72" selection-end-column="35" />
-          <folding>
-            <element signature="e#4037#4240#0" expanded="true" />
-            <element signature="e#4239#4240#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_passwdmanager.xml">
       <provider editor-type-id="android-designer2" />
@@ -766,53 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="35" column="38" selection-end-line="143" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="127" column="74" selection-start-line="127" selection-start-column="57" selection-end-line="127" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4618#4821#0" expanded="true" />
-            <element signature="e#4820#4821#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/GlobalClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/passwdmanager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="262" column="10" selection-start-line="262" selection-start-column="10" selection-end-line="262" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -863,14 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contacts_manager_page.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="24" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/page_new_installation.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -906,30 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/write_a_msg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrscanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="242" column="71" selection-start-line="242" selection-start-column="66" selection-end-line="242" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -956,32 +830,189 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowdata.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="509" column="5" selection-start-line="509" selection-start-column="5" selection-end-line="509" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="56" column="26" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+        <state relative-caret-position="420">
+          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showfromclip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/form_elements.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" lean-forward="true" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/passwdmanager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="403" column="5" selection-start-line="403" selection-start-column="5" selection-end-line="403" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/form_new_contact.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="244" selection-start-line="244" selection-end-line="245" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrscanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="209" column="105" selection-start-line="209" selection-start-column="101" selection-end-line="209" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/GlobalClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="52" column="43" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="129" selection-start-line="129" selection-end-line="131" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/babak.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4348">
+          <caret line="383" column="32" selection-start-line="383" selection-start-column="23" selection-end-line="383" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_showfromclip.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_decmanual.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="75" selection-start-line="75" selection-end-line="75" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contacts_manager_page.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/contacts_manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="418" column="56" selection-start-line="418" selection-start-column="41" selection-end-line="418" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/write_a_msg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="106" column="50" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1161#1364#0" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="96" column="45" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+        <state relative-caret-position="330">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4209#4412#0" expanded="true" />
-            <element signature="e#4411#4412#0" expanded="true" />
+            <element signature="e#6045#6311#0" expanded="true" />
+            <element signature="e#6310#6311#0" expanded="true" />
+            <element signature="e#6718#6921#0" expanded="true" />
+            <element signature="e#6920#6921#0" expanded="true" />
+            <element signature="e#7950#10219#0" expanded="true" />
+            <element signature="e#10218#10219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="129" column="44" selection-start-line="129" selection-start-column="44" selection-end-line="129" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
+          <folding>
+            <element signature="e#1947#1955#0" expanded="true" />
+            <element signature="e#4520#4656#0" expanded="true" />
+            <element signature="e#4655#4656#0" expanded="true" />
+            <element signature="e#4926#5060#0" expanded="true" />
+            <element signature="e#5059#5060#0" expanded="true" />
+            <element signature="e#5404#5607#0" expanded="true" />
+            <element signature="e#5606#5607#0" expanded="true" />
+            <element signature="e#5991#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
           </folding>
         </state>
       </provider>

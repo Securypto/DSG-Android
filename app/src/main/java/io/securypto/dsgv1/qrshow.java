@@ -8,15 +8,27 @@ import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.zxing.WriterException;
+
+import org.jcodec.api.SequenceEncoder;
+import org.jcodec.api.android.AndroidSequenceEncoder;
+import org.jcodec.common.io.FileChannelWrapper;
+import org.jcodec.common.io.NIOUtils;
+import org.jcodec.common.model.Rational;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -32,80 +44,129 @@ public class qrshow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.qrshow);
 
-        Button Button_Return1 = (Button) findViewById(R.id.Button_Return1);
-        Button button_restart = (Button) findViewById(R.id.button_restart);
+        //Button Button_Return1 = (Button) findViewById(R.id.Button_Return1);
         Button button_share1 = (Button) findViewById(R.id.button_share1);
-        Button_Return1.setVisibility(View.GONE);
-        button_restart.setVisibility(View.GONE);
-        button_share1.setVisibility(View.GONE);
+        Button button_share2 = (Button) findViewById(R.id.button_share2);
+        VideoView v = (VideoView) findViewById(R.id.videoViewqr);
+        ImageView qrholder = (ImageView) findViewById(R.id.qrholder);
+        //Button_Return1.setVisibility(View.GONE);
+        //button_share1.setVisibility(View.GONE);
+        //button_share2.setVisibility(View.GONE);
+       // v.setVisibility(View.GONE);
+       // qrholder.setVisibility(View.GONE);
+
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        int current_data_array_part = globalVariable.get_current_data_array_part();
         String current_data_msg_for_qr = globalVariable.get_current_data_msg_for_qr();
 
 
-        int current_data_array_partnew=current_data_array_part+1;
-        globalVariable.set_current_data_array_part(current_data_array_partnew);
-
-
-        //current_data_msg_for_qr="babak1babak2babak3babak4babak5";
-
-
         String[] chunkarray = babak.splitToNChar(current_data_msg_for_qr, 500);
-
-        String userdatatoshowonqrfinal=chunkarray[current_data_array_part];
-
-        String md5hash= babak.md5(userdatatoshowonqrfinal);
-
-        //include md5 hash
-        // example  DSGMSGPART:2:5:hash:msg
-        String datachunckreadytoshow="DSGMSGPART:"+current_data_array_partnew+":"+chunkarray.length+":"+md5hash+":"+userdatatoshowonqrfinal;
+        String userdatatoshowonqrfinal ="";
+        String md5hash="";
+        String datachunckreadytoshow="";
+        int current_data_array_part_plus_one=0;
+        String destinationFilename ="";
 
 
+        ArrayList<Bitmap> bitmapArray = new ArrayList<Bitmap>();
 
 
-        ImageView qrholder;
-        Bitmap bitmap ;
-        qrholder = (ImageView)findViewById(R.id.qrholder);
-        try {
+        for(int i = 0; i< chunkarray.length; i++) {
+            userdatatoshowonqrfinal = chunkarray[i];
+            md5hash = babak.md5(userdatatoshowonqrfinal);
+            current_data_array_part_plus_one=i+1;
 
-            Context contextqr= getApplicationContext();
-            bitmap = babak.texttoqr(contextqr, datachunckreadytoshow, 500);
-            qrholder.setImageBitmap(bitmap);
+            //include md5 hash
+            // example  DSGMSGPART:2:5:hash:msg
+            datachunckreadytoshow = "DSGMSGPART:" + current_data_array_part_plus_one + ":" + chunkarray.length + ":" + md5hash + ":" + userdatatoshowonqrfinal;
 
-        } catch (WriterException e) {
-            e.printStackTrace();
+
+
+            Bitmap bitmap;
+            try {
+
+                Context contextqr = getApplicationContext();
+                bitmap = babak.texttoqr(contextqr, datachunckreadytoshow, 500);
+                bitmapArray.add(bitmap); // Add a bitmap
+
+
+if(chunkarray.length == 1) {
+    //ImageView qrholder;
+    qrholder = (ImageView) findViewById(R.id.qrholder);
+    qrholder.setImageBitmap(bitmap);
+
+
+    try {
+        //destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrmsgtosend"+current_data_array_part_plus_one+".jpg";
+        destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrmsgtosend1.jpg";
+        File newfile = babak.savebitmap(bitmap, destinationFilename);
+    }
+    catch(IOException e) {
+        e.printStackTrace();
+    }
+
+
+    }
+
+
+            } catch (WriterException e) {
+                e.printStackTrace();
+            }
+
+
+
         }
-        //Toast.makeText(getApplicationContext(), "Data:"+current_data_array_partnew+"/"+chunkarray.length, Toast.LENGTH_SHORT).show();
-       // Toast.makeText(getApplicationContext(), "data:"+current_data_array_partnew+"/"+chunkarray.length+":"+userdatatoshowonqrfinal, Toast.LENGTH_SHORT).show();
-
-        TextView textView = (TextView) findViewById(R.id.textprogress);
-        textView.setText("Data:"+current_data_array_partnew+"/"+chunkarray.length);
 
 
 
-    //    if(current_data_array_partnew >= chunkarray.length && chunkarray.length > 1) {
-     //       globalVariable.set_current_data_array_part(0);
-    //    }
 
 
-        if(current_data_array_partnew < chunkarray.length) {
 
-            new Timer().schedule(new TimerTask(){
-                public void run() {
-                    startActivity(new Intent(qrshow.this, qrshow.class));
-                    finish();
+
+        if(chunkarray.length > 1) {
+            button_share1.setVisibility(View.GONE);
+            qrholder.setVisibility(View.GONE);
+
+            try {
+
+                FileChannelWrapper out = null;
+                File file = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrmsgtosend.mp4");
+
+                try {
+                    out = NIOUtils.writableFileChannel(file.getAbsolutePath());
+
+
+                    AndroidSequenceEncoder encoder = new AndroidSequenceEncoder(out, Rational.R(1, 1));
+                    for (Bitmap bitmap : bitmapArray) {
+                        encoder.encodeImage(bitmap);
+
+                    }
+
+
+                    encoder.finish();
+
+                } finally {
+                    NIOUtils.closeQuietly(out);
                 }
-            }, 200 );
 
 
-        } else{
-            globalVariable.set_current_data_array_part(0);
 
-            Button_Return1.setVisibility(View.VISIBLE);
-            button_restart.setVisibility(View.VISIBLE);
-            button_share1.setVisibility(View.VISIBLE);
-           // restart();
+
+                new Thread(new Runnable() {
+                    public void run() {
+                        startvideoqr();
+                    }
+                }).start();
+
+
+
+            } catch (IOException ex) {
+                //Do something with the exception
+            }
+
+        }else{
+            button_share2.setVisibility(View.GONE);
+            v.setVisibility(View.GONE);
 
         }
 
@@ -117,13 +178,38 @@ public class qrshow extends AppCompatActivity {
 
 
 
+              new Thread(new Runnable() {
+                    public void run() {
+                        startvideo();
+                    }
+                }).start();
+
+
+
+    }
 
 
 
 
-startvideo();
 
 
+
+
+    public void startvideoqr() {
+
+        VideoView v = (VideoView) findViewById(R.id.videoViewqr);
+
+        Uri uri= Uri.parse(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrmsgtosend.mp4");
+        v.setVideoURI(uri);
+        v.start();
+
+        v.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override    public void onPrepared(MediaPlayer mediaPlayer)
+            {
+                mediaPlayer.setLooping(true);
+            }
+        });
     }
 
 
@@ -149,35 +235,34 @@ startvideo();
 
 
 
-
-    public void share(View View){
+    public void shareimage(View View){
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
         String current_data_msg_for_qr = globalVariable.get_current_data_msg_for_qr();
         Context context_share_txt= qrshow.this;
-        babak.sharetxt(context_share_txt, "DigiSafeGuard Message", current_data_msg_for_qr, "Share DSG");
+
+        //share text
+        //babak.sharetxt(context_share_txt, "DSG Encrypted Message", current_data_msg_for_qr, "Share DSG");
+
+        //share file jpg
+        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrmsgtosend1.jpg";
+        babak.sharefile(context_share_txt,  destinationFilename, "DSG Encrypted Message", "image/jpg");
     }
 
 
-/*
-    public void restart(){
+    public void sharevideo(View View){
+
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        globalVariable.set_current_data_array_part(0);
-        startActivity(new Intent(qrshow.this, qrshow.class));
-        finish();
+        String current_data_msg_for_qr = globalVariable.get_current_data_msg_for_qr();
+        Context context_share_txt= qrshow.this;
+
+        //share text
+        //babak.sharetxt(context_share_txt, "DSG Encrypted Message", current_data_msg_for_qr, "Share DSG");
+
+        //share file jpg
+        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/qrmsgtosend.mp4";
+        babak.sharefile(context_share_txt,  destinationFilename, "DSG Encrypted Message", "video/mp4");
     }
-*/
-
-
-
-
-    public void startrefreh(View View){
-        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        globalVariable.set_current_data_array_part(0);
-        startActivity(new Intent(qrshow.this, qrshow.class));
-        finish();
-    }
-
 
 
 

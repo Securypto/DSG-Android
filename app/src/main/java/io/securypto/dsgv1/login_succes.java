@@ -29,6 +29,10 @@ public class login_succes extends AppCompatActivity {
 
     public static String EXTRA_MESSAGE1 = "";
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,8 @@ public class login_succes extends AppCompatActivity {
             Intent myIntent33331a = new Intent(getBaseContext(),   firstpage.class);
             startActivity(myIntent33331a);
         }
+
+
 
 
 
@@ -90,7 +96,7 @@ public class login_succes extends AppCompatActivity {
             builder.setCancelable(false);
             builder.setItems(new CharSequence[]
 //                            {"Read by QR Code", "Read from Clipboard", "Manual Input", "Cancel"},
-                            {"Read by QR Code", "Read from Clipboard", "Cancel"},
+                            {"Scan QR Code", "Read from Clipboard", "Cancel"},
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // The 'which' argument contains the index position
@@ -276,7 +282,14 @@ public class login_succes extends AppCompatActivity {
     }
 
 
-
+/*
+    @Override
+    public void onResume(){
+        super.onResume();
+        Intent myIntent33331ar = new Intent(getBaseContext(),   firstpage.class);
+        startActivity(myIntent33331ar);
+    }
+*/
 
 
 }

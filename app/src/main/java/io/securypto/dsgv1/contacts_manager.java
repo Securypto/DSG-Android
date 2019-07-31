@@ -310,7 +310,7 @@ private void confirmDialogDemo(final String selected_file_by_user) {
         builder.setCancelable(false);
         builder.setItems(new CharSequence[]
 //                        {"Import by QR Code", "Read from Clipboard", "Manual", "Cancel"},
-                        {"Import by QR Code", "Read from Clipboard", "Cancel"},
+                        {"Scan QR Code", "Read from Clipboard", "Cancel"},
 
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

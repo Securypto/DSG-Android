@@ -16,9 +16,16 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
 import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Reader;
+import com.google.zxing.Result;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.common.StringUtils;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -27,6 +34,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -373,6 +381,16 @@ else{
     }
 
 
+    public static void sharefile(Context context, String filepath, String share_title, String type) {
+
+        Intent intentShareFile = new Intent(Intent.ACTION_SEND);
+        intentShareFile.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://"+filepath));
+        intentShareFile.setType(type);
+        context.startActivity(Intent.createChooser(intentShareFile, share_title));
+
+    }
+
+
 
 
 
@@ -508,6 +526,120 @@ else{
             e.printStackTrace();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static File savebitmap(Bitmap bmp, String destinationFilename) throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 60, bytes);
+
+        File f = new File(destinationFilename);
+
+        f.createNewFile();
+        FileOutputStream fo = new FileOutputStream(f);
+        fo.write(bytes.toByteArray());
+        fo.close();
+        return f;
+    }
+
+
+
+
+
+    public static String scanQRImage(Bitmap bMap) {
+        String contents = null;
+
+        int[] intArray = new int[bMap.getWidth()*bMap.getHeight()];
+        //copy pixel data from the Bitmap into the 'intArray' array
+        bMap.getPixels(intArray, 0, bMap.getWidth(), 0, 0, bMap.getWidth(), bMap.getHeight());
+
+        LuminanceSource source = new RGBLuminanceSource(bMap.getWidth(), bMap.getHeight(), intArray);
+        BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
+        Reader reader = new MultiFormatReader();
+        try {
+            Result result = reader.decode(bitmap);
+            contents = result.getText();
+        }
+        catch (Exception e) {
+            Log.e("QrTest", "Error decoding barcode", e);
+        }
+        return contents;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public static String checkifusercanlogin(Context context, String vault_passwd, String vault_name)
+    {
+
+        //enc vault name first, remove all non alphanum and use the first 20ch
+        String vault_name_enc_by_aes = AESCrypt.encrypt(vault_passwd, vault_name).replaceAll("[^A-Za-z0-9]", "");
+        String vault_name_short = vault_name_enc_by_aes.substring(0, Math.min(vault_name_enc_by_aes.length(), 20));
+
+
+
+        String dataToEncrypt = "DigiSafeGuard";
+        String decrypted = "NOTDigiSafeGuard";
+
+        //lees_pubic_key
+        String publicKeyBytesBase64_gelezen = encclass.read_pubic_key(vault_passwd, context, vault_name_short);
+        //lees_private_key
+        String privateKeyBytesBase64_gelezen = encclass.read_private_key(vault_passwd, context, vault_name_short);
+        // enc a text using RSA
+        String encrypted = encclass.encryptRSAToString(publicKeyBytesBase64_gelezen, dataToEncrypt);
+        // dec a text using RSA
+        decrypted = encclass.decryptRSAToString(privateKeyBytesBase64_gelezen, encrypted);
+
+
+        if (dataToEncrypt.equals(decrypted)) {
+            // Have a party
+
+            final GlobalClass globalVariable = (GlobalClass) context;
+            globalVariable.set_vault_name(vault_name);
+            globalVariable.set_vault_name_short(vault_name_short);
+            globalVariable.set_vault_passwd(vault_passwd);
+            globalVariable.set_current_valt_Pub_key(publicKeyBytesBase64_gelezen);
+            globalVariable.set_current_valt_Priv_key(privateKeyBytesBase64_gelezen);
+
+            return "yes";
+        }
+        else
+        {
+            return "no";
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

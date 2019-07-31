@@ -1,32 +1,50 @@
 package io.securypto.dsgv1;
 
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 
 import android.content.ClipboardManager;
 
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Reader;
+import com.google.zxing.Result;
+import com.google.zxing.common.HybridBinarizer;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 
 import io.securypto.DSGV1.R;
 
@@ -38,6 +56,9 @@ public class firstpage extends AppCompatActivity {
 
     public static String passwd_to_login_value = "a";
     public static String account_to_login_value = "b";
+    public static String textfromclipboard="";
+    String[] msgstukken ;
+    String msgtype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +127,66 @@ public class firstpage extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), extension, Toast.LENGTH_SHORT).show();
 
 
+
+                        //if its an image, let see if its a message
+                        if (receivedType.startsWith("image/")) {
+
+                            try {
+
+                            // InputStream is = new BufferedInputStream(new FileInputStream(fis));
+                            //  Bitmap bitmap = BitmapFactory.decodeStream(is);
+                            Bitmap bitmap = BitmapFactory.decodeFile(destinationFilename);
+                            String decoded = babak.scanQRImage(bitmap);
+                            //Toast.makeText(getApplicationContext(), decoded, Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+                                msgstukken = decoded.split("\\:", -1);
+                                msgtype = msgstukken[0];
+                                if (msgtype.equals("DSGMSGPART")) {
+                                   textfromclipboard=msgstukken[4];
+                                    alertDialogmsgfound();
+                                }
+
+                                else if (msgtype.equals("DigiSafeGuard-PUBLIC-KEY")) {
+
+                                    textfromclipboard=msgstukken[1];
+                                    addnewcontact(textfromclipboard);
+
+                                }
+
+
+
+
+
+
+
+
+
+
+                            }catch (Exception e) {
+                                // Handle the error/exception
+                                Toast.makeText(getApplicationContext(), "This isnt a encrypted message or a Public Vault address.", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
                     }
                 }
 
@@ -115,6 +196,24 @@ public class firstpage extends AppCompatActivity {
             }
         }
     }
+
+
+    private void alertDialogmsgfound() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("You have got a Message!");
+        builder.setMessage("Please open your vault to read the message.");
+        builder.setCancelable(false);
+        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+              //  Toast.makeText(getApplicationContext(), "Neutral button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.show();
+    }
+
+
+
 
 
 
@@ -137,6 +236,104 @@ public class firstpage extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public void addnewcontact(final String pubkeyfromqr){
+
+
+
+        final EditText edtText = new EditText(firstpage.this);
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View formElementsView = inflater.inflate(R.layout.form_new_contact,
+                null, false);
+
+        // You have to list down your form elements
+        final EditText addcontactcontactname = (EditText) formElementsView.findViewById(R.id.popupcontact);
+        final EditText addcontactvaultname = (EditText) formElementsView.findViewById(R.id.popupvault);
+        final EditText addcontactvaultpassword = (EditText) formElementsView.findViewById(R.id.popupvaultpasswd);
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(firstpage.this);
+        builder.setView(formElementsView);
+        builder.setTitle("Add New Contact");
+        builder.setMessage("");
+        builder.setCancelable(false);
+
+
+        builder.setNeutralButton("Save Contact", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+                String addcontactcontactname1 = addcontactcontactname.getText().toString();
+                String addcontactvaultname1 = addcontactvaultname.getText().toString();
+                String addcontactvaultpassword1  = addcontactvaultpassword.getText().toString();
+                String contactpubtoimport2 = pubkeyfromqr.replaceAll("DigiSafeGuard-PUBLIC-KEY:", "");
+
+
+
+                Context context_checkifusercanlogin = getApplicationContext();
+                String checkvalidlogin=babak.checkifusercanlogin(context_checkifusercanlogin, addcontactvaultpassword1, addcontactvaultname1);
+                if (checkvalidlogin.equals("yes")) {
+
+
+                    //enc vault name first, remove all non alphanum and use the first 20ch
+                    String vault_name_enc_by_aes = AESCrypt.encrypt(addcontactvaultpassword1, addcontactvaultname1).replaceAll("[^A-Za-z0-9]", "");
+                    String vault_name_short = vault_name_enc_by_aes.substring(0, Math.min(vault_name_enc_by_aes.length(), 20));
+
+                    //enc desc using AES
+                    String encrypted_desc_to_use_as_file_name = AESCrypt.encrypt(addcontactvaultpassword1, addcontactcontactname1);
+
+                    //gen false name
+                    encrypted_desc_to_use_as_file_name = Base64.encodeToString(encrypted_desc_to_use_as_file_name.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);
+
+                    String filenametowrite = "DSG_CONTACTS_" + vault_name_short + "_" + encrypted_desc_to_use_as_file_name + "_publicKey";
+
+                    Context context_scanner_page = getApplicationContext();
+                    babak.write(context_scanner_page, filenametowrite, contactpubtoimport2);
+
+
+                    Toast.makeText(getApplicationContext(), "New Contact has been saved!", Toast.LENGTH_SHORT).show();
+
+                    Intent myIntent3333z = new Intent(getBaseContext(),   contacts_manager.class);
+                    startActivity(myIntent3333z);
+
+                }
+                else
+                {
+                    // Be really, really sad
+                    Toast.makeText(getApplicationContext(), "Wrong credentials!", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(getIntent());
+                }
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+
+        builder.show();
+
+
+    }
+
 
 
 
@@ -170,7 +367,15 @@ public class firstpage extends AppCompatActivity {
         } else {
 
 
+            Context context_checkifusercanlogin = getApplicationContext();
+            String checkvalidlogin=babak.checkifusercanlogin(context_checkifusercanlogin, vault_passwd, vault_name);
+            if (checkvalidlogin.equals("yes")) {
+                final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+                String privateKeyBytesBase64_gelezen = globalVariable.get_current_valt_Priv_key();
 
+
+
+  /*
             //enc vault name first, remove all non alphanum and use the first 20ch
             String vault_name_enc_by_aes = AESCrypt.encrypt(vault_passwd, vault_name).replaceAll("[^A-Za-z0-9]", "");
             String vault_name_short = vault_name_enc_by_aes.substring(0, Math.min(vault_name_enc_by_aes.length(), 20));
@@ -202,10 +407,11 @@ public class firstpage extends AppCompatActivity {
                 globalVariable.set_current_valt_Pub_key(publicKeyBytesBase64_gelezen);
                 globalVariable.set_current_valt_Priv_key(privateKeyBytesBase64_gelezen);
 
-               // Toast.makeText(getApplicationContext(), ""+decrypted, Toast.LENGTH_SHORT).show();
+*/
 
-                Intent myIntent5 = new Intent(getBaseContext(),   login_succes.class);
-                startActivity(myIntent5);
+                //uitgezet aangezien verderop naar gekeken wordt
+               // Intent myIntent5 = new Intent(getBaseContext(),   login_succes.class);
+               // startActivity(myIntent5);
 
 
 
@@ -221,13 +427,16 @@ public class firstpage extends AppCompatActivity {
                 String text = "";
                 myClip = ClipData.newPlainText("text", text);
                 myClipboard.setPrimaryClip(myClip);
-
+*/
 
                 try {
                     String[] msgstukken = textfromclipboard.split("\\DSGSEPERATOR", -1);
                     String msgtype = msgstukken[0];
                     String keyfordecryption = msgstukken[1];
                     String msgtodecrypte = msgstukken[2];
+
+                    //remove  for next time
+                    textfromclipboard="";
 
                     //first dec the key using our own pub
                     String decryptedaeskey = encclass.decryptRSAToString(privateKeyBytesBase64_gelezen, keyfordecryption);
@@ -249,20 +458,20 @@ public class firstpage extends AppCompatActivity {
                     }
                     else
                     {
-                        Intent myIntent5 = new Intent(getBaseContext(),   login_succes.class);
-                        startActivity(myIntent5);
+                        Intent myIntent56a = new Intent(getBaseContext(),   login_succes.class);
+                        startActivity(myIntent56a);
                     }
 
 
                 }catch (Exception e) {
                     // Handle the error/exception
-                    Intent myIntent5 = new Intent(getBaseContext(),   login_succes.class);
-                    startActivity(myIntent5);
+                    Intent myIntent53a = new Intent(getBaseContext(),   login_succes.class);
+                    startActivity(myIntent53a);
                 }
 
 
 
-*/
+
 
 
 
@@ -291,10 +500,6 @@ public class firstpage extends AppCompatActivity {
             } else {
                 // Be really, really sad
                 Toast.makeText(this, "Wrong credentials!", Toast.LENGTH_LONG).show();
-
-            //   File file = new File(getBaseContext().getExternalFilesDir(null)+"/testv11.txt");
-             //   shareFile(file);
-
 
             }
 
