@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -13,12 +15,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.widget.VideoView;
+
+import java.util.Locale;
 
 import io.securypto.DSGV1.R;
 
@@ -35,48 +42,97 @@ public class login_succes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         super.onCreate(savedInstanceState);
+
+        SharedPreferences settings = getSharedPreferences("lang", 0);
+        String languageToLoad  = settings.getString("lang", ""); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+
+
         setContentView(R.layout.activity_login_succes);
 
 
-        startvideo();
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
 
 
-        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        final String current_valt_Priv_key  = globalVariable.get_current_valt_Priv_key();
-        if(current_valt_Priv_key == null)
+
+
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
+
+     //   SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+        String mode = settings.getString("mode", "").toString();
+
+        //Toast.makeText(getApplicationContext(), "mode:"+mode, Toast.LENGTH_SHORT).show();
+
+        Button button_read_a_message = (Button) findViewById(R.id.button_read_a_message);
+        Button button_contactmanager = (Button) findViewById(R.id.button_contactmanager);
+        Button button_send_a_message = (Button) findViewById(R.id.button_send_a_message);
+        //ImageView imgbuttoncamera = (ImageView) findViewById(R.id.imgbuttoncamera);
+        //ImageView imgbuttoncontact = (ImageView) findViewById(R.id.imgbuttoncontact);
+
+        ImageButton imgbuttoncamera = (ImageButton) findViewById(R.id.imgbuttoncamera);
+        ImageButton imgbuttoncontact = (ImageButton) findViewById(R.id.imgbuttoncontact);
+
+        if(settings.getString("mode", "").equals("On"))
         {
-         //   Toast.makeText(getBaseContext(), "Please open the vault.", Toast.LENGTH_LONG).show();
-            Intent myIntent33331a = new Intent(getBaseContext(),   firstpage.class);
-            startActivity(myIntent33331a);
+//            imgbuttoncamera.setVisibility(View.GONE);
+//            imgbuttoncontact.setVisibility(View.GONE);
+
+            imgbuttoncamera.setVisibility(View.GONE);
+            imgbuttoncontact.setVisibility(View.GONE);
+
+
+        }
+
+        else{
+            button_read_a_message.setVisibility(View.GONE);
+            button_contactmanager.setVisibility(View.GONE);
+            button_send_a_message.setVisibility(View.GONE);
+
+
         }
 
 
 
 
 
+
+
+
+
+
+
+
     }
 
 
 
+    @Override
+    public void onResume(){
+        super.onResume();
 
-    public void startvideo() {
 
-        // correct convert
-        //ffmpeg -i introorg1.mp4 -an -vcodec libx264 -crf 26 -s 800x480 intro1.mp4
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
 
-        VideoView v = (VideoView) findViewById(R.id.videoView);
-        Uri uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro1);
-        v.setVideoURI(uri);
-        v.start();
-        v.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override    public void onPrepared(MediaPlayer mediaPlayer)
-            {
-                mediaPlayer.setLooping(true);
-            }
-        });
+
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
+
+
     }
+
+
+
 
 
 
@@ -95,8 +151,8 @@ public class login_succes extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setCancelable(false);
             builder.setItems(new CharSequence[]
-//                            {"Read by QR Code", "Read from Clipboard", "Manual Input", "Cancel"},
-                            {"Scan QR Code", "Read from Clipboard", "Cancel"},
+                            {getResources().getString(R.string.Read_by_QR_Code), getResources().getString(R.string.Read_from_Clipboard), getResources().getString(R.string.Manual_Input), getResources().getString(R.string.Cancel)},
+//                            {"Scan QR Code", "Read from Clipboard", "Cancel"},
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             // The 'which' argument contains the index position
@@ -156,13 +212,13 @@ public class login_succes extends AppCompatActivity {
                                         }
                                         else
                                         {
-                                            Toast.makeText(getBaseContext(), "Not a valid message!", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getBaseContext(), R.string.Not_a_valid_message, Toast.LENGTH_LONG).show();
                                         }
 
 
                                     }catch (Exception e) {
                                         // Handle the error/exception
-                                        Toast.makeText(getBaseContext(), "Not a valid message!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getBaseContext(), R.string.Not_a_valid_message, Toast.LENGTH_LONG).show();
                                     }
 
 
@@ -173,13 +229,13 @@ public class login_succes extends AppCompatActivity {
 
 
                                     break;
-                          //      case 2:
-                           //         Intent myIntent333316w = new Intent(getBaseContext(),   decmanual.class);
-                           //         startActivity(myIntent333316w);
-                           //         break;
-
-
                                 case 2:
+                                    Intent myIntent333316w = new Intent(getBaseContext(),   decmanual.class);
+                                    startActivity(myIntent333316w);
+                                    break;
+
+
+                                case 3:
                                     finish();
                                     startActivity(getIntent());
                                     break;
@@ -203,20 +259,9 @@ public class login_succes extends AppCompatActivity {
 
 
     public void loading(View View){
-         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View formElementsView = inflater.inflate(R.layout.loading,
-                null, false);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setView(formElementsView);
-        builder.setCancelable(false);
-        builder.show();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
                 Intent myIntentloading = new Intent(getBaseContext(),   qrshowpub.class);
                 startActivity(myIntentloading);
-            }
-        }, 500);
+
     }
 
 
@@ -226,7 +271,10 @@ public class login_succes extends AppCompatActivity {
 
 
 
-
+    public void godirectlytoscanner(View View){
+        Intent myIntent33ps = new Intent(getBaseContext(),   qrscanner.class);
+        startActivity(myIntent33ps);
+    }
 
 
 
@@ -236,10 +284,14 @@ public class login_succes extends AppCompatActivity {
     }
 
 
+
+    /*
     public void gotopageqrshow(View View){
         Intent myIntent33 = new Intent(getBaseContext(),   qrshowpub.class);
         startActivity(myIntent33);
     }
+*/
+
 
     public void gotopagecontactmanager(View View){
         Intent myIntent3333 = new Intent(getBaseContext(),   contacts_manager.class);
@@ -256,21 +308,67 @@ public class login_succes extends AppCompatActivity {
         globalVariable.set_current_valt_Pub_key("");
         globalVariable.set_current_valt_Priv_key("");
 
-        Intent myIntent33331 = new Intent(getBaseContext(),   firstpage.class);
-        startActivity(myIntent33331);
+
+      //  Intent myIntent33331 = new Intent(getBaseContext(),   firstpage.class);
+      //  startActivity(myIntent33331);
+
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
+
     }
+
+
+
 
 
 
 
     public void gotohelppage44(View View){
-        Intent myIntent333316 = new Intent(getBaseContext(),   wallet.class);
+        Intent myIntent333316 = new Intent(getBaseContext(),   walletspage.class);
+      //  Intent myIntent333316 = new Intent(getBaseContext(),   scu_wallet.class);
         startActivity(myIntent333316);
+
+
+/*
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.Crypto_Wallet);
+        builder.setMessage(R.string.SCU_DSG_under_construction);
+        builder.setCancelable(false);
+        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //  Toast.makeText(getApplicationContext(), "Neutral button clicked", Toast.LENGTH_SHORT).show();
+                //finish();
+                //startActivity(getIntent());
+            }
+        });
+        builder.show();
+*/
+
+
     }
 
 
 
 
+
+
+    public void gotoarchive(View View){
+        Intent myIntent333316c = new Intent(getBaseContext(),   archive.class);
+        startActivity(myIntent333316c);
+
+
+    }
+
+    public void goto_settings(View View){
+        Intent myIntent2s = new Intent(getBaseContext(),   settings.class);
+        startActivity(myIntent2s);
+    }
+
+    public void gotohelppage(View View){
+        Intent myIntent2sh = new Intent(getBaseContext(),   help.class);
+        startActivity(myIntent2sh);
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

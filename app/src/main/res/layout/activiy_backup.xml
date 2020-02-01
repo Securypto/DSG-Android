@@ -33,7 +33,7 @@
 
 
         android:gravity="center"
-        android:text="You haven't create any backup yet."
+        android:text="@string/No_backup_yet"
         android:textColor="#FFFFFF" />
 
     <ListView
@@ -43,7 +43,8 @@
         android:background="#FFFFFF"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
-
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         >
 
     </ListView>
@@ -62,7 +63,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Create an Backup"
+        android:text="@string/Create_a_Backup"
         android:textColor="#FFFFFF"
 
         android:textSize="15dp"
@@ -87,7 +88,7 @@
 
 
         android:shadowRadius="5"
-        android:text="Return"
+        android:text="@string/Return"
         android:textColor="#FFFFFF"
         android:textSize="15dp" />
 

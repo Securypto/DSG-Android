@@ -78,5 +78,32 @@ public class GlobalClass extends Application {
 
 
 
+    private String tmp_contact_Pub_key;
+    public String get_tmp_contact_Pub_key() {
+        return tmp_contact_Pub_key;
+    }
+    public void set_tmp_contact_Pub_key(String atmp_contact_Pub_key) {
+        tmp_contact_Pub_key = atmp_contact_Pub_key;
+    }
+
+
+    private String tmp_data1;
+    public String get_tmp_data1() {
+        return tmp_data1;
+    }
+    public void set_tmp_data1(String atmp_data1) {
+        tmp_data1 = atmp_data1;
+    }
+
+
+    private String tmp_data2;
+    public String get_tmp_data2() {
+        return tmp_data2;
+    }
+    public void set_tmp_data2(String atmp_data2) {
+        tmp_data2 = atmp_data2;
+    }
+
+
 
 }

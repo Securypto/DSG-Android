@@ -32,7 +32,7 @@
         android:layout_marginTop="100dp"
 
         android:gravity="center"
-        android:text="Your Password Manager is empty."
+        android:text="@string/no_passwd_manager_data"
         android:textColor="#FFFFFF" />
 
     <ListView
@@ -42,6 +42,8 @@
         android:background="#FFFFFF"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         >
 
     </ListView>
@@ -60,7 +62,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Add Credentials"
+        android:text="@string/Add_New_Credentials"
         android:textColor="#FFFFFF"
 
         android:textSize="15dp"
@@ -83,7 +85,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Return"
+        android:text="@string/Return"
 
 
         android:textColor="#FFFFFF"

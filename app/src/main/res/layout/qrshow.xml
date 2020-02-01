@@ -6,15 +6,6 @@
     android:background="#000000"
     tools:context="io.securypto.dsgv1.qrshow" >
 
-    <VideoView
-        android:id="@+id/videoViewqr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-
-        />
 
 
     <VideoView
@@ -35,60 +26,74 @@
         />
 
 
-    <Button
+
+
+    <ImageButton
         android:id="@+id/button_share1"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-
         android:layout_marginStart="8dp"
-
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@layout/xml_buttonpointtobottom"
-        android:drawableLeft="@mipmap/whatsapp1"
-
-        android:drawableRight="@mipmap/whatsapp1"
         android:onClick="shareimage"
         android:paddingLeft="30dip"
         android:paddingRight="30dip"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
-
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Share"
-        android:textColor="#FFFFFF"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@layout/xml_buttonpointtotop"
 
+        android:src="@mipmap/whats_app_gmail"
+        android:padding="10dp"
+        android:scaleType="fitXY"
 
-        android:textSize="15dp" />
+        />
 
-
-    <Button
+    <ImageButton
         android:id="@+id/button_share2"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-
         android:layout_marginStart="8dp"
-
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@layout/xml_buttonpointtobottom"
-        android:drawableLeft="@mipmap/whatsapp1"
-
-        android:drawableRight="@mipmap/whatsapp1"
-        android:onClick="sharevideo"
+        android:onClick="sharedsgfile"
         android:paddingLeft="30dip"
         android:paddingRight="30dip"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
-
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Share"
-        android:textColor="#FFFFFF"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@layout/xml_buttonpointtotop"
 
+        android:src="@mipmap/whats_app_gmail"
+        android:padding="10dp"
+        android:scaleType="fitXY"
 
-        android:textSize="15dp" />
+        />
+
+    <ImageButton
+        android:id="@+id/button_share_by_scu"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@layout/xml_buttonpointtotop"
+        android:onClick="share_by_scu"
+        android:padding="10dp"
+        android:paddingLeft="30dip"
+        android:paddingRight="30dip"
+        android:scaleType="fitXY"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:src="@mipmap/sculogo"
+
+         />
 
 
     <Button
@@ -108,7 +113,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Return"
+        android:text="@string/Return"
         android:textColor="#FFFFFF"
         android:textSize="15dp" />
     1
@@ -131,5 +136,16 @@
  />
 
 
+    <TextView
+        android:id="@+id/textqrcounter"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:text="QR 1/1"
+        android:textColor="#FFFFFF"
+
+        />
 
 </RelativeLayout>

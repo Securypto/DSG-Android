@@ -1,6 +1,7 @@
 package io.securypto.dsgv1;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,7 +28,7 @@ import io.securypto.DSGV1.R;
 
 public class page_new_installation extends AppCompatActivity {
 
-
+    private ProgressDialog dialog;
 
         public static String passwdvalue="a";
         public static String account_name_value="b";
@@ -36,44 +37,31 @@ public class page_new_installation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         setContentView(R.layout.page_new_installation);
+
+
 
 
         TextView textView = (TextView) findViewById(R.id.textView);
         textView.setMovementMethod(new ScrollingMovementMethod());
 
-/*
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            textView.setText(Html.fromHtml(bodyData,Html.FROM_HTML_MODE_LEGACY));
-        } else {
-            textView.setText(Html.fromHtml(bodyData));
-        }
-*/
 
-startvideo();
+
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
     }
 
 
-
-
-    public void startvideo() {
-
-        // correct convert
-        //ffmpeg -i introorg1.mp4 -an -vcodec libx264 -crf 26 -s 800x480 intro1.mp4
-
-        VideoView v = (VideoView) findViewById(R.id.videoView);
-        Uri uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro1);
-        v.setVideoURI(uri);
-        v.start();
-        v.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override    public void onPrepared(MediaPlayer mediaPlayer)
-            {
-                mediaPlayer.setLooping(true);
-            }
-        });
+    @Override
+    public void onResume(){
+        super.onResume();
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
     }
+
 
 
 
@@ -96,38 +84,47 @@ startvideo();
 
 
             if(!babak.validate_vault_passwd(vault_passwd) || !babak.validate_vault_name(vault_name) ){
-                Toast.makeText(page_new_installation.this, "Vault Name or Password can't be empty!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(page_new_installation.this, R.string.Vault_Name_or_Password_cant_be_empty , Toast.LENGTH_LONG).show();
             }
             else
             {
 
 
-                //Gen & safe RSA key
-                //Context context_key_gen = getApplicationContext();
-              //  encclass.gen_pub_priv_key_and_safe(vault_passwd, context_key_gen, vault_name);
 
-               // alertDialogDemo();
+                dialog = new ProgressDialog(this);
+                dialog.setMessage(getResources().getString(R.string.Creating_new_encryption_keys));
+                dialog.setCancelable(false);
+                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                dialog.show();
 
 
-                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View formElementsView = inflater.inflate(R.layout.loading,
-                        null, false);
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setView(formElementsView);
-                builder.setCancelable(false);
-                builder.show();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+
+
+                new Thread() {
                     public void run() {
 
 
 
+                        //Gen & safe RSA key
+                        Context context_key_gen = getApplicationContext();
+                        encclass.gen_pub_priv_key_and_safe(vault_passwd, context_key_gen, vault_name);
 
-                        gen_keys_real(vault_passwd, vault_name);
+
+
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                // Update UI elements
+                                dialog.dismiss();
+
+                                alertDialogDemo();
+                            }
+                        });
+
+
 
 
                     }
-                }, 1000);
+                }.start();
 
 
 
@@ -159,30 +156,17 @@ startvideo();
 
 
 
-    public void gen_keys_real(String vault_passwd, String vault_name) {
 
-
-
-
-
-                //Gen & safe RSA key
-                Context context_key_gen = getApplicationContext();
-                encclass.gen_pub_priv_key_and_safe(vault_passwd, context_key_gen, vault_name);
-
-                alertDialogDemo();
-
-
-    }
 
 
 
 
     private void alertDialogDemo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("New Vault Creation");
-        builder.setMessage("Your new vault has been created!");
+        builder.setTitle(R.string.New_Vault_Creation);
+        builder.setMessage(R.string.Your_new_vault_has_been_created);
         builder.setCancelable(true);
-        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(R.string.Ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent myIntent_gotologinpage = new Intent(getBaseContext(), firstpage.class);

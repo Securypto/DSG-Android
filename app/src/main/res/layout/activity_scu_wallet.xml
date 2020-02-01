@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#000000"
+tools:context="io.securypto.dsgv1.scu_wallet" >
+
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+
+<VideoView
+    android:id="@+id/videoView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
+    android:foregroundGravity="center"
+
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentTop="true"
+
+    />
+
+
+    <Button
+        android:id="@+id/button_create_scu_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+
+        android:background="@layout/xml_buttonpointtobottom"
+        android:onClick="genpriv"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/Create_a_scu_wallet"
+        android:textColor="#FFFFFF"
+
+        android:textSize="15dp"
+
+        />
+
+
+    <Button
+    android:id="@+id/button_return_archive"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:layout_alignBottom="@+id/textViewnoarchive"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_alignParentBottom="true"
+    android:background="@layout/xml_buttonpointtotop"
+    android:onClick="gotologinsuccespage"
+    android:shadowColor="#A8A8A8"
+    android:shadowDx="0"
+    android:shadowDy="0"
+    android:shadowRadius="5"
+    android:text="@string/Return"
+
+
+    android:textColor="#FFFFFF"
+    android:textSize="15dp" />
+
+
+    <TextView
+        android:id="@+id/textViewnowallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+
+        android:gravity="center"
+        android:text="@string/Your_wallet_is_empty"
+        android:textColor="#FFFFFF" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_return_archive"
+        android:layout_below="@+id/button_create_scu_wallet"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+</RelativeLayout>

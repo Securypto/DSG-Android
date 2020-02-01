@@ -1,10 +1,13 @@
 package io.securypto.dsgv1;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.KeyEvent;
@@ -17,8 +20,12 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Locale;
 
 import io.securypto.DSGV1.R;
 
@@ -32,6 +39,10 @@ public class qrscanner extends AppCompatActivity {
     public static String md5hash = "";
     public static String totalmsgtogether="";
     int arrayfull = 0;
+
+    private MediaPlayer   player = null;
+
+
     //max 1000 qr codes
     String[] datalist = new String[1000];
 
@@ -42,6 +53,15 @@ public class qrscanner extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
+
+
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
 
 
         setContentView(R.layout.qrscanner);
@@ -79,11 +99,11 @@ public class qrscanner extends AppCompatActivity {
         final EditText edtText = new EditText(this);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Contact Import");
-        builder.setMessage("Contact Name");
+        builder.setTitle(R.string.Contact_Import);
+        builder.setMessage(getResources().getString(R.string.Name));
         builder.setCancelable(false);
         builder.setView(edtText);
-        builder.setNeutralButton("Save", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(R.string.Save, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -92,28 +112,28 @@ public class qrscanner extends AppCompatActivity {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 final String vault_name_short  = globalVariable.get_vault_name_short();
                 final String vault_passwd  = globalVariable.get_vault_passwd();
+                final String current_valt_Pub_key  = globalVariable.get_current_valt_Pub_key();
 
                 String filenameingevoerddooruser = edtText.getText().toString();
 
-                //enc desc using AES
-                //String encrypted_desc_to_use_as_file_name = AESCrypt.encrypt(vault_passwd, filenameingevoerddooruser);
 
                 //enc desc using AES
                 String encrypted_desc_to_use_as_file_name = AESCrypt.encrypt(vault_passwd, filenameingevoerddooruser);
-
                 //gen false name
                 encrypted_desc_to_use_as_file_name = Base64.encodeToString(encrypted_desc_to_use_as_file_name.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);
-
-
-
+                //final name to use as file name
                 String filenametowrite = "DSG_CONTACTS_"+vault_name_short+"_"+encrypted_desc_to_use_as_file_name+"_publicKey";
 
 
-                Context context_scanner_page = getApplicationContext();
-                babak.write(context_scanner_page, filenametowrite,scanresult);
+
+                //enc text using vault pub rsa key +  AES
+                String enc_text_to_write = babak.enc_a_text_using_RSA_AND_AES(getApplicationContext(), scanresult);
+                //save the file
+                babak.write(getApplicationContext(), filenametowrite, enc_text_to_write);
+
 
                 TextView textViewmsg = findViewById(R.id.editTextmsg);
-                textViewmsg.setText("New contact has been saved!");
+                textViewmsg.setText(R.string.New_contact_has_been_saved);
 
 
             }
@@ -121,7 +141,7 @@ public class qrscanner extends AppCompatActivity {
 
 
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -210,6 +230,8 @@ public class qrscanner extends AppCompatActivity {
                            // Toast.makeText(this, "Add to array:"+arrayfull+":"+msgparttotalamount, Toast.LENGTH_LONG).show();
                             datalist[msgpartnumber] = msgitself;
 
+                            Toast.makeText(this, "Received: "+(arrayfull+1)+"/"+msgparttotalamount, Toast.LENGTH_LONG).show();
+
                         }
 
 
@@ -232,46 +254,75 @@ public class qrscanner extends AppCompatActivity {
 
 
 
-                        if(arrayfull == msgparttotalamount)
-                        {
+                        if(arrayfull == msgparttotalamount) {
 
-                            for(int i = 1; i< (msgparttotalamount+1); i++){
-                               totalmsgtogether= totalmsgtogether+ datalist[i];
+                            for (int i = 1; i < (msgparttotalamount + 1); i++) {
+                                totalmsgtogether = totalmsgtogether + datalist[i];
                             }
 
 
                             //totalmsgtogether = totalmsgtogether.replaceAll("null", "");
 
 
-                            String[] msgstukken = totalmsgtogether.split("\\DSGSEPERATOR", -1);
+                            String[] msgstukken = totalmsgtogether.split("DSGSEPERATOR", -1);
+                            String msgtype = msgstukken[0];
+                            String keyfordecryption = msgstukken[1];
+                            String msgtodecrypte = msgstukken[2];
+
+                            //first dec the key using our own pub
+                            String decryptedaeskey = encclass.decryptRSAToString(current_valt_Priv_key, keyfordecryption);
+                            //now decrypte the sended data
+                            String final_msg = AESCrypt.decrypt(decryptedaeskey, msgtodecrypte);
+
+
+                            //need for files
+                            String[] msgstukkenreadready = final_msg.split("BABAKSEPERATOR", -1);
+
+
+
+                            if (msgtype.equals("DSGMSG") && final_msg != null) {
+                            // we could decrypted, determine what we have now...
+
+
+                                if ("audio_to_enc".equals(msgstukkenreadready[0]) && "3gp".equals(msgstukkenreadready[1])) {
+                                    //its a voice message, save it to test
+
+                                    globalVariable.set_tmp_data1(msgstukkenreadready[2]);
+                                    asktoplayaudio();
 
 
 
 
 
-                            String msgtype =msgstukken[0];
-                    String keyfordecryption =msgstukken[1];
-                    String msgtodecrypte =msgstukken[2];
-                    //first dec the key using our own pub
-                    String decryptedaeskey = encclass.decryptRSAToString(current_valt_Priv_key, keyfordecryption);
-                    //now decrypte the sended data
-                    String final_msg = AESCrypt.decrypt(decryptedaeskey, msgtodecrypte);
+
+                                }else{
+
+                                    //its a text
+                                    //its a message
+                                    //TextView textViewmsg = findViewById(R.id.editTextmsg);
+                                    //textViewmsg.setText(final_msg);
+
+                                    Intent intentq = new Intent(getBaseContext(), showfromclip.class);
+                                    Bundle extras = new Bundle();
+                                    extras.putString("EXTRA_DEC_MSG_FROM_CLIP", final_msg);
+                                    intentq.putExtras(extras);
+                                    startActivity(intentq);
+                                }
 
 
 
-                            //String  combinedmsg = " ALLES: "+totalmsgtogether+" unenc key: "+keyfordecryption+" unenc msg: "+msgtodecrypte+" dec key: "+decryptedaeskey;
-                           // Context context_write_external = getApplicationContext();
-                          //  babak.write_external(context_write_external, "encmsgreceived.txt",combinedmsg);
 
-    if (msgtype.equals("DSGMSG") && final_msg != null) {
-    TextView textViewmsg = findViewById(R.id.editTextmsg);
-    textViewmsg.setText(final_msg);
-    // Toast.makeText(this, "Complete, Decrypting the Message!"+final_msg, Toast.LENGTH_LONG).show();
+
+
+
+
+
+
 }
 else
 {
     TextView textViewmsg = findViewById(R.id.editTextmsg);
-    textViewmsg.setText("Not a valid message!");
+    textViewmsg.setText(R.string.Not_a_valid_message);
 }
 
 
@@ -284,7 +335,7 @@ else
                     }
                     else
                     {
-                        Toast.makeText(this, "wrong hash", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "Wrong hash!", Toast.LENGTH_LONG).show();
 rescan();
                     }
 
@@ -348,12 +399,54 @@ rescan();
 
         IntentIntegrator integrator = new IntentIntegrator(qrscanner.this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-        integrator.setPrompt("Scanning...");
+        integrator.setPrompt(getResources().getString(R.string.Scanning___));
         integrator.setCameraId(0);
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(false);
         integrator.initiateScan();
           }
+
+
+
+    public void asktoplayaudio() {
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.You_have_a_Voice_message);
+        builder.setMessage(R.string.Do_you_want_me_to_play_it);
+        builder.setCancelable(false);
+        builder.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+                Intent myIntent56at = new Intent(getBaseContext(), showaudio.class);
+                startActivity(myIntent56at);
+
+
+            }
+
+        });
+
+
+
+        builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //
+                //clean internal
+                //babak.cleaninternal(getApplicationContext());
+                Intent myIntent56at = new Intent(getBaseContext(), login_succes.class);
+                startActivity(myIntent56at);
+
+            }
+        });
+
+        builder.show();
+    }
+
 
 
 

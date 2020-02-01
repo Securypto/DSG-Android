@@ -1,6 +1,7 @@
 package io.securypto.dsgv1;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
@@ -24,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,8 +45,10 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -61,12 +65,17 @@ import io.securypto.DSGV1.R;
 
 public class backup extends AppCompatActivity {
 
+    private ProgressDialog dialog;
 
     private static final int buffer = 1024;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         setContentView(R.layout.activiy_backup);
 
 
@@ -112,10 +121,13 @@ public class backup extends AppCompatActivity {
         }
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, android.R.id.text1, listValue_backups);
+       // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, android.R.id.text1, listValue_backups);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.babaklistlayout, R.id.text1, listValue_backups);
         ListView listView = (ListView) findViewById(R.id.listView_backup);
 
         listView.setAdapter(adapter);
+
+        listView.setBackgroundResource(R.drawable.customshape);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -135,9 +147,16 @@ public class backup extends AppCompatActivity {
 
 
 
-startvideo();
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
 
+    }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
     }
 
 
@@ -145,60 +164,114 @@ startvideo();
 
 
 
-
-
-    public void startvideo() {
-
-        // correct convert
-        //ffmpeg -i introorg1.mp4 -an -vcodec libx264 -crf 26 -s 800x480 intro1.mp4
-
-        VideoView v = (VideoView) findViewById(R.id.videoView);
-        Uri uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro1);
-        v.setVideoURI(uri);
-        v.start();
-        v.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override    public void onPrepared(MediaPlayer mediaPlayer)
-            {
-                mediaPlayer.setLooping(true);
-            }
-        });
-    }
 
 
 
     private void askwhattododialog(final String selected_file_by_user) {
-AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setCancelable(false);
-        builder.setItems(new CharSequence[]
-    {"Transfer the Backup", "Restore the Backup", "Delete the Backup", "Cancel"},
-            new DialogInterface.OnClickListener() {
-        public void onClick(DialogInterface dialog, int which) {
-            // The 'which' argument contains the index position
-            // of the selected item
-            switch (which) {
-                case 0:
-                    //werkt internal acce
-                    File filetoshare = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/" + selected_file_by_user);
-                    shareFile(filetoshare);
-                    //Toast.makeText(backup.this, "Under construction", Toast.LENGTH_SHORT).show();
-                    break;
-                case 1:
-                    confirmrestoredialog(selected_file_by_user);
-                    break;
-                case 2:
-                    confirmdeletedialog(selected_file_by_user);
-                    break;
-                case 3:
-                    //finish();
-                    //startActivity(getIntent());
-                    break;
+
+
+
+
+
+
+        int[] imageIdArr = {R.mipmap.sendfile, R.mipmap.sendfile, R.mipmap.delete, R.mipmap.cancel};
+        final String[] listItemArr = {getResources().getString(R.string.Export), getResources().getString(R.string.Restore), getResources().getString(R.string.Delete), getResources().getString(R.string.Cancel)};
+
+
+        final String CUSTOM_ADAPTER_IMAGE = "image";
+        final String CUSTOM_ADAPTER_TEXT = "text";
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(backup.this);
+        //   builder.setIcon(R.mipmap.lockloader);
+        //  builder.setTitle("Encryption options");
+        // Create SimpleAdapter list data.
+        List<Map<String, Object>> dialogItemList = new ArrayList<Map<String, Object>>();
+        int listItemLen = listItemArr.length;
+        for (int i = 0; i < listItemLen; i++) {
+            Map<String, Object> itemMap = new HashMap<String, Object>();
+            itemMap.put(CUSTOM_ADAPTER_IMAGE, imageIdArr[i]);
+            itemMap.put(CUSTOM_ADAPTER_TEXT, listItemArr[i]);
+
+            dialogItemList.add(itemMap);
+        }
+
+        // Create SimpleAdapter object.
+        SimpleAdapter simpleAdapter = new SimpleAdapter(backup.this, dialogItemList,
+                R.layout.layout_dialog_select_action_by_contact,
+                new String[]{CUSTOM_ADAPTER_IMAGE, CUSTOM_ADAPTER_TEXT},
+                new int[]{R.id.alertDialogItemImageView, R.id.alertDialogItemTextView});
+
+
+        // Set the data adapter.
+        builder.setAdapter(simpleAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+
+                switch (which) {
+                    case 0:
+                        //werkt internal acce
+                        File filetoshare = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/" + selected_file_by_user);
+                        shareFile(filetoshare);
+                        //Toast.makeText(backup.this, "Under construction", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        confirmrestoredialog(selected_file_by_user);
+                        break;
+                    case 2:
+                        confirmdeletedialog(selected_file_by_user);
+                        break;
+                    case 3:
+                        //finish();
+                        //startActivity(getIntent());
+                        break;
+
+                }
+
 
             }
-        }
-    });
-        builder.create().show();
+        });
+
+
+        builder.setCancelable(false);
+
+/*
+              builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+              });
+
+        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // do nothing
+            }
+
+
+        });
+*/
+        builder.create();
+        builder.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -226,10 +299,10 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
     private void confirmrestoredialog(final String selected_file_by_user) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("WARNING");
-        builder.setMessage("You are about to restore a backup...\n\n"+selected_file_by_user+"\n\nAll current data will be permanently deleted. Do you really want to proceed ?");
+        builder.setTitle(R.string.WARNING);
+        builder.setMessage(R.string.You_are_about_to_restore_a_backup+"\n\n"+selected_file_by_user+"\n\n"+R.string.Wipe_all_date);
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
 
             //Context context_file_exist= getApplicationContext();
 
@@ -243,7 +316,7 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
         });
 
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Toast.makeText(getApplicationContext(), "You've changed your mind to delete all records", Toast.LENGTH_SHORT).show();
@@ -261,10 +334,10 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
     private void confirmdeletedialog(final String selected_file_by_user) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("WARNING");
-        builder.setMessage("You are about to delete a backup file...\n\n"+selected_file_by_user+"\n\nDo you really want to proceed ?");
+        builder.setTitle(R.string.WARNING);
+        builder.setMessage(R.string.Delete_backup+"\n\n"+selected_file_by_user+"\n\n"+R.string.Are_You_Sure);
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
 
             //Context context_file_exist= getApplicationContext();
 
@@ -286,7 +359,7 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
         });
 
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Toast.makeText(getApplicationContext(), "You've changed your mind to delete all records", Toast.LENGTH_SHORT).show();
@@ -300,7 +373,7 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
 
-
+/*
     public void make_a_backup(View View) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View formElementsView = inflater.inflate(R.layout.loading,
@@ -329,13 +402,33 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
         }, 1000);
 
     }
+*/
 
 
 
 
 
+    public void make_a_backup(View View) {
 
-    public void make_a_backup_reall(String nametouseforbackup) {
+
+
+        dialog = new ProgressDialog(this);
+        dialog.setMessage(getResources().getString(R.string.Data_Encryption));
+        dialog.setCancelable(false);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.show();
+
+
+
+        new Thread() {
+            public void run() {
+
+
+
+
+                Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat mdformat = new SimpleDateFormat("y-M-d-HHmmss");
+        String nametouseforbackup = mdformat.format(calendar.getTime());
 
         String []allefiles = getApplicationContext().fileList();
         //filterout array contain only what yo want
@@ -363,8 +456,48 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
        // Toast.makeText(backup.this, zipfiledest, Toast.LENGTH_SHORT).show();
         babak.zip(listValue2, zipfiledest, buffer);
 
-        finish();
-        startActivity(getIntent());
+
+
+
+
+                //hier komt einde tread
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update UI elements
+                        dialog.dismiss();
+                        alertbackupdonealert();
+                       // finish();
+                       // startActivity(getIntent());
+                    }
+                });
+
+
+            }
+        }.start();
+
+
+
+
+    }
+
+
+
+
+    private void alertbackupdonealert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.Backup_has_been_created);
+        builder.setMessage(R.string.MSG_Backup_Done);
+        builder.setCancelable(false);
+        builder.setNeutralButton(R.string.Ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //  Toast.makeText(getApplicationContext(), "Neutral button clicked", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+            }
+        });
+        builder.show();
     }
 
 
@@ -372,11 +505,24 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
 
+    public void restore_a_backup(final String filetorestore) {
 
 
-    public void restore_a_backup(String filetorestore) {
 
-        //delete everything before restore
+        dialog = new ProgressDialog(this);
+        dialog.setMessage(getResources().getString(R.string.Decrypting_in_progress));
+        dialog.setCancelable(false);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.show();
+
+
+
+        new Thread() {
+            public void run() {
+
+
+
+                //delete everything before restore
         String []allefiles = getApplicationContext().fileList();
         for (String each_file_name : allefiles) {
             if(babak.is_it_a_DSG_file(each_file_name))
@@ -396,6 +542,23 @@ AlertDialog.Builder builder = new AlertDialog.Builder(this);
         babak.unzip(zipfiletounzip, unzipto);
 
        // Toast.makeText(getApplicationContext(), "Backup file "+filetorestore+" has been successfully used to restore.", Toast.LENGTH_SHORT).show();
+
+
+
+                //hier komt einde tread
+
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        // Update UI elements
+                        dialog.dismiss();
+                    }
+                });
+
+
+            }
+        }.start();
+
+
 
     }
 

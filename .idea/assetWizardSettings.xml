@@ -62,7 +62,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="55" />
+                                                <entry key="scalingPercent" value="53" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -74,10 +74,12 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="/media/matrix/1e4TB/Laptop-1eHDD/Desktop-Laptop/0/sites/newsites/digisafeguard/logo/logoguard.jpg" />
-                                      <entry key="foregroundLayerName" value="ic_launcher_foreground" />
-                                      <entry key="outputName" value="ic_launcher_round" />
+                                      <entry key="backgroundLayerName" value="ic_launcher_background_new" />
+                                      <entry key="foregroundImage" value="$PROJECT_DIR$/512x512.png" />
+                                      <entry key="foregroundLayerName" value="ic_launcher_foreground_new" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
+                                      <entry key="outputName" value="ic_launcher_round_new" />
+                                      <entry key="webIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
                                 </PersistentState>

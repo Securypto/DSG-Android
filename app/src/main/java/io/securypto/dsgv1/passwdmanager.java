@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -29,7 +30,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import io.securypto.DSGV1.R;
@@ -41,7 +44,15 @@ public class passwdmanager extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         setContentView(R.layout.activity_passwdmanager);
+
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
+
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
         final String vault_name_short  = globalVariable.get_vault_name_short();
@@ -101,11 +112,13 @@ public class passwdmanager extends AppCompatActivity {
 
 
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_2, android.R.id.text1, listValue);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_2, android.R.id.text1, listValue);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.babaklistlayout, R.id.text1, listValue);
         ListView listView = (ListView)findViewById(R.id.listView_passwd_manager);
 
         listView.setAdapter(adapter);
+
+        listView.setBackgroundResource(R.drawable.customshape);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -136,20 +149,8 @@ public class passwdmanager extends AppCompatActivity {
 
 
 
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
-
-
-
-startvideo();
-
-
-        final String current_valt_Priv_key  = globalVariable.get_current_valt_Priv_key();
-        if(current_valt_Priv_key == null)
-        {
-            //   Toast.makeText(getBaseContext(), "Please open the vault.", Toast.LENGTH_LONG).show();
-            Intent myIntent33331a = new Intent(getBaseContext(),   firstpage.class);
-            startActivity(myIntent33331a);
-        }
 
 
 
@@ -160,29 +161,18 @@ startvideo();
 
 
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
-
-
-
-
-
-    public void startvideo() {
-
-        // correct convert
-        //ffmpeg -i introorg1.mp4 -an -vcodec libx264 -crf 26 -s 800x480 intro1.mp4
-
-        VideoView v = (VideoView) findViewById(R.id.videoView);
-        Uri uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro1);
-        v.setVideoURI(uri);
-        v.start();
-        v.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override    public void onPrepared(MediaPlayer mediaPlayer)
-            {
-                mediaPlayer.setLooping(true);
-            }
-        });
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
     }
+
+
+
+
 
 
 
@@ -211,35 +201,94 @@ startvideo();
 
 
 
+        int[] imageIdArr = {R.mipmap.sendfile, R.mipmap.delete, R.mipmap.cancel};
+        final String[] listItemArr = {getResources().getString(R.string.Show_Record), getResources().getString(R.string.Delete), getResources().getString(R.string.Cancel)};
+        final String CUSTOM_ADAPTER_IMAGE = "image";
+        final String CUSTOM_ADAPTER_TEXT = "text";
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //builder.setTitle("Contact Manager");
+        AlertDialog.Builder builder = new AlertDialog.Builder(passwdmanager.this);
+        //   builder.setIcon(R.mipmap.lockloader);
+        //  builder.setTitle("Encryption options");
+        // Create SimpleAdapter list data.
+        List<Map<String, Object>> dialogItemList = new ArrayList<Map<String, Object>>();
+        int listItemLen = listItemArr.length;
+        for (int i = 0; i < listItemLen; i++) {
+            Map<String, Object> itemMap = new HashMap<String, Object>();
+            itemMap.put(CUSTOM_ADAPTER_IMAGE, imageIdArr[i]);
+            itemMap.put(CUSTOM_ADAPTER_TEXT, listItemArr[i]);
+
+            dialogItemList.add(itemMap);
+        }
+
+        // Create SimpleAdapter object.
+        SimpleAdapter simpleAdapter = new SimpleAdapter(passwdmanager.this, dialogItemList,
+                R.layout.layout_dialog_select_action_by_contact,
+                new String[]{CUSTOM_ADAPTER_IMAGE, CUSTOM_ADAPTER_TEXT},
+                new int[]{R.id.alertDialogItemImageView, R.id.alertDialogItemTextView});
+
+
+        // Set the data adapter.
+        builder.setAdapter(simpleAdapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+
+
+                switch (which) {
+                    case 0:
+                        confirmDialogDemoshowdata(selected_file_by_userNOW);
+                        break;
+                    case 1:
+                        confirmDialogDemo(selected_file_by_userNOW);
+                        // getApplicationContext().deleteFile(selected_file_by_user);
+                        // finish();
+                        // startActivity(getIntent());
+                        break;
+                    case 2:
+                        //finish();
+                        //startActivity(getIntent());
+                        break;
+
+                }
+
+
+            }
+        });
+
+
         builder.setCancelable(false);
-        builder.setItems(new CharSequence[]
-                        {"Show Credentials", "Delete Entry", "Cancel"},
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position
-                        // of the selected item
-                        switch (which) {
-                            case 0:
-                                confirmDialogDemoshowdata(selected_file_by_userNOW);
-                                break;
-                            case 1:
-                                confirmDialogDemo(selected_file_by_userNOW);
-                                // getApplicationContext().deleteFile(selected_file_by_user);
-                                // finish();
-                                // startActivity(getIntent());
-                                break;
-                            case 2:
-                                //finish();
-                                //startActivity(getIntent());
-                                break;
 
-                        }
-                    }
-                });
-        builder.create().show();
+/*
+              builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+                    // do nothing
+                  }
+              });
+
+        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // do nothing
+            }
+
+
+        });
+*/
+        builder.create();
+        builder.show();
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -273,10 +322,10 @@ startvideo();
 
 
 
-        builder.setTitle("Credentials");
-        builder.setMessage("Description:"+manager_desc+"\nUsername:"+manager_user+"\nPassword:"+manager_passwd);
+        builder.setTitle(R.string.Credentials);
+        builder.setMessage(getResources().getString(R.string.Description)+":"+manager_desc+"\n"+getResources().getString(R.string.Username)+":"+manager_user+"\n"+getResources().getString(R.string.lang_passwd)+":"+manager_passwd);
         builder.setCancelable(false);
-        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(R.string.Ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Toast.makeText(getApplicationContext(), selected_file_by_userNOW, Toast.LENGTH_SHORT).show();
@@ -295,10 +344,10 @@ startvideo();
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("WARNING");
-        builder.setMessage("You are about to delete this record. Do you really want to proceed ?");
+        builder.setTitle(R.string.WARNING);
+        builder.setMessage(R.string.data_wipe_confim);
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
 
             //Context context_file_exist= getApplicationContext();
 
@@ -320,7 +369,7 @@ startvideo();
 
 
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //Toast.makeText(getApplicationContext(), "You've changed your mind to delete all records", Toast.LENGTH_SHORT).show();
@@ -357,12 +406,12 @@ startvideo();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(passwdmanager.this);
         builder.setView(formElementsView);
-        builder.setTitle("Add New Credentials");
+        builder.setTitle(R.string.Add_New_Credentials);
         builder.setMessage("");
         builder.setCancelable(false);
 
 
-        builder.setNeutralButton("Save Credentials", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(R.string.Save, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -380,7 +429,8 @@ startvideo();
                 Context context_pm = getApplicationContext();
                 babak.create_passwd_manager_file(context_pm, vault_name_short, vault_passwd, desc, user, passwd);
 
-                Toast.makeText(getApplicationContext(), "New Credentials has been saved!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.data_saved), Toast.LENGTH_SHORT).show();
+
 
                 finish();
                 startActivity(getIntent());
@@ -390,7 +440,7 @@ startvideo();
             }
         });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();

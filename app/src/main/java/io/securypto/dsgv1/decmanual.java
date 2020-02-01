@@ -1,12 +1,15 @@
 package io.securypto.dsgv1;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import io.securypto.DSGV1.R;
 
@@ -16,12 +19,27 @@ public class decmanual extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         setContentView(R.layout.activity_decmanual);
 
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
-
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
     }
 
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
+
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
+    }
 
 
 
@@ -40,23 +58,22 @@ public class decmanual extends AppCompatActivity {
         String msgtodec = editText3.getText().toString().trim();
 
         try {
-            String[] msgstukken = msgtodec.split("\\DSGSEPERATOR", -1);
-            String msgtype = msgstukken[0];
-            String keyfordecryption = msgstukken[1];
-            String msgtodecrypte = msgstukken[2];
 
 
+                    String[] msgstukken = msgtodec.split("\\DSGSEPERATOR", -1);
+                    String msgtype = msgstukken[0];
+                    String keyfordecryption = msgstukken[1];
+                    String msgtodecrypte = msgstukken[2];
+
+                    //first dec the key using our own pub
+                    String decryptedaeskey = encclass.decryptRSAToString(current_valt_Priv_key, keyfordecryption);
+                    //now decrypte the sended data
+                    String final_msg = AESCrypt.decrypt(decryptedaeskey, msgtodecrypte);
 
 
-            //first dec the key using our own pub
-            String decryptedaeskey = encclass.decryptRSAToString(current_valt_Priv_key, keyfordecryption);
-            //now decrypte the sended data
-            String final_msg = AESCrypt.decrypt(decryptedaeskey, msgtodecrypte);
-
-
-
-            TextView textViewmsg = findViewById(R.id.usertexttodecfield);
-            textViewmsg.setText("Not a valid message!"+current_valt_Priv_key);
+//dont remove yet... ?  unknow
+           // TextView textViewmsg = findViewById(R.id.usertexttodecfield);
+           // textViewmsg.setText("Not a valid message!"+current_valt_Priv_key);
 
 
 
@@ -68,14 +85,14 @@ public class decmanual extends AppCompatActivity {
             else
             {
                 TextView textViewmsg2 = findViewById(R.id.usertexttodecfield);
-                textViewmsg2.setText("Not a valid message!");
+                textViewmsg2.setText(R.string.Not_a_valid_message);
             }
 
 
         }catch (Exception e) {
             // Handle the error/exception
             TextView textViewmsg3 = findViewById(R.id.usertexttodecfield);
-            textViewmsg3.setText("Not a valid message!");
+            textViewmsg3.setText(R.string.Not_a_valid_message);
         }
 
 

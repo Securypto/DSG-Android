@@ -39,7 +39,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Create a New Vault"
+        android:text="@string/Create_a_new_Vault"
         android:textColor="#FFFFFF"
 
         android:textSize="15dp"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="8dp"
         android:background="@layout/xml_roundedtextedittrans"
         android:ems="10"
-        android:hint="Choose a Strong Password"
+        android:hint="@string/lang_passwd"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
         android:layout_marginEnd="8dp"
         android:background="@layout/xml_roundedtextedittrans"
         android:ems="10"
-        android:hint="Choose a Vault name"
+        android:hint="@string/lang_Vault_name"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
 
@@ -110,7 +110,7 @@
         android:shadowDy="0"
 
         android:shadowRadius="5"
-        android:text="Return"
+        android:text="@string/Return"
         android:textColor="#FFFFFF"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,33 +129,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="
-* You can create as many vaults as you want.
-\n\n
-* Each vault will have a different public vault address. This helps you to separate works and private info or anonymous usage etc...
-\n\n
-* Each vault will be created and get saved on this device. No information whatsoever will ever be saved on any server or cloud services etc...
-\n\n
-* As every information on this device get encrypted and stored locally, you need to make a backup regularly when you create a new vault or add new information to your vault, password manager etc...
-\n\n
-* As backups contain only encrypted data, you can save your backups everywhere you want, but we don't recommend online cloud services to be used as a storage of any sensitive data... Just because RSA encryption is still unbreakable as today it doesn't mean it will be still unbreakable by tomorrow.
-\n\n
-* You can use the same vault name for different vaults as long as the passwords are different! Or use the same password as long as the vault names are different. The combination of your vault name and password grant access to the vault.
-\n\n
-* If you create a new vault using existing vault name and password combination DigiSafeGuard will just act like a new vault has been created. This is not a bug but a security measure! There will be no warning that a vault exists.
-\n\n
-* Vault names will also get encrypted. Even when a hacker gets physical access to this device he can't see any data as laterally every piece of information that you can think of will get encrypted before saving, like vault names, contact names, passwords etc...
-\n\n
-* Used encryption is based on RSA encryption in conjunction with AES for particular operations and doesn't rely on key storage of the Android operation system. This makes encryptions and decryptions slower and functions much more limited and less user-friendly, however, grant a much higher security level what makes this vault different than any other known app out there. RSA 4096 bit encryption is known as the most secure and unbreakable encryption method today. DigiSafeGuard has been designed with maximum security in mind and unfortunately, this can sometimes lead to less user-friendliness or slower operation. However, you can count on the most secure vault ever created.
-\n\n
-* DigiSafeGuard can be used in 2 different ways. Online and offline mode.
-\n\n
-Online mode:\n
-When you install and operate this app (DigiSafeGuard) on your regular smartphone having internet access, you still are exposed to the hackers as everyone having remote access to your phone screen can see the information that is visually available to you. Even though DigiSafeGuard has been designed to use cryptography most securely, it can't guarantee that a hacker doesn't watch your screen when you are typing your secrets information.
-\n\n
-Offline mode:\n
-You can also install this app on any other android device that doesn't have an internet connection, for example, an old smartphone that you don't use anymore. This makes DigiSafeGuard as secure as it ever can be as you can be 100% sure that no intruder will ever get remote access to your vault information. When using DigisafeGuard in offline mode you can use the QRcode data transfer method to send and receive messages and other data.
-"
+        android:text="@string/MSG_new_vault"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

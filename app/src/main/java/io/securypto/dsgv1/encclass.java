@@ -108,7 +108,7 @@ public class encclass {
         //enc public key
         String encrypted_public_key = AESCrypt.encrypt(passwd_sended, publicKeyBytesBase64);
 
-        //enc public key
+        //enc private key
         String encrypted_private_key = AESCrypt.encrypt(passwd_sended, privateKeyBytesBase64);
 
 

@@ -3,8 +3,10 @@
     android:layout_height="fill_parent" >
 
 
+
+
     <EditText
-        android:id="@+id/popupcontact"
+        android:id="@+id/popupvault"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -15,21 +17,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Contact Name...">
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/popupvault"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/popupcontact"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Vault Name...">
+        android:hint="@string/Vault_Name...">
 
         <requestFocus />
     </EditText>
@@ -43,7 +31,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Vault Password...">
+        android:hint="@string/Vault_Password...">
 
         <requestFocus />
     </EditText>

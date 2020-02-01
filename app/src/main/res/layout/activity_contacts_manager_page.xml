@@ -38,31 +38,19 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="50dp"
 
-        android:text="This vault doesn't have any contact yet.\n\n
-
-* To send a message you need the vault address of the receiver.
-\n\n
-1. Ask your contact for his public vault address.\n
-2. Click on import contact.\n
-3. Import his vault address by scanning his vault address QR code or import manually using the clipboard if you got his address as a plain text.\n
-\n\n
-* You need to do this only once for every contact.
-\n\n
-* As contact name you can choose whatever you want. All contact names will be encrypted too and are not visible if a hacker gets physical access to your device.
-"
-
-
         android:background="@layout/xml_roundedtextedit"
+
+
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-
-        android:scrollbars="vertical"
         android:padding="8dp"
 
+        android:scrollbars="vertical"
+        android:text="@string/MSG_contact"
 
 
-        />
+ />
 
     <ListView
         android:id="@+id/listView1"
@@ -72,6 +60,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
 
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         >
 
     </ListView>
@@ -85,12 +75,12 @@
         android:layout_marginRight="8dp"
 
         android:background="@layout/xml_buttonpointtobottom"
-        android:onClick="gotopagecontactimport"
+        android:onClick="godirectlytoscannerpage"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Import Contact"
+        android:text="@string/Contact_Import"
         android:textColor="#FFFFFF"
 
         android:textSize="15dp"
@@ -113,11 +103,13 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Return"
+        android:text="@string/Return"
 
 
         android:textColor="#FFFFFF"
         android:textSize="15dp" />
+
+
 
 
 </RelativeLayout>

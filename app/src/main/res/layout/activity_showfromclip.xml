@@ -26,7 +26,7 @@
 
 
     <Button
-        android:id="@+id/button_enc_msg"
+        android:id="@+id/button_return_new"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
@@ -43,7 +43,7 @@
         android:shadowDy="0"
         android:shadowRadius="5"
 
-        android:text="Return"
+        android:text="@string/Return"
         android:textColor="#FFFFFF"
         android:textSize="15dp"
 
@@ -51,6 +51,60 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_enc_msg_from_outside"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@layout/xml_buttonpointtobottom"
+        android:onClick="encusertextarchive"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+
+
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/Encrypte_and_Save_in_Archive"
+
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/filenametouseadarchivenametosafe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@layout/xml_roundedtextedittrans"
+        android:ems="10"
+        android:hint="@string/Subject_Must_be_unique"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/button_enc_msg_from_outside"
+        />
+
+
 
     <EditText
         android:id="@+id/usertexttodecfield2"
@@ -70,9 +124,9 @@
 
         android:inputType="textMultiLine"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_enc_msg"
+        app:layout_constraintBottom_toTopOf="@+id/button_return_new"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/filenametouseadarchivenametosafe" />
 </android.support.constraint.ConstraintLayout>

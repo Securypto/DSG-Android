@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.bitcoinj:orchid:1.1.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bitcoinj/orchid/1.1.1/7898329eae76ec6bfdf27081234bb222d5be09df/orchid-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.bitcoinj/orchid/1.1.1/fc0b3b268d72485b45bf6d1f6889d33f44e5ec7c/orchid-1.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

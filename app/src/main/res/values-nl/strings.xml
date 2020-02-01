@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DSGV1</string>
+
+    <!-- firstpage -->
+    <string name="lang_passwd">Wachtwoord</string>
+    <string name="lang_Vault_name">Kluis naam</string>
+    <string name="Backup_Restore">Backup &amp; Herstel</string>
+    <string name="Open_The_Vault">Open de kluis</string>
+    <string name="Create_a_new_Vault">Maak een nieuwe kluis</string>
+
+    <!-- login_succes -->
+
+    <string name="Return">Terug</string>
+    <string name="Expert_Mode">Expert Opties</string>
+    <string name="Version">Versie</string>
+    <string name="Select_your_language">Kies uw taal:</string>
+    <string name="Vault_Name_or_Password_cant_be_empty">Kluisnaam of wachtwoord kunnen niet leeg zijn!</string>
+    <string name="Wrong_credentials">Verkeerde Kluisnaam of Wachtwoord!</string>
+    <string name="New_contact_has_been_saved">Nieuw contact is opgeslagen!</string>
+    <string name="Contact_name_cant_be_empty">Contactnaam kan niet leeg zijn!</string>
+    <string name="Cancel">Annuleren</string>
+    <string name="yes">Ja</string>
+    <string name="Please_open_your_vault">Open uw kluis a.u.b.</string>
+    <string name="Decrypting_in_progress">Bezig met ontsleutelen...</string>
+    <string name="You_have_a_Voice_message">U heeft een audio bestand ontvangen!</string>
+    <string name="Do_you_want_me_to_play_it">Zal ik het afspelen?</string>
+    <string name="Yes">Ja</string>
+    <string name="No">Nee</string>
+    <string name="Contact_Import">Contact Importeren</string>
+    <string name="Name">Naam</string>
+    <string name="Save">Opslaan</string>
+    <string name="Expert_mode_has_been_enabled">Expert opties zijn geactiveerd.</string>
+    <string name="Expert_mode_has_been_disabled">Expert opties zijn ge-deactiveerd.</string>
+    <string name="Export">Exporteren</string>
+    <string name="Restore">Herstel</string>
+    <string name="Delete">Verwijderen</string>
+    <string name="WARNING">Waarschuwing</string>
+    <string name="You_are_about_to_restore_a_backup">Er wordt nu een backup herstel uitgevoerd...</string>
+    <string name="Wipe_all_date">Huidige data wordt verwijderd. Wilt u door gaan?</string>
+    <string name="Delete_backup">Backup wordt verwijderd...</string>
+    <string name="Are_You_Sure">Weet u het zeker?</string>
+    <string name="Data_Encryption">Data versleuteling...</string>
+    <string name="Backup_has_been_created">Backup is aangemaakt!</string>
+    <string name="Ok">Ok</string>
+    <string name="No_backup_yet">U heeft nog geen een backup gemaakt.</string>
+    <string name="Create_a_Backup">Maak een Backup</string>
+    <string name="Creating_new_encryption_keys">Creeren van nieuwe versleuteling sleutels...</string>
+    <string name="New_Vault_Creation">Creeren van een nieuwe kluis</string>
+    <string name="Your_new_vault_has_been_created">Uw nieuwe kluis is gereed!</string>
+    <string name="Vault_Public_Address">Kluis Publieke Adres</string>
+    <string name="Close_The_Vault">Kluis Sluiten</string>
+    <string name="Crypto_Wallet">Crypto Portemonnee</string>
+    <string name="Archive_Manager">Archief Beheer</string>
+    <string name="Passwords_Manager">Wachtwoorden Beheer</string>
+    <string name="Read_a_Message">Lees een Bericht</string>
+    <string name="Send_a_Message">Verstuur een Bericht</string>
+    <string name="Contact_Manager">Contact Beheer</string>
+    <string name="Not_a_valid_message">Ongeldige Bericht!</string>
+    <string name="SCU_DSG_under_construction">Zowel DigiSafeGuard als Securypto Blockchain worden dagelijks verder ontwikkeld. Deze optie is helaas nog niet gereed.</string>
+    <string name="Manual_Input">Handmatig Invoeren</string>
+    <string name="Read_from_Clipboard">Lees vanuit geheugen.</string>
+    <string name="Read_by_QR_Code">Lees vanuit QR Code</string>
+    <string name="Info">Info</string>
+    <string name="Show_Record">Vertoon Data</string>
+    <string name="Credentials">Inlog-gegevens</string>
+    <string name="Description">Omschrijving</string>
+    <string name="Username">Gebruikersnaam</string>
+    <string name="data_wipe_confim">Data wordt verwijderd? Weet u het zeker?</string>
+    <string name="Add_New_Credentials">Nieuwe Inlog-gegevens toevoegen</string>
+    <string name="data_saved">Data is opgeslagen!</string>
+    <string name="no_passwd_manager_data">Uw wachtwoord beheer is nog leeg.</string>
+    <string name="Restarting_QR_Dance">Restarting QR Dans...</string>
+    <string name="Anonymous_Transfer">Anoniem Verzenden</string>
+    <string name="Your_archive_is_empty">Archief is nog leeg.</string>
+    <string name="Search">Zoeken...</string>
+    <string name="Select_an_Archive">Selecteer een Archief</string>
+    <string name="Text_and_Notes">Tekst en Notities</string>
+    <string name="Audio_Files">Audio bestanden</string>
+    <string name="Pictures">Fotos</string>
+    <string name="Save_as">Opslaan als...</string>
+    <string name="Name_cant_be_empty">Naam kan niet leeg zijn!</string>
+    <string name="Coudnt_take_a_picture">Kon geen foto gemaakt worden!</string>
+    <string name="Recording">Opnemen...</string>
+    <string name="Stop_Recording">Opname Stoppen</string>
+    <string name="Picture">Foto</string>
+    <string name="Show_contact_address">Vertoon contact adres</string>
+    <string name="File">Bestand</string>
+    <string name="Voice_Message">Audio Bericht</string>
+    <string name="Text_Message">Tekst Bericht</string>
+    <string name="Encrypte_the_message">Versleutel dit Bericht</string>
+    <string name="Decrypte_the_message">Bericht Ontsleutelen...</string>
+    <string name="Encrypte_and_Save_in_Archive">Versleutel en Sla op in Archief</string>
+    <string name="Subject_Must_be_unique">Onderwerp... (Moet uniek zijn)</string>
+    <string name="Subject_cant_be_empty">Onderwerp kan niet leeg zijn!</string>
+    <string name="Description...">Omschrijving...</string>
+    <string name="Password...">Wachtwoord...</string>
+    <string name="Username...">Gebruikersnaam...</string>
+    <string name="Vault_Name...">Kluis naam...</string>
+    <string name="Vault_Password...">Kluis wachtwoord...</string>
+    <string name="Scanning...">Scanning...</string>
+    <string name="lang_not_ready">Deze taal is helaas nog niet gereed, Als u wilt ons helpen met de vertaling, neem aub contact met ons op via onze telegram channel of stuur een email naar dev@securypto.io</string>
+    <string name="Exist">Bestaat! Wilt u overschrijven?</string>
+    <string name="Screenshot_confim">Aanzetten van Screenshot optie geeft aan andere apps toegang tot uw scherm! Wij raden het ten zeerste af tenzij u DigiSafeGuard in offline mode aan het gebruiken bent.</string>
+    <string name="Screenshot">Screenshot</string>
+    <string name="MSG_Backup_Done">Vergeet niet dat de zonet gecreëerde backup lokaal werd opgeslagen. Om de backup te exporteren, dien je erop te klikken en kies \'Export the backup\' om op te slaan, bij voorkeur op een USB-stick. Aangezien backups enkel versleutelde data bevatten, kun je ze opslaan waar je wil. We raden echter het gebruik van online cloud services af om gevoelige data te bewaren... Dat ESA-encryptie vandaag onbreekbaar is, betekent niet dat het morgen ook nog zo zal zijn.</string>
+    <string name="MSG_new_vault">* Je kunt zo veel digitale kluizen creëren als je wil. \n\n * Elke kluis zal een verschillend openbaar adres hebben. Dit helpt je om professionele en private informatie of anonieme gegevens etc. te scheiden. \n\n * Elke digitale kluis zal gecreëerd en opgeslagen worden op dit toestel. Geen enkele informatie zal worden opgeslagen op een server, een cloud service etc... \n\n * Aangezien alle informatie op dit toestel versleuteld en lokaal opgeslagen wordt, dien je geregeld een backup te maken bij het creëren van een nieuwe kluis, het toevoegen van nieuwe info aan een kluis, de paswoord-manager etc... \n\n * Aangezien backups enkel versleutelde data bevatten, kun je ze opslaan waar je wil. We raden echter het gebruik van online cloud services af om gevoelige data te bewaren... Dat ESA-encryptie vandaag onbreekbaar is, betekent niet dat het morgen ook nog zo zal zijn. \n\n * Je kunt dezelfde naam voor verschillende digitale kluizen gebruiken, op voorwaarde dat de paswoorden verschillend zijn! Ofwel gebruik je hetzelfde paswoord voor verschillende namen. De combinatie van de naam van je kluis en het paswoord, geeft je toegang tot de kluis. \n\n * Indien je een nieuwe kluis creëert met een bestaande combinatie van naam en paswoord, zal DigiSafeGuard handelen alsof een nieuwe kluis werd gecreëerd. Dit is geen bug maar een veiligheidsmaatregel! Er komt geen waarschuwing dat een kluis al bestaat. \n\n * De kluisnamen worden eveneens versleuteld. Zelfs wanneer een hacker fysieke toegang tot dit toestel krijgt, kan hij geen data zien, aangezien letterlijk elk denkbaar informatie-onderdeel voorafgaand aan de opslag, versleuteld wordt, zoals namen van kluizen en contacten, paswoorden etc... \n\n * Gebruikte encryptie is gebaseerd op RSA-encryptie in combinate met AES voor particuliere operaties en vertrouwt niet op de versleuteling van het Android-besturingssysteem. Dit vertraagt encryptie en decryptie en zorgt ervoor dat functies beperkter en minder gebruiksvriendelijk zijn. Dit garandeert echter een hoger veiligheidsniveau, waardoor deze kluis verschilt van eender welke andere bestaande app. RSA 4096-bit-versleuteling staat bekend als de veiligste en meest onbreekbare actuele encryptiemethode. DigiSafeGuard werd ontwikkeld met de hoogste veiligheidsstandaarden in het achterhoofd en jammer genoeg gaat dit soms ten koste van de gebruiksvriendelijkheid of de verwerkingssnelheid. Je mag er evenwel op rekenen dat dit de veiligste kluis ooit is. \n\n * DigiSafeGuard kan op 2 verschillende manieren worden gebruikt: online- en offline-modus. \n\n Online-modus:\n Wanneer je deze app (DigiSafeGuard) installeert en gebruikt op je gebruikelijke smartphone met internetverbinding, ben je nog steeds aan hackers blootgesteld, aangezien iedereen met toegang op afstand tot je scherm, de informatie kan zien die voor jou visueel beschikbaar is. Ook al is DigiSafeGuard ontworpen om cryptografie zo veilig mogelijk te gebruiken, is er geen garantie dat een hacker de geheime informatie die je typt, niet op je scherm kan zien. \n\n Offline-modus:\n Je kunt deze app ook op een ander android-toestel zonder internetverbinding installeren, zoals een oude smartphone die je niet meer gebruikt. Dit zorgt ervoor dat DigiSafeGuard veiliger dan ooit is, aangezien je met 100% zekerheid weet dat geen enkele indringer ooit je kluisinformatie kan bekomen. Wanneer je DigisafeGuard in offline-modus gebruikt, kun je de dataoverdracht-methode met een QR-code gebruiken om berichten en andere data te verzenden en ontvangen.</string>
+
+    <string name="MSG_SCU_send">In de toekomst kun je je berichten anoniem versturen via de Securypto Blockchain. Securypto Blockchain is echter nog steeds volop in ontwikkeling en nog niet beschikbaar. In afwachting daarvan, kun je onveilige kanalen gebruiken zoals WhatsApp, Gmail, Telegram etc... Je berichten worden dan ook versleuteld en beveiligd, maar zullen traceerbaar zijn, in tegenstelling tot de Securypto Blockchain.</string>
+    <string name="MSG_contact">Deze kluis bevat nog geen contacten.\n\n * Om een bericht te versturen, heb je het kluisadres van de ontvanger nodig. \n\n Easy Mode:\n 1. Vraag je contact naar zijn publieke kluisadres.\n 2. Klik op zijn bericht en deel het met DigiSafeGuard. DSG zal het kluisadres automatisch herkennen en voor jou importeren.\n\n Expert Mode:\n 1. Vraag je contact naar zijn publieke kluisadres.\n 2. Klik op Contact importeren.\n 3. Importeer zijn kluisadres door de QR-code van het adres te scannen of importeer handmatig met het Klembord, indien je over het adres als gewone tekst beschikt. \n \n\n * Je kunt schakelen tussen Easy en Expert Mode zo vaak je wil, zonder bijkomende veiligheidsrisico\'s. De Expert Mode biedt je echter meer opties om uit te kiezen. De toegepaste modus kan worden gewijzigd in de Instellingen. \n\n * Je moet dit slechts één keer per contact uitvoeren. \n\n * Als contactnaam kun je eender welke naam kiezen. Alle contactnamen worden eveneens versleuteld en zijn niet zichtbaar wanneer een hacker fysieke toegang tot je toestel krijgt.</string>
+
+</resources>

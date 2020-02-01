@@ -1,23 +1,36 @@
 package io.securypto.dsgv1;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.OpenableColumns;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -36,20 +49,28 @@ import com.google.zxing.common.HybridBinarizer;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 
 import io.securypto.DSGV1.R;
 
 
 public class firstpage extends AppCompatActivity {
+
+    private ProgressDialog dialog2;
 
     private ClipboardManager myClipboard;
     private ClipData myClip;
@@ -57,36 +78,177 @@ public class firstpage extends AppCompatActivity {
     public static String passwd_to_login_value = "a";
     public static String account_to_login_value = "b";
     public static String textfromclipboard="";
+
     String[] msgstukken ;
     String msgtype;
 
+    private MediaPlayer   player = null;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         super.onCreate(savedInstanceState);
+
+
+
+
+
+        SharedPreferences settings = getSharedPreferences("lang", 0);
+
+        if(settings.getString("lang", "").equals(""))
+        {
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("lang","en");
+            editor.commit();
+        }
+
+
+
+        String languageToLoad  = settings.getString("lang", ""); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+
+
+
+
+
+
+
         setContentView(R.layout.activity_firstpage);
 
 
 
 
-/*
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        String type = intent.getType();
-        if ("android.intent.action.SEND".equals(action) && type != null && "text/plain".equals(type)) {
-            Toast.makeText(getApplicationContext(), ""+intent.getStringExtra("android.intent.extra.TEXT"), Toast.LENGTH_SHORT).show();
-        }
-*/
+        //ask for permissions
+        permissions_note(getApplicationContext());
 
+        babak.startvideointro(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
-
-
-        startvideo();
+        //clean everything
+        babak.cleandownloaddir(getApplicationContext());
+        babak.cleaninternal(getApplicationContext());
 
         onSharedIntent();
 
 
 
+        Intent receiverdIntent = getIntent();
+        String receivedAction = receiverdIntent.getAction();
+        if (Intent.ACTION_MAIN.equals(receivedAction)) {
+            final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+            String current_valt_Priv_key  = globalVariable.get_current_valt_Priv_key();
+            String current_valt_Pub_key = globalVariable.get_current_valt_Pub_key();
+            if (current_valt_Priv_key != null && current_valt_Pub_key != null && current_valt_Priv_key.length() > 10 && current_valt_Pub_key.length() > 10) {
+                Intent myIntent56a = new Intent(getBaseContext(), login_succes.class);
+                startActivity(myIntent56a);
+            }
+        }
+
+
+
+
+
+
+
     }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        //ask for permissions
+        permissions_note(getApplicationContext());
+
+        //play bg
+        babak.startvideointro(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
+
+        //clean everything
+        //babak.cleandownloaddir(getApplicationContext());
+        //babak.cleaninternal(getApplicationContext());
+
+
+
+        Intent receiverdIntent = getIntent();
+        String receivedAction = receiverdIntent.getAction();
+//        Toast.makeText(getApplicationContext(), "Action"+receivedAction, Toast.LENGTH_SHORT).show();
+//        if (Intent.ACTION_MAIN.equals(receivedAction)) {
+        if (Intent.ACTION_MAIN.equals(receivedAction) || (receivedAction == null)) {
+            final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+            String current_valt_Priv_key  = globalVariable.get_current_valt_Priv_key();
+            String current_valt_Pub_key = globalVariable.get_current_valt_Pub_key();
+            if (current_valt_Priv_key != null && current_valt_Pub_key != null && current_valt_Priv_key.length() > 10 && current_valt_Pub_key.length() > 10) {
+                Intent myIntent56a = new Intent(getBaseContext(), login_succes.class);
+                startActivity(myIntent56a);
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+
+        //ask for permissions
+        permissions_note(getApplicationContext());
+
+        //play bg
+        babak.startvideointro(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
+
+        //clean everything
+        babak.cleandownloaddir(getApplicationContext());
+        babak.cleaninternal(getApplicationContext());
+
+        onSharedIntent();
+
+
+
+        Intent receiverdIntent = getIntent();
+        String receivedAction = receiverdIntent.getAction();
+        if (Intent.ACTION_MAIN.equals(receivedAction)) {
+                final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+                String current_valt_Priv_key  = globalVariable.get_current_valt_Priv_key();
+                String current_valt_Pub_key = globalVariable.get_current_valt_Pub_key();
+                if (current_valt_Priv_key != null && current_valt_Pub_key != null && current_valt_Priv_key.length() > 10 && current_valt_Pub_key.length() > 10) {
+                    Intent myIntent56a = new Intent(getBaseContext(), login_succes.class);
+                    startActivity(myIntent56a);
+            }
+        }
+
+
+
+
+
+
+
+
+    }
+
+
 
 
 
@@ -94,119 +256,294 @@ public class firstpage extends AppCompatActivity {
 
 
     public void onSharedIntent() {
-        Intent receiverdIntent = getIntent();
-        String receivedAction = receiverdIntent.getAction();
-        String receivedType = receiverdIntent.getType();
+        final Intent receiverdIntent = getIntent();
+        final String receivedAction = receiverdIntent.getAction();
+        final String receivedType = receiverdIntent.getType();
 
-
-        if (receivedAction != null) {
-
-            if (receivedAction.equals(Intent.ACTION_SEND)) {
-
-                // check mime type
-                if (receivedType.startsWith("text/")) {
-
-                    String receivedText = receiverdIntent.getStringExtra(Intent.EXTRA_TEXT);
-                    if (receivedText != null) {
-                        //do your stuff
-                        //Toast.makeText(getApplicationContext(), receivedText, Toast.LENGTH_SHORT).show();
-                    }
-//                } else if (receivedType.startsWith("image/")) {
-                } else  {
-                    Uri receiveUri = (Uri) receiverdIntent.getParcelableExtra(Intent.EXTRA_STREAM);
-
-                    if (receiveUri != null) {
-                        //do your stuff
-
-                        String extension = receivedType.substring(receivedType.lastIndexOf("/"));
-                        extension = extension.replaceAll("/", "");
-                        if(extension == ""){extension ="UNKNOW";}
-
-                        String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/sendbyuser."+extension;
-                        babak.savefile(getApplicationContext(), receiveUri, destinationFilename);
-                        //Toast.makeText(getApplicationContext(), extension, Toast.LENGTH_SHORT).show();
+        final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+        final String current_valt_Priv_key  = globalVariable.get_current_valt_Priv_key();
+        final String current_valt_Pub_key = globalVariable.get_current_valt_Pub_key();
 
 
 
-                        //if its an image, let see if its a message
-                        if (receivedType.startsWith("image/")) {
 
-                            try {
 
-                            // InputStream is = new BufferedInputStream(new FileInputStream(fis));
-                            //  Bitmap bitmap = BitmapFactory.decodeStream(is);
-                            Bitmap bitmap = BitmapFactory.decodeFile(destinationFilename);
-                            String decoded = babak.scanQRImage(bitmap);
-                            //Toast.makeText(getApplicationContext(), decoded, Toast.LENGTH_SHORT).show();
+                if (Intent.ACTION_SEND.equals(receivedAction)) {
+
+
+                final Uri receiveUri = (Uri) receiverdIntent.getParcelableExtra(Intent.EXTRA_STREAM);
+                final String nameoffile = getFileName(receiveUri);
+                final String destinationFilename = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/" + nameoffile;
+
+                if (receiveUri != null) {
+
+
+                    // save file
+                    babak.saveFile(getApplicationContext(), nameoffile, receiveUri, destinationFilename);
+                    // read file
+                    final String inhoudfile = babak.read_file_external_no_line_break(destinationFilename);
+
+
+                if (current_valt_Priv_key != null && current_valt_Pub_key != null && current_valt_Priv_key.length() > 10 && current_valt_Pub_key.length() > 10 && !"".equals(inhoudfile) ) {
+
+
+
+                    dialog2 = new ProgressDialog(this);
+                    dialog2.setMessage(getResources().getString(R.string.Decrypting_in_progress));
+                    dialog2.setCancelable(false);
+                    dialog2.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    dialog2.show();
+
+
+                    new Thread() {
+                        public void run() {
 
 
 
 
 
 
-                                msgstukken = decoded.split("\\:", -1);
-                                msgtype = msgstukken[0];
-                                if (msgtype.equals("DSGMSGPART")) {
-                                   textfromclipboard=msgstukken[4];
-                                    alertDialogmsgfound();
-                                }
-
-                                else if (msgtype.equals("DigiSafeGuard-PUBLIC-KEY")) {
-
-                                    textfromclipboard=msgstukken[1];
-                                    addnewcontact(textfromclipboard);
-
-                                }
+                            final String decoded = babak.qr_file_to_text_and_dec_to_get_msg(getApplicationContext(), destinationFilename);
+                            final String decoded2 = babak.qr_file_to_text_and_dec_to_get_vault_address(destinationFilename);
+                            final String[] msgstukken2 = inhoudfile.split("DSGSEPERATOR", -1);
+                            final String final_msg_from_file = babak.dec_a_text_using_RSA_AND_AES_full_text(getApplicationContext(), inhoudfile);
 
 
 
 
+                            if (decoded != null) {
+                                //bij msg qr
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        // Update UI elements
+
+                                        dialog2.dismiss();
+                                        Intent intentq = new Intent(getBaseContext(), showfromclip.class);
+                                        Bundle extras = new Bundle();
+                                        extras.putString("EXTRA_DEC_MSG_FROM_CLIP", decoded);
+                                        intentq.putExtras(extras);
+                                        startActivity(intentq);
+                                        //Toast.makeText(getApplicationContext(), decoded, Toast.LENGTH_SHORT).show();
+
+
+                                    }
+                                });
+
+                            } else if (decoded2 != null) {
+                                //bij pubkey qr
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+
+                                        dialog2.dismiss();
+                                        addcontactdialog(decoded2);
+                                        //Toast.makeText(getApplicationContext(), decoded2, Toast.LENGTH_SHORT).show();
+
+
+                                    }
+                                });
+
+                            } else if (msgstukken2[0].equals("DSGMSG") && final_msg_from_file != null) {
+                                //bij file
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+
+
+                                        //we could decrypted, determine what we have now...
+
+
+                                            String[] msgstukkenreadready = final_msg_from_file.split("BABAKSEPERATOR", -1);
+
+
+                                        if ("audio_to_enc".equals(msgstukkenreadready[0]) && "3gp".equals(msgstukkenreadready[1])) {
+                                            //its a voice message, save it to test
+
+
+                                            final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+                                            globalVariable.set_tmp_data1(msgstukkenreadready[2]);
+
+
+
+                                            runOnUiThread(new Runnable() {
+                                                public void run() {
+                                                    dialog2.dismiss();
+                                                }
+                                            });
+
+                                            asktoplayaudio();
 
 
 
 
 
+                                        }else if ("pic_from_camera_to_enc".equals(msgstukkenreadready[0]) && "jpg".equals(msgstukkenreadready[1])) {
 
-                            }catch (Exception e) {
-                                // Handle the error/exception
-                                Toast.makeText(getApplicationContext(), "This isnt a encrypted message or a Public Vault address.", Toast.LENGTH_SHORT).show();
+                                            //its a pic message
+
+                                            final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+                                            globalVariable.set_tmp_data1(msgstukkenreadready[2]);
+
+                                            runOnUiThread(new Runnable() {
+                                                public void run() {
+                                                    dialog2.dismiss();
+                                                }
+                                            });
+
+
+                                            Intent myIntent56atp = new Intent(getBaseContext(), showpic.class);
+                                            startActivity(myIntent56atp);
+
+
+
+                                        }else {
+
+                                            dialog2.dismiss();
+                                            Intent intentq = new Intent(getBaseContext(), showfromclip.class);
+                                            Bundle extras = new Bundle();
+                                            extras.putString("EXTRA_DEC_MSG_FROM_CLIP", final_msg_from_file);
+                                           // extras.putString("EXTRA_DEC_MSG_FROM_CLIP", msgstukkenreadready[0]+"."+msgstukkenreadready[1]);
+
+                                            intentq.putExtras(extras);
+                                            startActivity(intentq);
+
+                                        }
+
+
+
+
+                                    }
+                                });
+
+
+                            } else if (babak.is_it_a_backup_file(nameoffile)) {
+                                //bij backup
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        dialog2.dismiss();
+                                        Intent myIntent33331asbn = new Intent(getBaseContext(),   backup.class);
+                                        startActivity(myIntent33331asbn);
+                                        //Toast.makeText(getApplicationContext(), "Backup file has been imported. Go to Backup/Restore page to restore.", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                            } else if (msgstukken2[0].equals("DSGMSG") && final_msg_from_file == null ) {
+                                //bij enc data thgatcant be decrypted
+
+                                // final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+                                globalVariable.set_current_data_msg_for_qr(inhoudfile);
+                                globalVariable.set_current_data_array_part(0);
+
+
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        dialog2.dismiss();
+                                        Intent myIntent2 = new Intent(getBaseContext(),   qrshow.class);
+                                        startActivity(myIntent2);
+
+                                    }
+                                });
+
 
                             }
+
+
+
+
+                            else {
+                                //dont know what to do
+
+
+
+if(!"".equals(inhoudfile)) {
+
+
+                                    runOnUiThread(new Runnable() {
+                                        public void run() {
+
+                                            //Toast.makeText(getApplicationContext(), "Need to encrypte...", Toast.LENGTH_SHORT).show();
+                                            dialog2.dismiss();
+                                            alertwhattodo();
+
+                                        }
+                                    });
+
+
+
+
+                                }
+
+
+
+
+
+
+
+
+
+
+
+                            }
+
 
                         }
 
 
+                    }.start();
 
 
+                } else {
 
+                    //shared file but not logged in
 
-
-
-
-
-
-
-
+                    if (babak.is_it_a_backup_file(nameoffile)) {
+                        // save file
+                        babak.saveFile(getApplicationContext(), nameoffile, receiveUri, destinationFilename);
+                        Intent myIntent33331asb = new Intent(getBaseContext(),   backup.class);
+                        startActivity(myIntent33331asb);
+                        //Toast.makeText(getApplicationContext(), "Backup file has been imported. Go to Backup/Restore page to restore.", Toast.LENGTH_SHORT).show();
+                        //dialog2.dismiss();
+                    } else {
+                        //dialog2.dismiss();
+                        loginonthefly();
                     }
+
+
                 }
 
-            } else if (receivedAction.equals(Intent.ACTION_MAIN)) {
+
+            }
+
+
+            } else if (Intent.ACTION_MAIN.equals(receivedAction)) {
 
                 // Log.e(TAG, "onSharedIntent: nothing shared" );
+                // nothing shared, but if logged in, redirect
+
+                if(current_valt_Priv_key != null && current_valt_Pub_key != null && current_valt_Priv_key.length() > 10 && current_valt_Pub_key.length() > 10)
+                {
+                    //   Toast.makeText(getBaseContext(), "Please open the vault.", Toast.LENGTH_LONG).show();
+                    Intent myIntent33331as = new Intent(getBaseContext(),   login_succes.class);
+                    startActivity(myIntent33331as);
+                }
+
+
+
             }
-        }
+
+          //  getIntent().removeExtra("key");
+
     }
 
 
-    private void alertDialogmsgfound() {
+    private void alertwhattodo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("You have got a Message!");
-        builder.setMessage("Please open your vault to read the message.");
+        builder.setTitle("File received!");
+        builder.setMessage("I got an file that I coudn't decrypte...");
         builder.setCancelable(false);
         builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-              //  Toast.makeText(getApplicationContext(), "Neutral button clicked", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(getApplicationContext(), "Neutral button clicked", Toast.LENGTH_SHORT).show();
             }
         });
         builder.show();
@@ -221,8 +558,8 @@ public class firstpage extends AppCompatActivity {
 
     public void startvideo() {
 
-      // correct convert
-    //ffmpeg -i introorg1.mp4 -an -vcodec libx264 -crf 26 -s 800x480 intro1.mp4
+        // correct convert
+        //ffmpeg -i introorg1.mp4 -an -vcodec libx264 -crf 26 -s 800x480 intro1.mp4
 
         VideoView v = (VideoView) findViewById(R.id.videoView);
         Uri uri= Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro3);
@@ -242,13 +579,195 @@ public class firstpage extends AppCompatActivity {
 
 
 
+//singel confirm dialog
+
+    public void asktoplayaudio() {
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.You_have_a_Voice_message);
+        builder.setMessage(R.string.Do_you_want_me_to_play_it);
+        builder.setCancelable(false);
+        builder.setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+                Intent myIntent56at = new Intent(getBaseContext(), showaudio.class);
+                startActivity(myIntent56at);
+
+
+            }
+
+        });
+
+
+
+        builder.setNegativeButton(R.string.No, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //
+                //clean internal
+                //babak.cleaninternal(getApplicationContext());
+                Intent myIntent56at = new Intent(getBaseContext(), login_succes.class);
+                startActivity(myIntent56at);
+
+            }
+        });
+
+        builder.show();
+    }
 
 
 
 
 
 
-    public void addnewcontact(final String pubkeyfromqr){
+
+
+
+
+
+
+    /** Called when the user taps the Send button */
+    public void sendpasswd(View view) {
+
+
+        EditText account_to_login = (EditText) findViewById(R.id.account_to_login);
+        String vault_name = account_to_login.getText().toString();
+
+        EditText passwd_to_login = (EditText) findViewById(R.id.passwd_to_login);
+        String vault_passwd = passwd_to_login.getText().toString();
+
+        if (!babak.validate_vault_passwd(vault_passwd) || !babak.validate_vault_name(vault_name)) {
+            Toast.makeText(firstpage.this, R.string.Vault_Name_or_Password_cant_be_empty, Toast.LENGTH_LONG).show();
+        } else {
+
+
+            Context context_checkifusercanlogin = getApplicationContext();
+            String checkvalidlogin=babak.checkifusercanlogin(context_checkifusercanlogin, vault_passwd, vault_name);
+            if (checkvalidlogin.equals("yes")) {
+
+                Intent myIntent56a = new Intent(getBaseContext(),   login_succes.class);
+                startActivity(myIntent56a);
+
+
+            } else {
+                // Be really, really sad
+                Toast.makeText(this, R.string.Wrong_credentials, Toast.LENGTH_LONG).show();
+
+            }
+
+
+
+
+
+        }
+
+    }
+
+
+
+
+    public String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        if (result == null) {
+            result = uri.getPath();
+            int cut = result.lastIndexOf('/');
+            if (cut != -1) {
+                result = result.substring(cut + 1);
+            }
+        }
+        return result;
+    }
+
+
+
+
+
+    private void addcontactdialog(final String contactpubkeytosave) {
+        final EditText edtText = new EditText(this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.Contact_Import);
+        builder.setMessage(R.string.Name);
+        builder.setCancelable(false);
+        builder.setView(edtText);
+        builder.setNeutralButton(R.string.Save, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+
+                final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
+                final String vault_name_short  = globalVariable.get_vault_name_short();
+                final String vault_passwd  = globalVariable.get_vault_passwd();
+                final String current_valt_Pub_key  = globalVariable.get_current_valt_Pub_key();
+
+                String filenameingevoerddooruser = edtText.getText().toString();
+
+                if(filenameingevoerddooruser.length() > 0) {
+                    //enc desc using AES
+                    String encrypted_desc_to_use_as_file_name = AESCrypt.encrypt(vault_passwd, filenameingevoerddooruser);
+                    //gen false name
+                    encrypted_desc_to_use_as_file_name = Base64.encodeToString(encrypted_desc_to_use_as_file_name.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);
+                    //final name to use as file name
+                    String filenametowrite = "DSG_CONTACTS_" + vault_name_short + "_" + encrypted_desc_to_use_as_file_name + "_publicKey";
+
+
+                    //enc text using vault pub rsa key +  AES
+                    String enc_text_to_write = babak.enc_a_text_using_RSA_AND_AES(getApplicationContext(), contactpubkeytosave);
+                    //save the file
+                    babak.write(getApplicationContext(), filenametowrite, enc_text_to_write);
+
+
+                    Toast.makeText(getApplicationContext(), R.string.New_contact_has_been_saved, Toast.LENGTH_SHORT).show();
+                    Intent myIntent56ac = new Intent(getBaseContext(), contacts_manager.class);
+                    startActivity(myIntent56ac);
+
+                }else{
+                    Toast.makeText(firstpage.this, R.string.Contact_name_cant_be_empty, Toast.LENGTH_LONG).show();
+                    finish();
+                    startActivity(getIntent());
+                }
+
+            }
+        });
+
+
+
+        builder.setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+
+
+        builder.show();
+    }
+
+
+
+
+//new methode login on fly
+
+
+
+    public void loginonthefly(){
 
 
 
@@ -259,61 +778,40 @@ public class firstpage extends AppCompatActivity {
                 null, false);
 
         // You have to list down your form elements
-        final EditText addcontactcontactname = (EditText) formElementsView.findViewById(R.id.popupcontact);
         final EditText addcontactvaultname = (EditText) formElementsView.findViewById(R.id.popupvault);
         final EditText addcontactvaultpassword = (EditText) formElementsView.findViewById(R.id.popupvaultpasswd);
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(firstpage.this);
         builder.setView(formElementsView);
-        builder.setTitle("Add New Contact");
+        builder.setTitle(R.string.Please_open_your_vault);
         builder.setMessage("");
         builder.setCancelable(false);
 
 
-        builder.setNeutralButton("Save Contact", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton(R.string.Open_The_Vault, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
 
-                String addcontactcontactname1 = addcontactcontactname.getText().toString();
                 String addcontactvaultname1 = addcontactvaultname.getText().toString();
                 String addcontactvaultpassword1  = addcontactvaultpassword.getText().toString();
-                String contactpubtoimport2 = pubkeyfromqr.replaceAll("DigiSafeGuard-PUBLIC-KEY:", "");
-
-
 
                 Context context_checkifusercanlogin = getApplicationContext();
+
+
                 String checkvalidlogin=babak.checkifusercanlogin(context_checkifusercanlogin, addcontactvaultpassword1, addcontactvaultname1);
                 if (checkvalidlogin.equals("yes")) {
 
 
-                    //enc vault name first, remove all non alphanum and use the first 20ch
-                    String vault_name_enc_by_aes = AESCrypt.encrypt(addcontactvaultpassword1, addcontactvaultname1).replaceAll("[^A-Za-z0-9]", "");
-                    String vault_name_short = vault_name_enc_by_aes.substring(0, Math.min(vault_name_enc_by_aes.length(), 20));
-
-                    //enc desc using AES
-                    String encrypted_desc_to_use_as_file_name = AESCrypt.encrypt(addcontactvaultpassword1, addcontactcontactname1);
-
-                    //gen false name
-                    encrypted_desc_to_use_as_file_name = Base64.encodeToString(encrypted_desc_to_use_as_file_name.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);
-
-                    String filenametowrite = "DSG_CONTACTS_" + vault_name_short + "_" + encrypted_desc_to_use_as_file_name + "_publicKey";
-
-                    Context context_scanner_page = getApplicationContext();
-                    babak.write(context_scanner_page, filenametowrite, contactpubtoimport2);
-
-
-                    Toast.makeText(getApplicationContext(), "New Contact has been saved!", Toast.LENGTH_SHORT).show();
-
-                    Intent myIntent3333z = new Intent(getBaseContext(),   contacts_manager.class);
-                    startActivity(myIntent3333z);
+                    finish();
+                    startActivity(getIntent());
 
                 }
                 else
                 {
                     // Be really, really sad
-                    Toast.makeText(getApplicationContext(), "Wrong credentials!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.Wrong_credentials, Toast.LENGTH_SHORT).show();
                     finish();
                     startActivity(getIntent());
                 }
@@ -321,7 +819,7 @@ public class firstpage extends AppCompatActivity {
             }
         });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -339,177 +837,11 @@ public class firstpage extends AppCompatActivity {
 
 
 
-    /** Called when the user taps the Send button */
-    public void sendpasswd(View view) {
 
 
 
 
 
-
-
-
-
-
-        //    Intent intent = new Intent(this, firstpage.class);
-
-        EditText account_to_login = (EditText) findViewById(R.id.account_to_login);
-        String vault_name = account_to_login.getText().toString();
-       // intent.putExtra(account_to_login_value, vault_name);
-
-        EditText passwd_to_login = (EditText) findViewById(R.id.passwd_to_login);
-        String vault_passwd = passwd_to_login.getText().toString();
-     //   intent.putExtra(passwd_to_login_value, vault_passwd);
-
-
-        if (!babak.validate_vault_passwd(vault_passwd) || !babak.validate_vault_name(vault_name)) {
-            Toast.makeText(firstpage.this, "Vault Name or Password can't be empty!", Toast.LENGTH_LONG).show();
-        } else {
-
-
-            Context context_checkifusercanlogin = getApplicationContext();
-            String checkvalidlogin=babak.checkifusercanlogin(context_checkifusercanlogin, vault_passwd, vault_name);
-            if (checkvalidlogin.equals("yes")) {
-                final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-                String privateKeyBytesBase64_gelezen = globalVariable.get_current_valt_Priv_key();
-
-
-
-  /*
-            //enc vault name first, remove all non alphanum and use the first 20ch
-            String vault_name_enc_by_aes = AESCrypt.encrypt(vault_passwd, vault_name).replaceAll("[^A-Za-z0-9]", "");
-            String vault_name_short = vault_name_enc_by_aes.substring(0, Math.min(vault_name_enc_by_aes.length(), 20));
-
-
-
-            String dataToEncrypt = "DigiSafeGuard";
-            String decrypted = "NOTDigiSafeGuard";
-
-            //lees_pubic_key
-            Context context_lees_pubic_key = getApplicationContext();
-            String publicKeyBytesBase64_gelezen = encclass.read_pubic_key(vault_passwd, context_lees_pubic_key, vault_name_short);
-            //lees_private_key
-            Context context_lees_private_key = getApplicationContext();
-            String privateKeyBytesBase64_gelezen = encclass.read_private_key(vault_passwd, context_lees_private_key, vault_name_short);
-            // enc a text using RSA
-            String encrypted = encclass.encryptRSAToString(publicKeyBytesBase64_gelezen, dataToEncrypt);
-            // dec a text using RSA
-            decrypted = encclass.decryptRSAToString(privateKeyBytesBase64_gelezen, encrypted);
-
-
-            if (dataToEncrypt.equals(decrypted)) {
-                // Have a party
-
-                final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-                globalVariable.set_vault_name(vault_name);
-                globalVariable.set_vault_name_short(vault_name_short);
-                globalVariable.set_vault_passwd(vault_passwd);
-                globalVariable.set_current_valt_Pub_key(publicKeyBytesBase64_gelezen);
-                globalVariable.set_current_valt_Priv_key(privateKeyBytesBase64_gelezen);
-
-*/
-
-                //uitgezet aangezien verderop naar gekeken wordt
-               // Intent myIntent5 = new Intent(getBaseContext(),   login_succes.class);
-               // startActivity(myIntent5);
-
-
-
-/*
-
-//read clip
-                myClipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-                ClipData abc = myClipboard.getPrimaryClip();
-                ClipData.Item item = abc.getItemAt(0);
-                String textfromclipboard = item.getText().toString();
-//reset clip
-                ClipData myClip;
-                String text = "";
-                myClip = ClipData.newPlainText("text", text);
-                myClipboard.setPrimaryClip(myClip);
-*/
-
-                try {
-                    String[] msgstukken = textfromclipboard.split("\\DSGSEPERATOR", -1);
-                    String msgtype = msgstukken[0];
-                    String keyfordecryption = msgstukken[1];
-                    String msgtodecrypte = msgstukken[2];
-
-                    //remove  for next time
-                    textfromclipboard="";
-
-                    //first dec the key using our own pub
-                    String decryptedaeskey = encclass.decryptRSAToString(privateKeyBytesBase64_gelezen, keyfordecryption);
-                    //now decrypte the sended data
-                    String final_msg = AESCrypt.decrypt(decryptedaeskey, msgtodecrypte);
-
-
-                    if (msgtype.equals("DSGMSG") && final_msg != null) {
-
-
-                       // Toast.makeText(this, "1 "+final_msg, Toast.LENGTH_LONG).show();
-                        Intent intentq = new Intent(this, showfromclip.class);
-                        Bundle extras = new Bundle();
-                        extras.putString("EXTRA_DEC_MSG_FROM_CLIP",final_msg);
-                        intentq.putExtras(extras);
-                        startActivity(intentq);
-
-
-                    }
-                    else
-                    {
-                        Intent myIntent56a = new Intent(getBaseContext(),   login_succes.class);
-                        startActivity(myIntent56a);
-                    }
-
-
-                }catch (Exception e) {
-                    // Handle the error/exception
-                    Intent myIntent53a = new Intent(getBaseContext(),   login_succes.class);
-                    startActivity(myIntent53a);
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            } else {
-                // Be really, really sad
-                Toast.makeText(this, "Wrong credentials!", Toast.LENGTH_LONG).show();
-
-            }
-
-
-
-
-
-    }
-
-    }
 
 
 
@@ -530,13 +862,18 @@ public class firstpage extends AppCompatActivity {
         startActivity(myIntent2s);
     }
 
+    public void gotohelppage(View View){
+        Intent myIntent2sh = new Intent(getBaseContext(),   help.class);
+        startActivity(myIntent2sh);
 
-/*
-    public void gotohelppage1(View View){
-        Intent myIntent2 = new Intent(getBaseContext(),   qrshowdata.class);
-        startActivity(myIntent2);
+  //      Intent myIntent2sh = new Intent(getBaseContext(),   filemanagerdsg.class);
+ //       startActivity(myIntent2sh);
+
+
+           //   Intent myIntent2sh = new Intent(getBaseContext(),   cryptowallet.class);
+           //    startActivity(myIntent2sh);
+
     }
-*/
 
 
     public void gotobackup(View View){
@@ -553,6 +890,8 @@ public class firstpage extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
             return true;
+
+
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -565,24 +904,126 @@ public class firstpage extends AppCompatActivity {
 
 
 
+    public void permissions_note(final Context context) {
+
+        final String[] PERMISSIONS = {
+                android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                android.Manifest.permission.RECORD_AUDIO,
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.INTERNET,
+                android.Manifest.permission.ACCESS_NETWORK_STATE
+        };
+
+        if (!hasPermissions(this, PERMISSIONS)) {
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.Permission_header);
+            builder.setMessage(R.string.Permission_notes);
+            builder.setCancelable(false);
+            builder.setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    int PERMISSION_ALL = 1;
+                    ActivityCompat.requestPermissions(firstpage.this, PERMISSIONS, PERMISSION_ALL);
+                    dialog.dismiss();
+
+                }
+
+
+
+            });
+
+            builder.show();
+
+        }
+    }
+
+
+
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
-    private void shareFile(File file) {
+    public void ask_for_permissions(Context context) {
 
-        Intent intentShareFile = new Intent(Intent.ACTION_SEND);
 
-        intentShareFile.setType(URLConnection.guessContentTypeFromName(file.getName()));
-        intentShareFile.putExtra(Intent.EXTRA_STREAM,
-                Uri.parse("file://"+file.getAbsolutePath()));
 
-        //if you need
-        //intentShareFile.putExtra(Intent.EXTRA_SUBJECT,"Sharing File Subject);
-        //intentShareFile.putExtra(Intent.EXTRA_TEXT, "Sharing File Description");
+        //persmissions
+        boolean permission_Rexternal = babak.doesUserHavePermission_Rexternal(context);
+        boolean permission_Wexternal = babak.doesUserHavePermission_Wexternal(context);
+        boolean permission_audio = babak.doesUserHavePermission_audio(context);
+        boolean permission_camera = babak.doesUserHavePermission_camera(context);
+        boolean permission_internet = babak.doesUserHavePermission_internet(context);
+        boolean permission_networkstate = babak.doesUserHavePermission_networkstate(context);
+        // Toast.makeText(context, "Audio:" + permission_audio + "RExternal" + permission_Rexternal + "WExternal" + permission_Wexternal + "Camera" + permission_camera, Toast.LENGTH_SHORT).show();
 
-        startActivity(Intent.createChooser(intentShareFile, "Share File"));
-
+        if (permission_Rexternal == false) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 200);
+        }
+        if (permission_Wexternal == false) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 200);
+        }
+        if (permission_audio == false) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 200);
+        }
+        if (permission_camera == false) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 200);
+        }
+        if (permission_internet == false) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 200);
+        }
+        if (permission_networkstate == false) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_NETWORK_STATE}, 200);
+        }
     }
 
 */
+
+
+
+
 
 
 

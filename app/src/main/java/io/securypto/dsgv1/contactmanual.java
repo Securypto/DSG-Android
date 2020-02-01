@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.nio.charset.StandardCharsets;
 
@@ -21,15 +22,26 @@ public class contactmanual extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //check if screenshot is allowed
+        babak.checkscreenshotstatus(getSharedPreferences("UserInfo", 0), getWindow());
+
         setContentView(R.layout.activity_contactmanual);
 
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
 
     }
 
 
+    @Override
+    public void onResume(){
+        super.onResume();
 
+        //check login otherwise go to firstpage
+        babak.checkloginstatsu(getApplicationContext(), getBaseContext(), this);
 
-
+    }
 
 
 
@@ -71,8 +83,10 @@ public class contactmanual extends AppCompatActivity {
                 String filenametowrite = "DSG_CONTACTS_"+vault_name_short+"_"+encrypted_desc_to_use_as_file_name+"_publicKey";
 
 
-                Context context_mci = getApplicationContext();
-                babak.write(context_mci, filenametowrite,contactpubtoimport);
+                //enc text using vault pub rsa key +  AES
+                String enc_text_to_write = babak.enc_a_text_using_RSA_AND_AES(getApplicationContext(), contactpubtoimport);
+                //save the file
+                babak.write(getApplicationContext(), filenametowrite, enc_text_to_write);
 
 
                 editText3.setText("New contact has been saved!");

@@ -41,7 +41,7 @@
         android:shadowRadius="5"
 
 
-        android:text="Return"
+        android:text="@string/Return"
         android:textColor="#FFFFFF"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +68,7 @@
 
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Encrypte the message"
+        android:text="@string/Encrypte_the_message"
 
         android:textColor="#FFFFFF"
         android:textSize="15dp"

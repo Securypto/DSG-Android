@@ -15,7 +15,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Description...">
+        android:hint="@string/Description...">
 
         <requestFocus />
     </EditText>
@@ -29,7 +29,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Password...">
+        android:hint="@string/Password...">
 
         <requestFocus />
     </EditText>
@@ -43,7 +43,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Username...">
+        android:hint="@string/Username...">
 
         <requestFocus />
     </EditText>
