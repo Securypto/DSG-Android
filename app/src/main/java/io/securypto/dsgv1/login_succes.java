@@ -69,32 +69,36 @@ public class login_succes extends AppCompatActivity {
 
         babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
-     //   SharedPreferences settings = getSharedPreferences("UserInfo", 0);
-        String mode = settings.getString("mode", "").toString();
-
-        //Toast.makeText(getApplicationContext(), "mode:"+mode, Toast.LENGTH_SHORT).show();
+        SharedPreferences settings2 = getSharedPreferences("UserInfo", 0);
+        String mode = settings2.getString("mode", "").toString();
 
         Button button_read_a_message = (Button) findViewById(R.id.button_read_a_message);
         Button button_contactmanager = (Button) findViewById(R.id.button_contactmanager);
         Button button_send_a_message = (Button) findViewById(R.id.button_send_a_message);
-        //ImageView imgbuttoncamera = (ImageView) findViewById(R.id.imgbuttoncamera);
-        //ImageView imgbuttoncontact = (ImageView) findViewById(R.id.imgbuttoncontact);
-
         ImageButton imgbuttoncamera = (ImageButton) findViewById(R.id.imgbuttoncamera);
         ImageButton imgbuttoncontact = (ImageButton) findViewById(R.id.imgbuttoncontact);
 
-        if(settings.getString("mode", "").equals("On"))
-        {
-//            imgbuttoncamera.setVisibility(View.GONE);
-//            imgbuttoncontact.setVisibility(View.GONE);
 
+
+        if(settings2.getString("mode", "").equals("On"))
+        {
+
+          //  Toast.makeText(getApplicationContext(), "Expert mode:"+mode, Toast.LENGTH_SHORT).show();
             imgbuttoncamera.setVisibility(View.GONE);
             imgbuttoncontact.setVisibility(View.GONE);
 
+            button_read_a_message.setVisibility(View.VISIBLE);
+            button_contactmanager.setVisibility(View.VISIBLE);
+            button_send_a_message.setVisibility(View.VISIBLE);
 
         }
 
         else{
+          //  Toast.makeText(getApplicationContext(), "Normaal mode:"+mode, Toast.LENGTH_SHORT).show();
+
+            imgbuttoncamera.setVisibility(View.VISIBLE);
+            imgbuttoncontact.setVisibility(View.VISIBLE);
+
             button_read_a_message.setVisibility(View.GONE);
             button_contactmanager.setVisibility(View.GONE);
             button_send_a_message.setVisibility(View.GONE);

@@ -39,6 +39,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -71,6 +72,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.google.zxing.WriterException;
+
 import io.securypto.DSGV1.R;
 
 
@@ -83,6 +86,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
     WebView mWebView;
     ProgressBar progressBar;
     private ProgressDialog dialog;
+
 
 
     SearchView searchView;
@@ -101,9 +105,9 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
         StrictMode.setVmPolicy(builder.build());
 
 
-
-
-
+        ImageView qrholder;
+        qrholder = (ImageView)findViewById(R.id.qrholder);
+        qrholder.setVisibility(View.GONE);
 
 
 
@@ -322,8 +326,6 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
-
-
     }
 
 
@@ -429,11 +431,13 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                 switch (which) {
                     case 0:
 
-                        showxpriv(selected_file_by_userNOW);
+                        //showxpub(selected_file_by_userNOW);
+                        decandredirect(selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
                             break;
 
                     case 1:
-                        showxpub(selected_file_by_userNOW);
+                        showxpriv(selected_file_by_userNOW);
+
                         break;
 
 
@@ -544,33 +548,60 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                 Context context1 = getApplicationContext();
                 String inhoudtextunenc = babak.read_file(context1, selected_file_by_userNOW);
 
-                String inhoudtextdecrypted = babak.dec_a_text_using_RSA_AND_AES(getApplicationContext(), inhoudtextunenc);
+               final String inhoudtextdecrypted = babak.dec_a_text_using_RSA_AND_AES(getApplicationContext(), inhoudtextunenc);
 
                 GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 globalVariable.set_tmp_data1(inhoudtextdecrypted);
 
 
-
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        // Update UI elements
-                        dialog.dismiss();
 
+
+
+
+                final Bitmap bitmap ;
+                final ImageView qrholder;
+                qrholder = (ImageView)findViewById(R.id.qrholder);
+                qrholder.setVisibility(View.VISIBLE);
+
+                try {
+
+                    Context contextqr= getApplicationContext();
+                    bitmap = babak.texttoqr(contextqr, inhoudtextdecrypted, 500);
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            // Update UI elements
+                            qrholder.setImageBitmap(bitmap);
+                        }
+                    });
+
+                } catch (WriterException e) {
+                    e.printStackTrace();
+                }
+
+
+
+                        dialog.dismiss();
+                        // Toast.makeText(getApplicationContext(), inhoudtextdecrypted, Toast.LENGTH_SHORT).show();
 
                     }
                 });
 
 
 
-                if ("DSG_PICS_".equals(walletsmodefinal)) {
-                    Intent i23 = new Intent(getBaseContext(), showpic.class);
-                    i23.putExtra("archivefiletoshow",selected_file_by_user);
-                    startActivity(i23);
-                }else if("DSG_AUDIO_".equals(walletsmodefinal)) {
-                    Intent i23 = new Intent(getBaseContext(), showaudio.class);
-                    i23.putExtra("archivefiletoshow",selected_file_by_user);
-                    startActivity(i23);
-                }
+
+
+/*
+                globalVariable.set_current_data_msg_for_qr(inhoudtextdecrypted);
+                globalVariable.set_current_data_array_part(0);
+                Intent myIntent2 = new Intent(getBaseContext(),   qrshow.class);
+                startActivity(myIntent2);
+                finish();
+
+ */
+
 
 
 
