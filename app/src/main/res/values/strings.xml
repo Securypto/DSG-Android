@@ -114,5 +114,8 @@
     <string name="Show_Balance">Show Balance</string>
     <string name="Cant_delete_need_expert_mode">You can\'t delete a wallet in normaal mode as a security measure. If you still want to do this and know what you are doing, turn on the expert mode in the settings first.</string>
     <string name="Cant_overwrite_need_expert_mode">This wallet name already exist and you can\'t overwrite an exicting wallet. If you still want to do this and know what you are doing, turn on the expert mode in the settings and delete this wallet first.</string>
+    <string name="Save_wallet_as">Choose a name for this new wallet.</string>
+
+
 
 </resources>

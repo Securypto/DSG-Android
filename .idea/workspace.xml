@@ -185,82 +185,88 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/walletspage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="563" column="22" selection-start-line="563" selection-start-column="22" selection-end-line="563" selection-end-column="22" />
+            <state relative-caret-position="-44">
+              <caret line="624" selection-start-line="624" selection-end-line="624" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5369#5426#0" expanded="true" />
-                <element signature="e#5631#9084#0" expanded="true" />
-                <element signature="e#7017#7430#0" expanded="true" />
-                <element signature="e#7429#7430#0" expanded="true" />
-                <element signature="e#7830#8834#0" expanded="true" />
-                <element signature="e#8206#8791#0" expanded="true" />
-                <element signature="e#8790#8791#0" expanded="true" />
-                <element signature="e#8833#8834#0" expanded="true" />
-                <element signature="e#8871#9055#0" expanded="true" />
-                <element signature="e#9054#9055#0" expanded="true" />
-                <element signature="e#9083#9084#0" expanded="true" />
+                <element signature="e#5573#5630#0" expanded="true" />
+                <element signature="e#5835#9288#0" expanded="true" />
+                <element signature="e#7221#7634#0" expanded="true" />
+                <element signature="e#7633#7634#0" expanded="true" />
+                <element signature="e#8034#9038#0" expanded="true" />
+                <element signature="e#8410#8995#0" expanded="true" />
+                <element signature="e#8994#8995#0" expanded="true" />
+                <element signature="e#9037#9038#0" expanded="true" />
+                <element signature="e#9075#9259#0" expanded="true" />
+                <element signature="e#9258#9259#0" expanded="true" />
+                <element signature="e#9287#9288#0" expanded="true" />
                 <element signature="e#8262#8263#0" expanded="true" />
                 <element signature="e#8290#8291#0" expanded="true" />
-                <element signature="e#11184#11231#0" expanded="true" />
-                <element signature="e#11233#11281#0" expanded="true" />
-                <element signature="e#11283#11330#0" expanded="true" />
-                <element signature="e#11332#11373#0" expanded="true" />
-                <element signature="e#11375#11416#0" expanded="true" />
+                <element signature="e#11259#11306#0" expanded="true" />
+                <element signature="e#11308#11356#0" expanded="true" />
+                <element signature="e#11358#11405#0" expanded="true" />
+                <element signature="e#11407#11448#0" expanded="true" />
+                <element signature="e#11450#11491#0" expanded="true" />
                 <element signature="e#10137#10158#0" expanded="true" />
                 <element signature="e#10309#10325#0" expanded="true" />
-                <element signature="e#12618#13502#0" expanded="true" />
-                <element signature="e#13501#13502#0" expanded="true" />
-                <element signature="e#14875#14932#0" expanded="true" />
-                <element signature="e#15068#17088#0" expanded="true" />
-                <element signature="e#15585#16417#0" expanded="true" />
-                <element signature="e#16049#16268#0" expanded="true" />
-                <element signature="e#16267#16268#0" expanded="true" />
-                <element signature="e#16416#16417#0" expanded="true" />
-                <element signature="e#17087#17088#0" expanded="true" />
-                <element signature="e#17532#17548#0" expanded="true" />
-                <element signature="e#17578#17603#0" expanded="true" />
-                <element signature="e#17678#17690#0" expanded="true" />
-                <element signature="e#17692#18219#0" expanded="true" />
-                <element signature="e#18218#18219#0" expanded="true" />
-                <element signature="e#18259#18270#0" expanded="true" />
-                <element signature="e#18272#18562#0" expanded="true" />
-                <element signature="e#18561#18562#0" expanded="true" />
-                <element signature="e#18754#18770#0" expanded="true" />
-                <element signature="e#18804#18841#0" expanded="true" />
-                <element signature="e#18924#18935#0" expanded="true" />
-                <element signature="e#18937#19161#0" expanded="true" />
-                <element signature="e#19160#19161#0" expanded="true" />
-                <element signature="e#19414#19457#0" expanded="true" />
-                <element signature="e#19459#19502#0" expanded="true" />
-                <element signature="e#19504#19547#0" expanded="true" />
-                <element signature="e#19812#19838#0" expanded="true" />
+                <element signature="e#12693#13722#0" expanded="true" />
+                <element signature="e#13721#13722#0" expanded="true" />
+                <element signature="e#14602#14659#0" expanded="true" />
+                <element signature="e#14795#20496#0" expanded="true" />
+                <element signature="e#15921#17813#0" expanded="true" />
+                <element signature="e#17235#17493#0" expanded="true" />
+                <element signature="e#17492#17493#0" expanded="true" />
+                <element signature="e#17812#17813#0" expanded="true" />
+                <element signature="e#17935#20144#0" expanded="true" />
+                <element signature="e#18340#18566#0" expanded="true" />
+                <element signature="e#18565#18566#0" expanded="true" />
+                <element signature="e#19615#19834#0" expanded="true" />
+                <element signature="e#19833#19834#0" expanded="true" />
+                <element signature="e#20143#20144#0" expanded="true" />
+                <element signature="e#20495#20496#0" expanded="true" />
+                <element signature="e#20940#20956#0" expanded="true" />
+                <element signature="e#20986#21011#0" expanded="true" />
+                <element signature="e#21086#21098#0" expanded="true" />
+                <element signature="e#21100#21627#0" expanded="true" />
+                <element signature="e#21626#21627#0" expanded="true" />
+                <element signature="e#21667#21678#0" expanded="true" />
+                <element signature="e#21680#21970#0" expanded="true" />
+                <element signature="e#21969#21970#0" expanded="true" />
+                <element signature="e#22162#22178#0" expanded="true" />
+                <element signature="e#22212#22249#0" expanded="true" />
+                <element signature="e#22332#22343#0" expanded="true" />
+                <element signature="e#22345#22569#0" expanded="true" />
+                <element signature="e#22568#22569#0" expanded="true" />
+                <element signature="e#22822#22865#0" expanded="true" />
+                <element signature="e#22867#22910#0" expanded="true" />
+                <element signature="e#22912#22955#0" expanded="true" />
+                <element signature="e#23220#23246#0" expanded="true" />
                 <element signature="e#18897#18918#0" expanded="true" />
                 <element signature="e#19069#19085#0" expanded="true" />
-                <element signature="e#20751#21882#0" expanded="true" />
-                <element signature="e#21881#21882#0" expanded="true" />
-                <element signature="e#22776#22818#0" expanded="true" />
-                <element signature="e#22926#22939#0" expanded="true" />
-                <element signature="e#22941#25916#0" expanded="true" />
-                <element signature="e#25079#25095#0" expanded="true" />
-                <element signature="e#25137#25177#0" expanded="true" />
-                <element signature="e#25276#25287#0" expanded="true" />
-                <element signature="e#25289#25589#0" expanded="true" />
-                <element signature="e#25588#25589#0" expanded="true" />
-                <element signature="e#25734#25761#0" expanded="true" />
-                <element signature="e#25915#25916#0" expanded="true" />
-                <element signature="e#25956#25971#0" expanded="true" />
-                <element signature="e#26631#26693#0" expanded="true" />
-                <element signature="e#23290#23478#0" expanded="true" />
-                <element signature="e#23477#23478#0" expanded="true" />
-                <element signature="e#23754#23941#0" expanded="true" />
-                <element signature="e#23940#23941#0" expanded="true" />
-                <element signature="e#24226#24413#0" expanded="true" />
-                <element signature="e#24412#24413#0" expanded="true" />
-                <element signature="e#28794#31105#0" expanded="true" />
-                <element signature="e#30575#31076#0" expanded="true" />
-                <element signature="e#31075#31076#0" expanded="true" />
-                <element signature="e#31104#31105#0" expanded="true" />
+                <element signature="e#24159#25290#0" expanded="true" />
+                <element signature="e#25289#25290#0" expanded="true" />
+                <element signature="e#26184#26233#0" expanded="true" />
+                <element signature="e#26341#26354#0" expanded="true" />
+                <element signature="e#26356#29331#0" expanded="true" />
+                <element signature="e#28494#28510#0" expanded="true" />
+                <element signature="e#28552#28592#0" expanded="true" />
+                <element signature="e#28691#28702#0" expanded="true" />
+                <element signature="e#28704#29004#0" expanded="true" />
+                <element signature="e#29003#29004#0" expanded="true" />
+                <element signature="e#29149#29176#0" expanded="true" />
+                <element signature="e#29330#29331#0" expanded="true" />
+                <element signature="e#29371#29386#0" expanded="true" />
+                <element signature="e#29729#29791#0" expanded="true" />
+                <element signature="e#27807#27994#0" expanded="true" />
+                <element signature="e#27993#27994#0" expanded="true" />
+                <element signature="e#28308#28495#0" expanded="true" />
+                <element signature="e#28494#28495#0" expanded="true" />
+                <element signature="e#28809#28996#0" expanded="true" />
+                <element signature="e#28995#28996#0" expanded="true" />
+                <element signature="e#32020#34331#0" expanded="true" />
+                <element signature="e#33801#34302#0" expanded="true" />
+                <element signature="e#34301#34302#0" expanded="true" />
+                <element signature="e#34330#34331#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -270,10 +276,10 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_walletspage.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="156" column="43" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
+            <state relative-caret-position="1815">
+              <caret line="186" selection-start-line="186" selection-end-line="186" />
               <folding>
-                <element signature="e#4555#4571#0" expanded="true" />
+                <element signature="e#4174#4190#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -281,10 +287,10 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml">
-          <provider selected="true" editor-type-id="android-designer2" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="121" selection-start-line="121" selection-end-line="136" />
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="124" column="20" selection-start-line="120" selection-end-line="135" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -292,8 +298,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-93">
-              <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+            <state relative-caret-position="-346">
+              <caret line="168" selection-start-line="168" selection-end-line="168" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="344" column="70" selection-start-line="344" selection-start-column="35" selection-end-line="344" selection-end-column="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#21389#21415#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="712">
+              <caret line="116" column="32" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/help.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="82" column="28" lean-forward="true" selection-start-line="81" selection-end-line="90" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -301,9 +341,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="97" column="20" lean-forward="true" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="45" />
+            <state relative-caret-position="270">
+              <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
               <folding>
+                <element signature="e#2348#2398#0" expanded="true" />
                 <element signature="e#2534#3940#0" expanded="true" />
                 <element signature="e#2950#3129#0" expanded="true" />
                 <element signature="e#3128#3129#0" expanded="true" />
@@ -318,7 +359,7 @@
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="103" column="10" lean-forward="true" selection-start-line="102" selection-end-line="117" selection-end-column="57" />
+              <caret line="103" column="10" selection-start-line="102" selection-end-line="117" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -332,31 +373,6 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#4300#8390#0" expanded="true" />
                 <element signature="e#8389#8390#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/archive.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="494" lean-forward="true" selection-start-line="494" selection-end-line="494" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4211#7212#0" expanded="true" />
-                <element signature="e#5429#5762#0" expanded="true" />
-                <element signature="e#5761#5762#0" expanded="true" />
-                <element signature="e#6138#6962#0" expanded="true" />
-                <element signature="e#6446#6919#0" expanded="true" />
-                <element signature="e#6918#6919#0" expanded="true" />
-                <element signature="e#6961#6962#0" expanded="true" />
-                <element signature="e#6999#7183#0" expanded="true" />
-                <element signature="e#7182#7183#0" expanded="true" />
-                <element signature="e#7211#7212#0" expanded="true" />
-                <element signature="e#25197#29398#0" expanded="true" />
-                <element signature="e#29397#29398#0" expanded="true" />
-                <element signature="e#36085#36103#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -376,17 +392,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Text_and_Notes</find>
-      <find>textViewnoarchive</find>
-      <find>Mode</find>
-      <find>scu_wa</find>
-      <find>Browser_home</find>
-      <find>media</find>
-      <find>progressbar</find>
-      <find>wehaveanamenowtakethepic</find>
-      <find>addnewarchive</find>
-      <find>tmp_data1</find>
-      <find>returnjavascriptresult</find>
       <find>exis</find>
       <find>overri</find>
       <find>archivemode</find>
@@ -403,9 +408,20 @@
       <find>savenewwallet</find>
       <find>button_read_a_message</find>
       <find>showx</find>
-      <find>decandredirect</find>
       <find>confirmDialogDemomultibutton</find>
       <find>qrholder</find>
+      <find>qr</find>
+      <find>qrh</find>
+      <find>searchView</find>
+      <find>listView_archive</find>
+      <find>save</find>
+      <find>Save_as</find>
+      <find>returnjavascriptresult</find>
+      <find>chunkarray</find>
+      <find>xpriv</find>
+      <find>decandredirect</find>
+      <find>eth</find>
+      <find>savexprivkey</find>
     </findStrings>
     <replaceStrings>
       <replace>\n</replace>
@@ -440,7 +456,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/passwdmanager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrscanner.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showaudio.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showfromclip.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showpic.java" />
@@ -470,9 +485,10 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/show_edit_archive.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/settings.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/login_succes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_walletspage.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/walletspage.java" />
       </list>
@@ -757,7 +773,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5007728" side_tool="true" weight="0.32977587" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.16115262" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.16115262" />
       <window_info id="Structure" order="2" sideWeight="0.5007728" side_tool="true" weight="0.32977587" />
       <window_info id="Favorites" order="3" sideWeight="0.5007728" side_tool="true" weight="0.32977587" />
       <window_info id="Build Variants" order="4" sideWeight="0.5031447" side_tool="true" weight="0.19263607" />
@@ -1030,16 +1046,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-569">
-          <caret line="67" column="57" lean-forward="true" selection-start-line="67" selection-start-column="57" selection-end-line="67" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/scu_wallet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3364">
@@ -1047,17 +1053,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3229#3286#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8029">
-          <caret line="658" selection-start-line="658" selection-end-line="658" selection-end-column="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#21389#21415#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1080,13 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="727">
-          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1106,18 +1094,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="121" selection-start-line="121" selection-end-line="136" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/archive.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
-          <caret line="494" lean-forward="true" selection-start-line="494" selection-end-line="494" />
+          <caret line="494" selection-start-line="494" selection-end-line="494" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4211#7212#0" expanded="true" />
@@ -1148,7 +1128,7 @@
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="103" column="10" lean-forward="true" selection-start-line="102" selection-end-line="117" selection-end-column="57" />
+          <caret line="103" column="10" selection-start-line="102" selection-end-line="117" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1168,29 +1148,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_walletspage.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/qrshow.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="156" column="43" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
-          <folding>
-            <element signature="e#4555#4571#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state relative-caret-position="395">
+          <caret line="124" column="20" selection-start-line="120" selection-end-line="135" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="97" column="20" lean-forward="true" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="45" />
+        <state relative-caret-position="270">
+          <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
           <folding>
+            <element signature="e#2348#2398#0" expanded="true" />
             <element signature="e#2534#3940#0" expanded="true" />
             <element signature="e#2950#3129#0" expanded="true" />
             <element signature="e#3128#3129#0" expanded="true" />
@@ -1199,84 +1170,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/walletspage.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="563" column="22" selection-start-line="563" selection-start-column="22" selection-end-line="563" selection-end-column="22" />
+        <state relative-caret-position="712">
+          <caret line="116" column="32" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-346">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/firstpage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="344" column="70" selection-start-line="344" selection-start-column="35" selection-end-line="344" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5369#5426#0" expanded="true" />
-            <element signature="e#5631#9084#0" expanded="true" />
-            <element signature="e#7017#7430#0" expanded="true" />
-            <element signature="e#7429#7430#0" expanded="true" />
-            <element signature="e#7830#8834#0" expanded="true" />
-            <element signature="e#8206#8791#0" expanded="true" />
-            <element signature="e#8790#8791#0" expanded="true" />
-            <element signature="e#8833#8834#0" expanded="true" />
-            <element signature="e#8871#9055#0" expanded="true" />
-            <element signature="e#9054#9055#0" expanded="true" />
-            <element signature="e#9083#9084#0" expanded="true" />
+            <element signature="e#21389#21415#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_walletspage.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+          <folding>
+            <element signature="e#4174#4190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/help.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="82" column="28" lean-forward="true" selection-start-line="81" selection-end-line="90" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/walletspage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="624" selection-start-line="624" selection-end-line="624" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5573#5630#0" expanded="true" />
+            <element signature="e#5835#9288#0" expanded="true" />
+            <element signature="e#7221#7634#0" expanded="true" />
+            <element signature="e#7633#7634#0" expanded="true" />
+            <element signature="e#8034#9038#0" expanded="true" />
+            <element signature="e#8410#8995#0" expanded="true" />
+            <element signature="e#8994#8995#0" expanded="true" />
+            <element signature="e#9037#9038#0" expanded="true" />
+            <element signature="e#9075#9259#0" expanded="true" />
+            <element signature="e#9258#9259#0" expanded="true" />
+            <element signature="e#9287#9288#0" expanded="true" />
             <element signature="e#8262#8263#0" expanded="true" />
             <element signature="e#8290#8291#0" expanded="true" />
-            <element signature="e#11184#11231#0" expanded="true" />
-            <element signature="e#11233#11281#0" expanded="true" />
-            <element signature="e#11283#11330#0" expanded="true" />
-            <element signature="e#11332#11373#0" expanded="true" />
-            <element signature="e#11375#11416#0" expanded="true" />
+            <element signature="e#11259#11306#0" expanded="true" />
+            <element signature="e#11308#11356#0" expanded="true" />
+            <element signature="e#11358#11405#0" expanded="true" />
+            <element signature="e#11407#11448#0" expanded="true" />
+            <element signature="e#11450#11491#0" expanded="true" />
             <element signature="e#10137#10158#0" expanded="true" />
             <element signature="e#10309#10325#0" expanded="true" />
-            <element signature="e#12618#13502#0" expanded="true" />
-            <element signature="e#13501#13502#0" expanded="true" />
-            <element signature="e#14875#14932#0" expanded="true" />
-            <element signature="e#15068#17088#0" expanded="true" />
-            <element signature="e#15585#16417#0" expanded="true" />
-            <element signature="e#16049#16268#0" expanded="true" />
-            <element signature="e#16267#16268#0" expanded="true" />
-            <element signature="e#16416#16417#0" expanded="true" />
-            <element signature="e#17087#17088#0" expanded="true" />
-            <element signature="e#17532#17548#0" expanded="true" />
-            <element signature="e#17578#17603#0" expanded="true" />
-            <element signature="e#17678#17690#0" expanded="true" />
-            <element signature="e#17692#18219#0" expanded="true" />
-            <element signature="e#18218#18219#0" expanded="true" />
-            <element signature="e#18259#18270#0" expanded="true" />
-            <element signature="e#18272#18562#0" expanded="true" />
-            <element signature="e#18561#18562#0" expanded="true" />
-            <element signature="e#18754#18770#0" expanded="true" />
-            <element signature="e#18804#18841#0" expanded="true" />
-            <element signature="e#18924#18935#0" expanded="true" />
-            <element signature="e#18937#19161#0" expanded="true" />
-            <element signature="e#19160#19161#0" expanded="true" />
-            <element signature="e#19414#19457#0" expanded="true" />
-            <element signature="e#19459#19502#0" expanded="true" />
-            <element signature="e#19504#19547#0" expanded="true" />
-            <element signature="e#19812#19838#0" expanded="true" />
+            <element signature="e#12693#13722#0" expanded="true" />
+            <element signature="e#13721#13722#0" expanded="true" />
+            <element signature="e#14602#14659#0" expanded="true" />
+            <element signature="e#14795#20496#0" expanded="true" />
+            <element signature="e#15921#17813#0" expanded="true" />
+            <element signature="e#17235#17493#0" expanded="true" />
+            <element signature="e#17492#17493#0" expanded="true" />
+            <element signature="e#17812#17813#0" expanded="true" />
+            <element signature="e#17935#20144#0" expanded="true" />
+            <element signature="e#18340#18566#0" expanded="true" />
+            <element signature="e#18565#18566#0" expanded="true" />
+            <element signature="e#19615#19834#0" expanded="true" />
+            <element signature="e#19833#19834#0" expanded="true" />
+            <element signature="e#20143#20144#0" expanded="true" />
+            <element signature="e#20495#20496#0" expanded="true" />
+            <element signature="e#20940#20956#0" expanded="true" />
+            <element signature="e#20986#21011#0" expanded="true" />
+            <element signature="e#21086#21098#0" expanded="true" />
+            <element signature="e#21100#21627#0" expanded="true" />
+            <element signature="e#21626#21627#0" expanded="true" />
+            <element signature="e#21667#21678#0" expanded="true" />
+            <element signature="e#21680#21970#0" expanded="true" />
+            <element signature="e#21969#21970#0" expanded="true" />
+            <element signature="e#22162#22178#0" expanded="true" />
+            <element signature="e#22212#22249#0" expanded="true" />
+            <element signature="e#22332#22343#0" expanded="true" />
+            <element signature="e#22345#22569#0" expanded="true" />
+            <element signature="e#22568#22569#0" expanded="true" />
+            <element signature="e#22822#22865#0" expanded="true" />
+            <element signature="e#22867#22910#0" expanded="true" />
+            <element signature="e#22912#22955#0" expanded="true" />
+            <element signature="e#23220#23246#0" expanded="true" />
             <element signature="e#18897#18918#0" expanded="true" />
             <element signature="e#19069#19085#0" expanded="true" />
-            <element signature="e#20751#21882#0" expanded="true" />
-            <element signature="e#21881#21882#0" expanded="true" />
-            <element signature="e#22776#22818#0" expanded="true" />
-            <element signature="e#22926#22939#0" expanded="true" />
-            <element signature="e#22941#25916#0" expanded="true" />
-            <element signature="e#25079#25095#0" expanded="true" />
-            <element signature="e#25137#25177#0" expanded="true" />
-            <element signature="e#25276#25287#0" expanded="true" />
-            <element signature="e#25289#25589#0" expanded="true" />
-            <element signature="e#25588#25589#0" expanded="true" />
-            <element signature="e#25734#25761#0" expanded="true" />
-            <element signature="e#25915#25916#0" expanded="true" />
-            <element signature="e#25956#25971#0" expanded="true" />
-            <element signature="e#26631#26693#0" expanded="true" />
-            <element signature="e#23290#23478#0" expanded="true" />
-            <element signature="e#23477#23478#0" expanded="true" />
-            <element signature="e#23754#23941#0" expanded="true" />
-            <element signature="e#23940#23941#0" expanded="true" />
-            <element signature="e#24226#24413#0" expanded="true" />
-            <element signature="e#24412#24413#0" expanded="true" />
-            <element signature="e#28794#31105#0" expanded="true" />
-            <element signature="e#30575#31076#0" expanded="true" />
-            <element signature="e#31075#31076#0" expanded="true" />
-            <element signature="e#31104#31105#0" expanded="true" />
+            <element signature="e#24159#25290#0" expanded="true" />
+            <element signature="e#25289#25290#0" expanded="true" />
+            <element signature="e#26184#26233#0" expanded="true" />
+            <element signature="e#26341#26354#0" expanded="true" />
+            <element signature="e#26356#29331#0" expanded="true" />
+            <element signature="e#28494#28510#0" expanded="true" />
+            <element signature="e#28552#28592#0" expanded="true" />
+            <element signature="e#28691#28702#0" expanded="true" />
+            <element signature="e#28704#29004#0" expanded="true" />
+            <element signature="e#29003#29004#0" expanded="true" />
+            <element signature="e#29149#29176#0" expanded="true" />
+            <element signature="e#29330#29331#0" expanded="true" />
+            <element signature="e#29371#29386#0" expanded="true" />
+            <element signature="e#29729#29791#0" expanded="true" />
+            <element signature="e#27807#27994#0" expanded="true" />
+            <element signature="e#27993#27994#0" expanded="true" />
+            <element signature="e#28308#28495#0" expanded="true" />
+            <element signature="e#28494#28495#0" expanded="true" />
+            <element signature="e#28809#28996#0" expanded="true" />
+            <element signature="e#28995#28996#0" expanded="true" />
+            <element signature="e#32020#34331#0" expanded="true" />
+            <element signature="e#33801#34302#0" expanded="true" />
+            <element signature="e#34301#34302#0" expanded="true" />
+            <element signature="e#34330#34331#0" expanded="true" />
           </folding>
         </state>
       </provider>

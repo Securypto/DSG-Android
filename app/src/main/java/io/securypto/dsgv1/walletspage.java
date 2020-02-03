@@ -12,6 +12,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.support.v7.app.AppCompatActivity;
@@ -86,6 +88,9 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
     WebView mWebView;
     ProgressBar progressBar;
     private ProgressDialog dialog;
+
+
+
 
 
 
@@ -432,17 +437,17 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                     case 0:
 
                         //showxpub(selected_file_by_userNOW);
-                        decandredirect(selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
+                        showxpuborxprivorbalance("xpub",selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
                             break;
 
                     case 1:
-                        showxpriv(selected_file_by_userNOW);
+                        showxpuborxprivorbalance("xpriv",selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
 
                         break;
 
 
                     case 2:
-                        showbalance(selected_file_by_userNOW);
+                        showxpuborxprivorbalance("balance",selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
                         break;
 
 
@@ -505,28 +510,11 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
-    public void showxpriv (String selected_file_by_userNOW)
-    {
-        Toast.makeText(getApplicationContext(), selected_file_by_userNOW, Toast.LENGTH_SHORT).show();
-    }
-
-    public void showxpub (String selected_file_by_userNOW)
-    {
-        Toast.makeText(getApplicationContext(), selected_file_by_userNOW, Toast.LENGTH_SHORT).show();
-    }
-
-    public void showbalance (String selected_file_by_userNOW)
-    {
-        Toast.makeText(getApplicationContext(), selected_file_by_userNOW, Toast.LENGTH_SHORT).show();
-    }
 
 
 
 
-
-
-
-    private void decandredirect(final String selected_file_by_userNOW, final String walletsmodefinal, final String selected_file_by_user) {
+    private void showxpuborxprivorbalance(final String whattoshow, final String selected_file_by_userNOW, final String walletsmodefinal, final String selected_file_by_user) {
 
 
 
@@ -554,21 +542,126 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                 globalVariable.set_tmp_data1(inhoudtextdecrypted);
 
 
+
+                if (whattoshow.equals("balance")) {
+
+                  //  Toast.makeText(getApplicationContext(), selected_file_by_userNOW, Toast.LENGTH_SHORT).show();
+
+                    //formaat
+                    //alert("xpriv:"+xprv+"-xpub:"+xpub);
+
+                    String[] datastukken = inhoudtextdecrypted.split("-", -1);
+                    String[] datastukken2 = datastukken[0].split(":", -1);
+                    String[] datastukken3 = datastukken[1].split(":", -1);
+
+                    final String xpriv= datastukken2[1];
+                    final String xpub= datastukken3[1];
+
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+
+
+
+                            ConnectivityManager cm = (ConnectivityManager) getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
+                            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+                            if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+                                // mWebView.loadUrl("https://cdn1.securypto.io/app-videos/");
+                                mWebView.loadUrl("https://cp.securypto.io/dsg.php");
+                                mWebView.setVisibility(View.VISIBLE);
+
+                            } else {
+                                mWebView.setVisibility(View.GONE);
+
+
+                                try{
+
+                                final Bitmap bitmap ;
+                                final ImageView qrholder;
+                                qrholder = (ImageView)findViewById(R.id.qrholder);
+                                qrholder.setVisibility(View.VISIBLE);
+
+                                Context contextqr= getApplicationContext();
+                                bitmap = babak.texttoqr(contextqr, xpub, 500);
+                                qrholder.setImageBitmap(bitmap);
+
+                                    qrholder.setOnClickListener(new View.OnClickListener() {
+                                        public void onClick(View v) {
+                                            qrholder.setVisibility(View.GONE);
+
+                                        }
+                                    });
+
+
+                                } catch (WriterException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+
+
+
+
+
+                    dialog.dismiss();
+
+
+
+
+                        }
+                    });
+
+
+
+
+                }else{
+                //its not balance but xpub or xpriv to show
+
+
                 runOnUiThread(new Runnable() {
                     public void run() {
 
 
+                        try {
+
+                            final Bitmap bitmap ;
+                            final ImageView qrholder;
+                            qrholder = (ImageView)findViewById(R.id.qrholder);
+                            qrholder.setVisibility(View.VISIBLE);
 
 
-                final Bitmap bitmap ;
-                final ImageView qrholder;
-                qrholder = (ImageView)findViewById(R.id.qrholder);
-                qrholder.setVisibility(View.VISIBLE);
 
-                try {
+
+                            qrholder.setOnClickListener(new View.OnClickListener() {
+                                public void onClick(View v) {
+                                    qrholder.setVisibility(View.GONE);
+
+                                }
+                            });
+
+                            //formaat
+                            //alert("xpriv:"+xprv+"-xpub:"+xpub);
+
+                            String[] datastukken = inhoudtextdecrypted.split("-", -1);
+                            String[] datastukken2 = datastukken[0].split(":", -1);
+                            String[] datastukken3 = datastukken[1].split(":", -1);
+
+                            String xpriv= datastukken2[1];
+                            String xpub= datastukken3[1];
+
+                            String msgforqr= "ERROR!";
+                            if (whattoshow.equals("xpriv")){
+                                msgforqr= xpriv;
+                            }else if (whattoshow.equals("xpub")){
+                                msgforqr= xpub;
+                            }else{
+                                msgforqr= "ERROR!";
+                            }
+
 
                     Context contextqr= getApplicationContext();
-                    bitmap = babak.texttoqr(contextqr, inhoudtextdecrypted, 500);
+                    bitmap = babak.texttoqr(contextqr, msgforqr, 500);
 
                     runOnUiThread(new Runnable() {
                         public void run() {
@@ -590,6 +683,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                 });
 
 
+            }
 
 
 
@@ -871,7 +965,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // builder.setTitle(R.string.Save_as);
-        builder.setMessage(getResources().getString(R.string.Save_as));
+        builder.setMessage(getResources().getString(R.string.Save_wallet_as));
         builder.setCancelable(false);
         builder.setView(edtText);
         builder.setNeutralButton(R.string.Save, new DialogInterface.OnClickListener() {
@@ -991,23 +1085,18 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
     public void wehaveanamenowgenkey(){
 
+        dialog = new ProgressDialog(this);
+        dialog.setMessage(getResources().getString(R.string.Wallet_creation_in_progress));
+        dialog.setCancelable(false);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.show();
 
-
-
-     //   final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-     //   String namechoosenbyuser  = globalVariable.get_tmp_data1();
 
         SharedPreferences settings = getSharedPreferences("UserInfo", 0);
 
 
         if(settings.getString("walletsmode", "").equals("BTC"))
         {
-
-            dialog = new ProgressDialog(this);
-            dialog.setMessage(getResources().getString(R.string.Wallet_creation_in_progress));
-            dialog.setCancelable(false);
-            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            dialog.show();
 
          //   Toast.makeText(getApplicationContext(), "Mode: BTC"+" Name:"+namechoosenbyuser, Toast.LENGTH_SHORT).show();
             mWebView.loadUrl("file:///android_asset/btc/test.html");
@@ -1064,9 +1153,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
-
-
-    public void returnjavascriptresult(final String text_to_enc1){
+    public void savexprivkey(final String text_to_enc1){
 
 
 
@@ -1188,8 +1275,25 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
         @Override
         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
             //Toast.makeText(getApplicationContext(), ""+message+"", Toast.LENGTH_SHORT).show();
-            //Log.d("LogTag", message);
-            returnjavascriptresult(message);
+
+            //formaat
+            //alert("xpriv:"+xprv+"-xpub:"+xpub);
+
+
+            String[] datastukkenorg = message.split(":", -1);
+
+
+            if (datastukkenorg[0].equals("xpriv")){
+                savexprivkey(message);
+            }
+
+
+
+            if (datastukkenorg[0].equals("msg")){
+                Toast.makeText(getApplicationContext(), ""+message+"", Toast.LENGTH_SHORT).show();
+            }
+
+
             result.confirm();
             return true;
         }

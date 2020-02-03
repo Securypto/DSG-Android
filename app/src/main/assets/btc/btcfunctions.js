@@ -10,7 +10,7 @@ function create_random_btc_xpiv(){
     const xpub = node.neutered().toBase58();
     const xprv = node.toBase58();
 //create a new xpriv and xpub and retun by alert
-console.log("xpriv:"+xprv+"-xpub:"+xpub);
+//console.log("xpriv:"+xprv+"-xpub:"+xpub);
 alert("xpriv:"+xprv+"-xpub:"+xpub);
 }
 function create_btc_xpub_from_xpriv(xpriv){
@@ -24,7 +24,7 @@ function give_btc_addres_from_xpriv(xpriv,indexnumber){
 const path = "m/0'/0/0";
 const root = Bitcoin.bip32.fromBase58(xpriv);
 const node = root.deriveHardened(0).derive(0).derive(indexnumber);
-console.log("publicaddres:"+getAddress(node)+"-privatekey:"+node.toWIF());
+//console.log("publicaddres:"+getAddress(node)+"-privatekey:"+node.toWIF());
 alert("publicaddres:"+getAddress(node)+"-privatekey:"+node.toWIF());
 }
 function sign_a_transaction(privatekey,message){
@@ -32,6 +32,6 @@ function sign_a_transaction(privatekey,message){
 var keyPair = Bitcoin.ECPair.fromWIF(privatekey);
 var privateKey = keyPair.privateKey;
 var signature = BitcoinMessage.sign(message, privateKey, keyPair.compressed);
-console.log(signature.toString('base64'));
+//console.log(signature.toString('base64'));
 alert("address:"+signature.toString('base64'));
 }
