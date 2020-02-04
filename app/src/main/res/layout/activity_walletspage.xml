@@ -142,28 +142,18 @@
 
 
 
+
+
+
+
+
     <ImageView
         android:id="@+id/qrholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="109dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="50dp"
-        android:foregroundGravity="center"
-
-        />
-
-
-
-
-    <ImageView
-        android:id="@+id/qrholder2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="216dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
@@ -171,7 +161,7 @@
 
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-
+        android:background="@layout/xml_round"
         />
 
 
@@ -189,6 +179,23 @@
     />
 
 
+    <TextView
+        android:id="@+id/infofield"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+
+
+        />
 
 
 </RelativeLayout>

@@ -108,14 +108,17 @@
     <string name="BTC_TEXT">BTC</string>
     <string name="SCU_TEXT">SCU</string>
     <string name="ETH_TEXT">ETH</string>
-    <string name="Wallet_creation_in_progress">Wallet creation in progress...</string>
+    <string name="Wallet_creation_in_progress">New wallet creation in progress...</string>
     <string name="Show_QR_XPRIV">Show XPRIV Key</string>
     <string name="Show_QR_XPUB">Show XPUB Key</string>
     <string name="Show_Balance">Show Balance</string>
-    <string name="Cant_delete_need_expert_mode">You can\'t delete a wallet in normaal mode as a security measure. If you still want to do this and know what you are doing, turn on the expert mode in the settings first.</string>
-    <string name="Cant_overwrite_need_expert_mode">This wallet name already exist and you can\'t overwrite an exicting wallet. If you still want to do this and know what you are doing, turn on the expert mode in the settings and delete this wallet first.</string>
-    <string name="Save_wallet_as">Choose a name for this new wallet.</string>
-
+    <string name="Cant_delete_need_expert_mode">You can\'t delete a sub-wallet by default as a security measure. Doing so, you will lost access to the funds associated with this sub-wallet. If you still want to do this and know what you are doing, turn on the expert mode in the settings.</string>
+    <string name="Cant_overwrite_need_expert_mode">Your chosen sub-wallet name exist already and cannot be overwritten. Access has been disabled by default. If you still want to do this and know what you are doing, turn on the expert mode in the settings and delete it first.</string>
+    <string name="Save_wallet_as">Choose a name for this new sub-wallet.</string>
+    <string name="xpub_text">This is your Public Key. We strongly advise against showing your xPub to untrusted third parties. Someone having access to your XPub can\'t spend your funds but it will grant him access to your payments history and it\'s a serious privacy issue.</string>
+    <string name="xpriv_text">This is your Private Key. We strongly advise against showing your XPriv to anyone! Knowledge of the XPriv will enable someone to access your funds!</string>
+    <string name="xpriv_text_need_expert">This is your Private Key. We strongly advise against showing your XPriv to anyone! Knowledge of the XPriv will enable someone to access your funds! Access has been disabled by default. If you really want to do this and know what you are doing, enable the expert mode in the settings first.</string>
+    <string name="xpub_text_offline_mode">This is your Public Key. Scan this QR using DigiSafeGuard installed on your second smartphone that have internet connection enabled to access your balance. We strongly advise against showing your xPub to untrusted third parties. Someone having access to your XPub can\'t spend your funds but it will grant him access to your payments history and it\'s a serious privacy issue.</string>
 
 
 </resources>

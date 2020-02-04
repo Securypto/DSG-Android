@@ -3,7 +3,7 @@ function getAddress(node) {
   return Bitcoin.payments.p2pkh({ pubkey: node.publicKey }).address;
 }
 
-function create_random_btc_xpiv(){
+function create_random_eth_xpiv(){
     const mnemonic = bip39.generateMnemonic();
     const seed = bip39.mnemonicToSeedSync(mnemonic);
     const node = Bitcoin.bip32.fromSeed(seed);
@@ -13,13 +13,13 @@ function create_random_btc_xpiv(){
 //console.log("xpriv:"+xprv+"-xpub:"+xpub);
 alert("xpriv:"+xprv+"-xpub:"+xpub);
 }
-function create_btc_xpub_from_xpriv(xpriv){
+function create_eth_xpub_from_xpriv(xpriv){
 //create a xpub from the xpriv and retun it by alert
 const node = Bitcoin.bip32.fromBase58(xpriv);
 const xpub = node.neutered().toBase58();
 alert("xpub:"+xpub);
 }
-function give_btc_addres_from_xpriv(xpriv,indexnumber){
+function give_eth_addres_from_xpriv(xpriv,indexnumber){
 //give back address based on the index from xpriv
 const path = "m/0'/0/0";
 const root = Bitcoin.bip32.fromBase58(xpriv);

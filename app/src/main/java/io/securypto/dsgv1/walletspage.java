@@ -116,6 +116,8 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
+        final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        infofieldmsg.setVisibility(View.GONE);
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -441,7 +443,94 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                             break;
 
                     case 1:
-                        showxpuborxprivorbalance("xpriv",selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
+
+
+
+
+
+                        SharedPreferences settings = getSharedPreferences("UserInfo", 0);
+                        String mode = settings.getString("mode", "").toString();
+
+
+                        if(settings.getString("mode", "").equals("On"))
+                        {
+
+//expert mode, can show
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(walletspage.this);
+                            builder.setTitle(R.string.WARNING);
+                            builder.setMessage(R.string.xpriv_text);
+                            builder.setCancelable(false);
+                            builder.setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    showxpuborxprivorbalance("xpriv",selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
+                                }
+
+                            });
+
+
+
+                            builder.setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //do nothing
+                                }
+                            });
+
+
+
+                            builder.show();
+
+
+                        }
+
+                        else{
+//not in exper mode, dont show!
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(walletspage.this);
+                            builder.setTitle(R.string.WARNING);
+                            builder.setMessage(R.string.xpriv_text_need_expert);
+                            builder.setCancelable(false);
+                            builder.setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+//do nothing
+
+                                }
+
+
+
+                            });
+
+
+                            builder.show();
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                         break;
 
@@ -532,6 +621,12 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
             public void run() {
 
 
+                final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+                final Button button_return_archive = (Button) findViewById(R.id.button_return_archive);
+                final ImageButton button_import_archive = (ImageButton) findViewById(R.id.button_import_archive);
+                final ImageButton button_select_archive_sort = (ImageButton) findViewById(R.id.button_select_archive_sort);
+                final ListView listView = (ListView)findViewById(R.id.listView_archive);
+
 
                 Context context1 = getApplicationContext();
                 String inhoudtextunenc = babak.read_file(context1, selected_file_by_userNOW);
@@ -571,6 +666,10 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                 mWebView.setVisibility(View.VISIBLE);
 
                             } else {
+
+                               // showxpuborxprivorbalance("xpub",selected_file_by_userNOW, walletsmodefinal, selected_file_by_user);
+
+
                                 mWebView.setVisibility(View.GONE);
 
 
@@ -580,14 +679,32 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                 final ImageView qrholder;
                                 qrholder = (ImageView)findViewById(R.id.qrholder);
                                 qrholder.setVisibility(View.VISIBLE);
+                                    button_return_archive.setVisibility(View.GONE);
+                                    button_import_archive.setVisibility(View.GONE);
+                                    button_select_archive_sort.setVisibility(View.GONE);
+                                    searchView.setVisibility(View.GONE);
+                                    listView.setVisibility(View.GONE);
+
 
                                 Context contextqr= getApplicationContext();
                                 bitmap = babak.texttoqr(contextqr, xpub, 500);
                                 qrholder.setImageBitmap(bitmap);
 
+                                    infofieldmsg.setText(getString(R.string.xpub_text_offline_mode));
+                                    infofieldmsg.setVisibility(View.VISIBLE);
+
+
+
+
                                     qrholder.setOnClickListener(new View.OnClickListener() {
                                         public void onClick(View v) {
                                             qrholder.setVisibility(View.GONE);
+                                            infofieldmsg.setVisibility(View.GONE);
+                                            button_return_archive.setVisibility(View.VISIBLE);
+                                            button_import_archive.setVisibility(View.VISIBLE);
+                                            button_select_archive_sort.setVisibility(View.VISIBLE);
+                                            searchView.setVisibility(View.VISIBLE);
+                                            listView.setVisibility(View.VISIBLE);
 
                                         }
                                     });
@@ -596,6 +713,8 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                 } catch (WriterException e) {
                                     e.printStackTrace();
                                 }
+
+
 
 
                             }
@@ -625,17 +744,28 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
                         try {
 
+
+
                             final Bitmap bitmap ;
                             final ImageView qrholder;
                             qrholder = (ImageView)findViewById(R.id.qrholder);
                             qrholder.setVisibility(View.VISIBLE);
-
-
+                            button_return_archive.setVisibility(View.GONE);
+                            button_import_archive.setVisibility(View.GONE);
+                            button_select_archive_sort.setVisibility(View.GONE);
+                            searchView.setVisibility(View.GONE);
+                            listView.setVisibility(View.GONE);
 
 
                             qrholder.setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
                                     qrholder.setVisibility(View.GONE);
+                                    infofieldmsg.setVisibility(View.GONE);
+                                    button_return_archive.setVisibility(View.VISIBLE);
+                                    button_import_archive.setVisibility(View.VISIBLE);
+                                    button_select_archive_sort.setVisibility(View.VISIBLE);
+                                    searchView.setVisibility(View.VISIBLE);
+                                    listView.setVisibility(View.VISIBLE);
 
                                 }
                             });
@@ -651,14 +781,19 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                             String xpub= datastukken3[1];
 
                             String msgforqr= "ERROR!";
+                            String msgforinfofield= "ERROR!";
                             if (whattoshow.equals("xpriv")){
                                 msgforqr= xpriv;
+                                msgforinfofield=getString((R.string.xpriv_text));
                             }else if (whattoshow.equals("xpub")){
                                 msgforqr= xpub;
+                                msgforinfofield=getString((R.string.xpub_text));
                             }else{
                                 msgforqr= "ERROR!";
                             }
 
+
+                            final String msgforinfofieldfinal= msgforinfofield;
 
                     Context contextqr= getApplicationContext();
                     bitmap = babak.texttoqr(contextqr, msgforqr, 500);
@@ -667,6 +802,9 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                         public void run() {
                             // Update UI elements
                             qrholder.setImageBitmap(bitmap);
+                            infofieldmsg.setText(msgforinfofieldfinal);
+                            infofieldmsg.setVisibility(View.VISIBLE);
+
                         }
                     });
 
@@ -702,6 +840,12 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
             }
+
+
+
+
+
+
         }.start();
 
 
@@ -811,14 +955,6 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
     }
-
-
-
-
-
-
-
-
 
 
 
@@ -1109,7 +1245,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
         else if(settings.getString("walletsmode", "").equals("SCU")){
 
          //   Toast.makeText(getApplicationContext(), "Mode: SCU"+" Name:"+namechoosenbyuser, Toast.LENGTH_SHORT).show();
-            mWebView.loadUrl("file:///android_asset/dsg/test.html");
+            mWebView.loadUrl("file:///android_asset/scu/test.html");
             mWebView.setWebViewClient(new WebViewClient(){
                 public void onPageFinished(WebView view, String url){
                     mWebView.loadUrl("javascript:create_random_scu_xpiv()");
