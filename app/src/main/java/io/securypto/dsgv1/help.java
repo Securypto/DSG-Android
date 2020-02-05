@@ -2,6 +2,7 @@ package io.securypto.dsgv1;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,13 +10,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.VideoView;
 
 import java.time.Instant;
 
@@ -37,6 +42,11 @@ public class help extends AppCompatActivity {
         setContentView(R.layout.help);
 
 
+
+        final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        infofieldmsg.setVisibility(View.GONE);
+        final Button button_close = (Button) findViewById(R.id.button_return_archive);
+        button_close.setVisibility(View.GONE);
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -67,8 +77,14 @@ public class help extends AppCompatActivity {
 
         webSettings.setAllowFileAccessFromFileURLs(true);
 
+        mWebView.setVisibility(View.GONE);
+
         loadWebsite();
 
+
+
+
+        babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
 
 
     }
@@ -83,11 +99,32 @@ public class help extends AppCompatActivity {
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnectedOrConnecting()) {
            // mWebView.loadUrl("https://cdn1.securypto.io/app-videos/");
+            mWebView.setVisibility(View.VISIBLE);
           mWebView.loadUrl("https://kb.securypto.io/");
+            progressBar.setVisibility(View.GONE);
+
+            Button button_close = (Button) findViewById(R.id.button_return_archive);
+            button_close.setVisibility(View.GONE);
+
 
         } else {
             mWebView.setVisibility(View.GONE);
+            progressBar.setVisibility(View.GONE);
           //  mWebView.loadUrl("file:///android_asset/bip32-master/index.html");
+            final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+            infofieldmsg.setVisibility(View.VISIBLE);
+            infofieldmsg.setText(getString(R.string.please_visit_kwnolagebase));
+
+            Button button_close = (Button) findViewById(R.id.button_return_archive);
+            button_close.setVisibility(View.VISIBLE);
+
+            Button backtoapp = (Button) findViewById(R.id.backtoapp);
+            backtoapp.setVisibility(View.GONE);
+
+            Button backpage = (Button) findViewById(R.id.backpage);
+            backpage.setVisibility(View.GONE);
+
+
         }
     }
 
@@ -156,4 +193,79 @@ public class help extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(3846);
         }
     }
+
+
+
+
+
+
+
+
+
+
+/*
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (mWebView.canGoBack()) {
+                        mWebView.goBack();
+                    } else {
+                       // finish();
+                        Intent myIntentgotofirstpage = new Intent(getBaseContext(),   firstpage.class);
+                        startActivity(myIntentgotofirstpage);
+                    }
+                    return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+
+ */
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+
+    public void backpage(View View){
+        if (mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            finish();
+        }
+    }
+
+
+
+
+
+    public void backtoapp(View View){
+        Intent myIntentgotofirstpage = new Intent(getBaseContext(),   firstpage.class);
+        startActivity(myIntentgotofirstpage);
+    }
+
+
+
+
+    public void gotologinsuccespage(View View){
+        Intent myIntentgotologinsucces = new Intent(getBaseContext(),   login_succes.class);
+        startActivity(myIntentgotologinsucces);
+    }
+
+
+
+
+
 }

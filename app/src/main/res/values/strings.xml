@@ -69,7 +69,7 @@
     <string name="no_passwd_manager_data">Your Password Manager is empty.</string>
     <string name="Restarting_QR_Dance">Restarting QR Dance...</string>
     <string name="Anonymous_Transfer">Anonymous Transfer</string>
-    <string name="MSG_SCU_send">You can in the future send your messages using Securypto Blockchain Anonymously. However Securypto Blockchain is still under heavy development and not ready yet. For the time being you can use other unsecure channels like whatsapp, gmai, telegram etc... You\'r messages will still be encrypted and secure but will be traceable unlike using Securypto Blockchain.</string>
+    <string name="MSG_SCU_send">You can in the future send your messages using Securypto Blockchain Anonymously. However Securypto Blockchain is still under heavy development and not ready yet. For the time being you can use other communication channels like WhatsApp, Gmail, Telegram etc... (use top left button) You\'r messages will still be encrypted and secure but not as anonymous as when using Securypto Blockchain.</string>
     <string name="Your_archive_is_empty">Your archive is empty.</string>
     <string name="Search">Search...</string>
     <string name="Select_an_Archive">Select an Archive</string>
@@ -119,6 +119,11 @@
     <string name="xpriv_text">This is your Private Key. We strongly advise against showing your XPriv to anyone! Knowledge of the XPriv will enable someone to access your funds!</string>
     <string name="xpriv_text_need_expert">This is your Private Key. We strongly advise against showing your XPriv to anyone! Knowledge of the XPriv will enable someone to access your funds! Access has been disabled by default. If you really want to do this and know what you are doing, enable the expert mode in the settings first.</string>
     <string name="xpub_text_offline_mode">This is your Public Key. Scan this QR using DigiSafeGuard installed on your second smartphone that have internet connection enabled to access your balance. We strongly advise against showing your xPub to untrusted third parties. Someone having access to your XPub can\'t spend your funds but it will grant him access to your payments history and it\'s a serious privacy issue.</string>
-
+    <string name="Close_Wallet">Close Wallet</string>
+    <string name="please_visit_kwnolagebase">Please visit knowledge base at: \n\n https://kb.securypto.io/</string>
+    <string name="backpage">Back</string>
+    <string name="back_to_app">Home</string>
+    <string name="vault_pubkey_info">This is your Vault Public Address and share this QR using securypto blockchain (top right button) or using WhatsApp, Telegram, Email etc... (top left button) to anyone that wants to send you encrypted messages or files. You can also post this Vault Public Address on your website, forums etc... Vice versa if you want to send a encrypted message to someone, you need to import his Vault Public Address in to your contact list so ask him to share his Vault Public Address with you.</string>
+    <string name="qr_msg_info_share">QR shown below is the encrypted message and you can now share it using securypto blockchain (top right button) or using WhatsApp, Telegram, Email etc... (top left button).  As it has been encrypted using the receiver Public Vault Address, it can now only be ridden by the receiver, So even this device can\'t decrypte and read it anymore.</string>
 
 </resources>

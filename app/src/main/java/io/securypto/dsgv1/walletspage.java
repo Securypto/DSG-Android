@@ -115,8 +115,9 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
         qrholder.setVisibility(View.GONE);
 
 
-
+        final Button button_close = (Button) findViewById(R.id.button_close);
         final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        button_close.setVisibility(View.GONE);
         infofieldmsg.setVisibility(View.GONE);
 
 
@@ -626,7 +627,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                 final ImageButton button_import_archive = (ImageButton) findViewById(R.id.button_import_archive);
                 final ImageButton button_select_archive_sort = (ImageButton) findViewById(R.id.button_select_archive_sort);
                 final ListView listView = (ListView)findViewById(R.id.listView_archive);
-
+                final Button button_close = (Button) findViewById(R.id.button_close);
 
                 Context context1 = getApplicationContext();
                 String inhoudtextunenc = babak.read_file(context1, selected_file_by_userNOW);
@@ -656,14 +657,23 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                     runOnUiThread(new Runnable() {
                         public void run() {
 
+                            SharedPreferences settings = getSharedPreferences("UserInfo", 0);
 
 
                             ConnectivityManager cm = (ConnectivityManager) getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
                             NetworkInfo netInfo = cm.getActiveNetworkInfo();
                             if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-                                // mWebView.loadUrl("https://cdn1.securypto.io/app-videos/");
-                                mWebView.loadUrl("https://cp.securypto.io/dsg.php");
+                                mWebView.loadUrl("https://cp.securypto.io/dsg.php?coin="+settings.getString("walletsmode", "")+"&xpub="+xpub);
                                 mWebView.setVisibility(View.VISIBLE);
+
+                                button_return_archive.setVisibility(View.GONE);
+                                button_import_archive.setVisibility(View.GONE);
+                                button_select_archive_sort.setVisibility(View.GONE);
+                                searchView.setVisibility(View.GONE);
+                                listView.setVisibility(View.GONE);
+                                button_close.setVisibility(View.VISIBLE);
+
+
 
                             } else {
 
@@ -684,7 +694,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                     button_select_archive_sort.setVisibility(View.GONE);
                                     searchView.setVisibility(View.GONE);
                                     listView.setVisibility(View.GONE);
-
+                                    button_close.setVisibility(View.GONE);
 
                                 Context contextqr= getApplicationContext();
                                 bitmap = babak.texttoqr(contextqr, xpub, 500);
@@ -705,6 +715,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                             button_select_archive_sort.setVisibility(View.VISIBLE);
                                             searchView.setVisibility(View.VISIBLE);
                                             listView.setVisibility(View.VISIBLE);
+                                            button_close.setVisibility(View.GONE);
 
                                         }
                                     });
@@ -867,7 +878,33 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
+    public void closewallet(View View) {
+/*
+//        final ImageView qrholder;
+ //       final qrholder = (ImageView)findViewById(R.id.qrholder);
+        final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        final Button button_return_archive = (Button) findViewById(R.id.button_return_archive);
+        final ImageButton button_import_archive = (ImageButton) findViewById(R.id.button_import_archive);
+        final ImageButton button_select_archive_sort = (ImageButton) findViewById(R.id.button_select_archive_sort);
+        final ListView listView = (ListView)findViewById(R.id.listView_archive);
+        final Button button_close = (Button) findViewById(R.id.button_close);
 
+
+   //     qrholder.setVisibility(View.GONE);
+        infofieldmsg.setVisibility(View.GONE);
+        button_return_archive.setVisibility(View.VISIBLE);
+        button_import_archive.setVisibility(View.VISIBLE);
+        button_select_archive_sort.setVisibility(View.VISIBLE);
+        searchView.setVisibility(View.VISIBLE);
+        listView.setVisibility(View.VISIBLE);
+        button_close.setVisibility(View.GONE);
+
+
+ */
+
+        Intent restartwallet = new Intent(getBaseContext(),   walletspage.class);
+        startActivity(restartwallet);
+    }
 
 
 

@@ -28,8 +28,8 @@
 
     <ImageButton
         android:id="@+id/Button_Share"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -55,8 +55,8 @@
 
     <ImageButton
         android:id="@+id/button_share_by_scu"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
 
         android:layout_marginTop="8dp"
@@ -114,7 +114,38 @@
         app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Button_Share"
+        app:layout_constraintTop_toBottomOf="@+id/infofield"
         app:srcCompat="@android:color/background_dark" />
+
+
+
+    <TextView
+        android:id="@+id/infofield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:background="@layout/xml_round"
+
+        app:layout_constraintBottom_toTopOf="@+id/qrholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_share_by_scu"
+
+
+        />
+
 
 </android.support.constraint.ConstraintLayout>

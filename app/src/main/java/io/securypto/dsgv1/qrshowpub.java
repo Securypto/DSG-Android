@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -58,6 +59,10 @@ public class qrshowpub extends AppCompatActivity {
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
+
+
+        final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        infofieldmsg.setText(getString(R.string.vault_pubkey_info));
 
 
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();

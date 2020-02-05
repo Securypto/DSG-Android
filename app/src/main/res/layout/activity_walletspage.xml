@@ -142,39 +142,65 @@
 
 
 
+    <Button
+        android:id="@+id/button_close"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignBottom="@+id/textViewnoarchive"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentBottom="true"
+        android:background="@layout/xml_buttonpointtotop"
+        android:onClick="closewallet"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="@string/Close_Wallet"
 
 
-
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
 
 
     <ImageView
         android:id="@+id/qrholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/button_close"
+        android:layout_below="@+id/infofield"
+        android:layout_alignBottom="@+id/webView"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="8dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:foregroundGravity="center"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"
         android:background="@layout/xml_round"
-        />
+        android:foregroundGravity="center"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp" />
 
 
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/button_return_archive"
-        android:layout_below="@+id/searchView"
+        android:layout_above="@+id/button_close"
+
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
 
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
 
     />
 
@@ -182,18 +208,22 @@
     <TextView
         android:id="@+id/infofield"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left"
         android:text=""
         android:textColor="#FFFFFF"
         android:textSize="15dp"
-
+        android:background="@layout/xml_round"
 
         />
 

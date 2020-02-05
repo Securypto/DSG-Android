@@ -40,8 +40,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@layout/xml_buttonpointtotop"
 
         android:src="@mipmap/whats_app_gmail"
@@ -62,8 +62,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@layout/xml_buttonpointtotop"
 
         android:src="@mipmap/whats_app_gmail"
@@ -74,8 +74,8 @@
 
     <ImageButton
         android:id="@+id/button_share_by_scu"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
 
         android:layout_marginStart="8dp"
@@ -119,21 +119,30 @@
     1
 
 
+
+
+
     <ImageView
         android:id="@+id/qrholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/Button_Return1"
+        android:layout_below="@+id/infofield"
+        android:layout_alignBottom="@+id/webView"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@layout/xml_round"
         android:foregroundGravity="center"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"
- />
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp" />
 
 
     <TextView
@@ -146,6 +155,29 @@
         android:text="QR 1/1"
         android:textColor="#FFFFFF"
 
+        />
+
+    <TextView
+        android:id="@+id/infofield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:background="@layout/xml_round"
+
+        android:layout_below="@+id/button_share_by_scu"
         />
 
 </RelativeLayout>

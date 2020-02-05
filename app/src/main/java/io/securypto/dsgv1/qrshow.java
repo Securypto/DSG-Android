@@ -74,6 +74,14 @@ public class qrshow extends AppCompatActivity {
 
 
 
+
+        final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        infofieldmsg.setText(getString(R.string.qr_msg_info_share));
+
+
+
+
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getResources().getString(R.string.Data_Encryption));
         dialog.setCancelable(false);
