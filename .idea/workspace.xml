@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
@@ -159,7 +160,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Copy_of_test_14_3.7_WVGA_Nexus_One_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="60e72b5b" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -197,11 +198,27 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="281" column="26" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="26" />
+            <state relative-caret-position="306">
+              <caret line="292" column="66" selection-start-line="292" selection-start-column="66" selection-end-line="292" selection-end-column="66" />
               <folding>
+                <element signature="e#6322#7362#0" expanded="true" />
+                <element signature="e#7361#7362#0" expanded="true" />
                 <element signature="e#8646#8662#0" expanded="true" />
                 <element signature="e#8692#8734#0" expanded="true" />
+                <element signature="e#13968#14000#0" expanded="true" />
+                <element signature="e#14030#14054#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="59" column="21" selection-start-line="58" selection-end-line="60" selection-end-column="48" />
+              <folding>
+                <element signature="e#1713#1750#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -221,8 +238,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tex</find>
-      <find>gotologinsuccespage</find>
       <find>toas</find>
       <find>mipmap</find>
       <find>toast</find>
@@ -251,6 +266,8 @@
       <find>Your_archive_is_empty</find>
       <find>textViewnoarchive</find>
       <find>no_passwd_manager_data</find>
+      <find>alertbackupdonealert</find>
+      <find>shareFile</find>
     </findStrings>
     <replaceStrings>
       <replace>\n</replace>
@@ -269,7 +286,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/page_new_installation.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/passwdmanager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrscanner.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/showaudio.java" />
@@ -320,10 +336,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values-nl/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-tr/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/settings.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="27" />
     <option name="y" value="23" />
     <option name="width" value="1864" />
@@ -670,11 +687,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1053" extended-state="7" />
+    <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5007728" side_tool="true" weight="0.32977587" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.16115262" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.16115262" />
       <window_info id="Structure" order="2" sideWeight="0.5007728" side_tool="true" weight="0.32977587" />
       <window_info id="Favorites" order="3" sideWeight="0.5007728" side_tool="true" weight="0.32977587" />
       <window_info id="Build Variants" order="4" sideWeight="0.5031447" side_tool="true" weight="0.19263607" />
@@ -683,15 +700,15 @@
       <window_info id="Resources Explorer" order="7" sideWeight="0.4989518" weight="0.32977587" />
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.60512275" weight="0.32914045" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32914045" />
+      <window_info anchor="bottom" id="Logcat" order="1" visible="true" weight="0.32914045" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32939914" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32914045" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32914045" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.39487725" side_tool="true" weight="0.32914045" />
       <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.32180294" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32180294" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32914045" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Preview" order="0" side_tool="true" weight="0.32977587" />
       <window_info anchor="right" id="Device File Explorer" order="1" sideWeight="0.5024" side_tool="true" weight="0.32977587" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -843,13 +860,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -1241,6 +1251,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/qrshowpub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="59" column="21" selection-start-line="58" selection-end-line="60" selection-end-column="48" />
+          <folding>
+            <element signature="e#1713#1750#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -1253,11 +1273,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/io/securypto/dsgv1/backup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="281" column="26" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="26" />
+        <state relative-caret-position="306">
+          <caret line="292" column="66" selection-start-line="292" selection-start-column="66" selection-end-line="292" selection-end-column="66" />
           <folding>
+            <element signature="e#6322#7362#0" expanded="true" />
+            <element signature="e#7361#7362#0" expanded="true" />
             <element signature="e#8646#8662#0" expanded="true" />
             <element signature="e#8692#8734#0" expanded="true" />
+            <element signature="e#13968#14000#0" expanded="true" />
+            <element signature="e#14030#14054#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.StrictMode;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -80,6 +81,8 @@ public class backup extends AppCompatActivity {
 
 
 
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
 
 
 /*
@@ -285,9 +288,9 @@ public class backup extends AppCompatActivity {
         Intent intentShareFile = new Intent(Intent.ACTION_SEND);
         intentShareFile.setType("application/zip");
         intentShareFile.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://"+file));
-        intentShareFile.putExtra(Intent.EXTRA_SUBJECT,"DSG Encrypted Data");
-        intentShareFile.putExtra(Intent.EXTRA_TEXT, "DSG Encrypted Data");
-        startActivity(Intent.createChooser(intentShareFile, "DSG Encrypted Data"));
+        intentShareFile.putExtra(Intent.EXTRA_SUBJECT,"Send DSG Encrypted Data");
+        intentShareFile.putExtra(Intent.EXTRA_TEXT, "Send DSG Encrypted Data");
+        startActivity(Intent.createChooser(intentShareFile, "Send DSG Encrypted Data"));
 
     }
 
@@ -449,9 +452,8 @@ public class backup extends AppCompatActivity {
 
 
         //werkt, internal but accecebale
-        String zipfiledest = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/DigisafeGuard_Backup_"+nametouseforbackup+".zip";
-
-
+        final String zipfiledest = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/DigisafeGuard_Backup_"+nametouseforbackup+".zip";
+        final File filetoshare = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/DigisafeGuard_Backup_" + nametouseforbackup+".zip");
 
        // Toast.makeText(backup.this, zipfiledest, Toast.LENGTH_SHORT).show();
         babak.zip(listValue2, zipfiledest, buffer);
@@ -466,7 +468,7 @@ public class backup extends AppCompatActivity {
                     public void run() {
                         // Update UI elements
                         dialog.dismiss();
-                        alertbackupdonealert();
+                        alertbackupdonealert(filetoshare);
                        // finish();
                        // startActivity(getIntent());
                     }
@@ -484,7 +486,7 @@ public class backup extends AppCompatActivity {
 
 
 
-    private void alertbackupdonealert() {
+    private void alertbackupdonealert(final File filetoshare) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.Backup_has_been_created);
         builder.setMessage(R.string.MSG_Backup_Done);
@@ -493,8 +495,12 @@ public class backup extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //  Toast.makeText(getApplicationContext(), "Neutral button clicked", Toast.LENGTH_SHORT).show();
+
+
                 finish();
-                startActivity(getIntent());
+                shareFile(filetoshare);
+            //startActivity(getIntent());
+
             }
         });
         builder.show();
