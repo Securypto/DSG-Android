@@ -115,35 +115,35 @@ public class settings extends AppCompatActivity {
                     babak.restartapp(getApplicationContext());
 
 
-                } else if (langid.equals("1")) {
+                } else if (langid.equals("1UIT")) {
                     editor.putString("lang","nl");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("9")) {
+                } else if (langid.equals("9UIT")) {
                     editor.putString("lang","in");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("12")) {
+                } else if (langid.equals("12UIT")) {
                     editor.putString("lang","el");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("13")) {
+                } else if (langid.equals("13UIT")) {
                     editor.putString("lang","kv");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("7")) {
+                } else if (langid.equals("7UIT")) {
                     editor.putString("lang","tr");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("10")) {
+                } else if (langid.equals("10UIT")) {
                     editor.putString("lang","ko");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("8")) {
+                } else if (langid.equals("8UIT")) {
                     editor.putString("lang","ar");
                     editor.commit();
                     babak.restartapp(getApplicationContext());
-                } else if (langid.equals("3")) {
+                } else if (langid.equals("3UIT")) {
                     editor.putString("lang","fr");
                     editor.commit();
                     babak.restartapp(getApplicationContext());

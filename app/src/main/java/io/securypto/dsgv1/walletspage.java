@@ -117,8 +117,12 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
         final Button button_close = (Button) findViewById(R.id.button_close);
         final TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        final TextView selectedcoininfo = (TextView) findViewById(R.id.selectedcoininfo);
         button_close.setVisibility(View.GONE);
         infofieldmsg.setVisibility(View.GONE);
+        selectedcoininfo.setVisibility(View.GONE);
+
+
 
 
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -164,19 +168,27 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
         if(settings.getString("walletsmode", "").equals("BTC"))
         {
             walletsmode ="DSG_WALLET_BTC_";
-            ImageButtonlinks.setImageResource(R.mipmap.wsendfile);
+            ImageButtonlinks.setImageResource(R.mipmap.iconbtc);
+            selectedcoininfo.setVisibility(View.VISIBLE);
+            selectedcoininfo.setText("Bitcoin Wallet");
         }
         else if(settings.getString("walletsmode", "").equals("SCU")){
             walletsmode ="DSG_WALLET_SCU_";
-            ImageButtonlinks.setImageResource(R.mipmap.wsendvoice);
+            ImageButtonlinks.setImageResource(R.mipmap.iconscu);
+            selectedcoininfo.setVisibility(View.VISIBLE);
+            selectedcoininfo.setText("Securypto Wallet");
         }
         else if(settings.getString("walletsmode", "").equals("ETH")){
             walletsmode ="DSG_WALLET_ETH_";
-            ImageButtonlinks.setImageResource(R.mipmap.wsendpic);
+            ImageButtonlinks.setImageResource(R.mipmap.iconeth);
+            selectedcoininfo.setVisibility(View.VISIBLE);
+            selectedcoininfo.setText("Ethereum Wallet");
         }
         else {
             walletsmode ="DSG_WALLET_BTC_";
-            ImageButtonlinks.setImageResource(R.mipmap.wsendfile);
+            ImageButtonlinks.setImageResource(R.mipmap.iconbtc);
+            selectedcoininfo.setVisibility(View.VISIBLE);
+            selectedcoininfo.setText("Bitcoin Wallet");
         }
 
 
@@ -249,6 +261,9 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
                         TextView textViewnoarchive = findViewById(R.id.textViewnoarchive);
                         textViewnoarchive.setVisibility(View.GONE);
+
+
+
 
                         if (listValue.isEmpty()) {
                             textViewnoarchive.setVisibility(View.VISIBLE);
@@ -334,6 +349,35 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
+
+
+
+        AlertDialog.Builder buildernow = new AlertDialog.Builder(walletspage.this);
+        buildernow.setTitle(R.string.WARNING);
+        buildernow.setMessage(R.string.wallet_under_construction);
+        buildernow.setCancelable(false);
+        buildernow.setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//do nothing
+            }
+        });
+        buildernow.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
@@ -404,7 +448,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
 
 
 
-        int[] imageIdArr = {R.mipmap.sendfile, R.mipmap.sendfile, R.mipmap.sendfile, R.mipmap.delete, R.mipmap.cancel};
+        int[] imageIdArr = {R.mipmap.qrgreen, R.mipmap.qrred, R.mipmap.walletgreen, R.mipmap.delete, R.mipmap.cancel};
         final String[] listItemArr = {getResources().getString(R.string.Show_QR_XPUB), getResources().getString(R.string.Show_QR_XPRIV), getResources().getString(R.string.Show_Balance), getResources().getString(R.string.Delete), getResources().getString(R.string.Cancel)};
         final String CUSTOM_ADAPTER_IMAGE = "image";
         final String CUSTOM_ADAPTER_TEXT = "text";
@@ -628,6 +672,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                 final ImageButton button_select_archive_sort = (ImageButton) findViewById(R.id.button_select_archive_sort);
                 final ListView listView = (ListView)findViewById(R.id.listView_archive);
                 final Button button_close = (Button) findViewById(R.id.button_close);
+                final TextView selectedcoininfo = (TextView) findViewById(R.id.selectedcoininfo);
 
                 Context context1 = getApplicationContext();
                 String inhoudtextunenc = babak.read_file(context1, selected_file_by_userNOW);
@@ -672,7 +717,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                 searchView.setVisibility(View.GONE);
                                 listView.setVisibility(View.GONE);
                                 button_close.setVisibility(View.VISIBLE);
-
+                                selectedcoininfo.setVisibility(View.GONE);
 
 
                             } else {
@@ -695,6 +740,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                     searchView.setVisibility(View.GONE);
                                     listView.setVisibility(View.GONE);
                                     button_close.setVisibility(View.GONE);
+                                    selectedcoininfo.setVisibility(View.GONE);
 
                                 Context contextqr= getApplicationContext();
                                 bitmap = babak.texttoqr(contextqr, xpub, 500);
@@ -716,6 +762,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                             searchView.setVisibility(View.VISIBLE);
                                             listView.setVisibility(View.VISIBLE);
                                             button_close.setVisibility(View.GONE);
+                                            selectedcoininfo.setVisibility(View.VISIBLE);
 
                                         }
                                     });
@@ -766,6 +813,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                             button_select_archive_sort.setVisibility(View.GONE);
                             searchView.setVisibility(View.GONE);
                             listView.setVisibility(View.GONE);
+                            selectedcoininfo.setVisibility(View.GONE);
 
 
                             qrholder.setOnClickListener(new View.OnClickListener() {
@@ -777,6 +825,7 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
                                     button_select_archive_sort.setVisibility(View.VISIBLE);
                                     searchView.setVisibility(View.VISIBLE);
                                     listView.setVisibility(View.VISIBLE);
+                                    selectedcoininfo.setVisibility(View.VISIBLE);
 
                                 }
                             });
@@ -1008,14 +1057,14 @@ public class walletspage extends AppCompatActivity implements SearchView.OnQuery
     public void selectarchivesort(final View View){
 
 
-        int[] imageIdArr = {R.mipmap.sendfile, R.mipmap.sendvoice, R.mipmap.sendpic};
+        int[] imageIdArr = {R.mipmap.iconbtc, R.mipmap.iconscu, R.mipmap.iconeth};
         final String[] listItemArr = {getResources().getString(R.string.BTC_TEXT), getResources().getString(R.string.SCU_TEXT), getResources().getString(R.string.ETH_TEXT)};
         final String CUSTOM_ADAPTER_IMAGE = "image";
         final String CUSTOM_ADAPTER_TEXT = "text";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(walletspage.this);
         //   builder.setIcon(R.mipmap.lockloader);
-        builder.setTitle(R.string.Select_an_Archive);
+        builder.setTitle(R.string.select_a_coin_wallet);
         // Create SimpleAdapter list data.
         List<Map<String, Object>> dialogItemList = new ArrayList<Map<String, Object>>();
         int listItemLen = listItemArr.length;

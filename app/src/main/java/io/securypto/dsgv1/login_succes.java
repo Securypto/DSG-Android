@@ -12,13 +12,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.content.ClipData;
@@ -79,7 +82,7 @@ public class login_succes extends AppCompatActivity {
         ImageButton imgbuttoncontact = (ImageButton) findViewById(R.id.imgbuttoncontact);
 
 
-
+/*
         if(settings2.getString("mode", "").equals("On"))
         {
 
@@ -95,7 +98,6 @@ public class login_succes extends AppCompatActivity {
 
         else{
           //  Toast.makeText(getApplicationContext(), "Normaal mode:"+mode, Toast.LENGTH_SHORT).show();
-
             imgbuttoncamera.setVisibility(View.VISIBLE);
             imgbuttoncontact.setVisibility(View.VISIBLE);
 
@@ -105,10 +107,15 @@ public class login_succes extends AppCompatActivity {
 
 
         }
+*/
 
+//tijdelijk uitgezet
+            imgbuttoncamera.setVisibility(View.VISIBLE);
+            imgbuttoncontact.setVisibility(View.VISIBLE);
 
-
-
+            button_read_a_message.setVisibility(View.GONE);
+            button_contactmanager.setVisibility(View.GONE);
+            button_send_a_message.setVisibility(View.GONE);
 
 
 
@@ -131,6 +138,7 @@ public class login_succes extends AppCompatActivity {
 
 
         babak.startvideo(getApplicationContext(), (VideoView) findViewById(R.id.videoView));
+
 
 
     }

@@ -14,22 +14,37 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.OpenableColumns;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
+import android.widget.AbsoluteLayout;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -89,6 +104,16 @@ public class firstpage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+
+
 
 
 
@@ -163,6 +188,11 @@ public class firstpage extends AppCompatActivity {
 
 
 
+        helping_hand_knop_page_new_installation();
+
+
+
+
 
 
     }
@@ -171,6 +201,7 @@ public class firstpage extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
 
         //ask for permissions
         permissions_note(getApplicationContext());
@@ -199,6 +230,8 @@ public class firstpage extends AppCompatActivity {
         }
 
 
+
+        helping_hand_knop_page_new_installation();
 
 
 
@@ -238,8 +271,6 @@ public class firstpage extends AppCompatActivity {
                     startActivity(myIntent56a);
             }
         }
-
-
 
 
 
@@ -889,8 +920,8 @@ if(!"".equals(inhoudfile)) {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             //preventing default implementation previous to android.os.Build.VERSION_CODES.ECLAIR
-            return true;
 
+            return true;
 
         }
         return super.onKeyDown(keyCode, event);
@@ -982,9 +1013,6 @@ if(!"".equals(inhoudfile)) {
 
 
 
-
-
-
 /*
     public void ask_for_permissions(Context context) {
 
@@ -1024,6 +1052,34 @@ if(!"".equals(inhoudfile)) {
 
 
 
+    public void helping_hand_knop_page_new_installation() {
+
+        TextView infofieldmsg = (TextView) findViewById(R.id.infofield);
+        infofieldmsg.setVisibility(View.GONE);
+        ImageView hand_knop_page_new_installation = findViewById(R.id.hand_knop_page_new_installation);
+        hand_knop_page_new_installation.setVisibility(View.GONE);
+
+
+
+        if (!babak.check_if_there_are_vaults_created(getApplicationContext())) {
+
+            infofieldmsg.setText(getString(R.string.info_first_time_wallet));
+            infofieldmsg.setVisibility(View.VISIBLE);
+            hand_knop_page_new_installation.setVisibility(View.VISIBLE);
+
+            Animation anim = new AlphaAnimation(0.0f, 1.0f);
+            anim.setStartOffset(1000);
+            anim.setRepeatMode(Animation.REVERSE);
+            anim.setRepeatCount(Animation.INFINITE);
+            anim.setDuration(50);
+            hand_knop_page_new_installation.startAnimation(anim);
+
+
+        }else{
+            hand_knop_page_new_installation.clearAnimation();
+        }
+
+    }
 
 
 

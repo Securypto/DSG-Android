@@ -28,12 +28,30 @@
     <TextView
         android:id="@+id/textViewnopasswd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left"
         android:text="@string/no_passwd_manager_data"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:background="@layout/xml_round"
+
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+
+        />
+
+
 
     <ListView
         android:id="@+id/listView_passwd_manager"

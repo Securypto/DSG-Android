@@ -73,15 +73,7 @@
 
 
 
-    <TextView
-        android:id="@+id/textViewnoarchive"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
 
-        android:gravity="center"
-        android:text="@string/Your_wallet_is_empty"
-        android:textColor="#FFFFFF" />
 
 
     <SearchView
@@ -204,7 +196,6 @@
 
     />
 
-
     <TextView
         android:id="@+id/infofield"
         android:layout_width="match_parent"
@@ -224,6 +215,59 @@
         android:textColor="#FFFFFF"
         android:textSize="15dp"
         android:background="@layout/xml_round"
+
+        />
+
+
+
+    <TextView
+        android:id="@+id/textViewnoarchive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left"
+        android:text="@string/Your_wallet_is_empty"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:background="@layout/xml_round"
+
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        />
+
+    <TextView
+        android:id="@+id/selectedcoininfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+
+        android:layout_centerHorizontal="true"
+
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:background="@layout/xml_buttonpointtotop"
 
         />
 

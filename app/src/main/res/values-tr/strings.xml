@@ -1,106 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DSGV1</string>
-    <string name="lang_passwd">Şifre</string>
-    <string name="lang_Vault_name">Kasa ismi</string>
-    <string name="Open_The_Vault">Kasa\'yı aç</string>
-    <string name="Backup_Restore">Yedek &amp; Restore</string>
-    <string name="Create_a_new_Vault">Yeni bir kasa oluştur</string>
-    <string name="Return">Geri dön</string>
-    <string name="Expert_Mode">Uzman Modu</string>
-    <string name="Version">Versiyon</string>
-    <string name="Select_your_language">Dilinizi seçin:</string>
-    <string name="Vault_Name_or_Password_cant_be_empty">Kasa ismi veya şifre boş bırakılamaz</string>
-    <string name="Wrong_credentials">Kullanıcı bilgileri yanlış!</string>
-    <string name="New_contact_has_been_saved">Yeni kişi kaydedildi!</string>
-    <string name="Contact_name_cant_be_empty">Kişi ismi boş bırakılamaz!</string>
-    <string name="Cancel">İptal</string>
-    <string name="yes">Evet</string>
-    <string name="Please_open_your_vault">Lütfen kasanızı açın</string>
-    <string name="Decrypting_in_progress">Şifre çözme işlemi devam ediyor ...</string>
-    <string name="You_have_a_Voice_message">Bir sesli mesajınız var!</string>
-    <string name="Do_you_want_me_to_play_it">Oynamamı ister misin?</string>
-    <string name="Yes">Evet</string>
-    <string name="No">Hayır</string>
-    <string name="Contact_Import">Kişileri aktar</string>
-    <string name="Name">İsim</string>
-    <string name="Save">Kaydet</string>
-    <string name="Expert_mode_has_been_enabled">Uzman modu aktif edildi.</string>
-    <string name="Expert_mode_has_been_disabled">Uzman modu deaktif edildi.</string>
-    <string name="Export">Dışa aktar</string>
-    <string name="Restore">Geri Yükle</string>
-    <string name="Delete">Sil</string>
-    <string name="WARNING">UYARI</string>
-    <string name="You_are_about_to_restore_a_backup">Bir yedeği geri yüklemek üzeresiniz ...</string>
-    <string name="Wipe_all_date">Mevcut veriler kalıcı olarak silinecek. Gerçekten devam etmek istiyor musun?</string>
-    <string name="Delete_backup">Bir yedekleme dosyasını silmek üzeresiniz ...</string>
-    <string name="Are_You_Sure">Gerçekten devam etmek istiyor musun?</string>
-    <string name="Data_Encryption">Veri Şifreleme devam ediyor ...</string>
-    <string name="Backup_has_been_created">Yedekleme oluşturuldu!</string>
-    <string name="MSG_Backup_Done">Lütfen yeni oluşturulan yedeklemenin yerel olarak kaydedildiğini, yedeklemeyi dışa aktarmak için üzerine tıklayın ve tercihen bir USB çubuğuna kaydetmek için \'Yedeklemeyi dışa aktar\' seçeneğini seçin. Yedeklemeler yalnızca şifreli veriler içerdiğinden, yedeklemelerinizi istediğiniz her yere kaydedebilirsiniz, ancak çevrimiçi bulut hizmetlerinin hassas verilerin depolanması için kullanılmasını önermiyoruz ... Sadece RSA şifrelemesi bugün olduğu gibi kırılmaz Bu yarına kadar hala kırılmaz olacak demek değil.</string>
-    <string name="Ok">Tamam</string>
-    <string name="No_backup_yet">Henüz bir yedek oluşturmadınız.</string>
-    <string name="Create_a_Backup">Yedek oluştur.</string>
-    <string name="MSG_new_vault">* İstediğiniz kadar kasa oluşturabilirsiniz. \n \n * Her kasanın farklı bir genel kasa adresi olacak. Bu, işleri ve özel bilgileri veya adsız kullanımı vb. Ayırmanıza yardımcı olur ... \n \n * Her kasa oluşturulacak ve bu cihaza kaydedilecektir. Hiçbir şekilde hiçbir sunucuya veya bulut hizmetine vb. Kaydedilmeyecek hiçbir bilgi yok ... \n \n * Bu cihazdaki her bilgi yerel olarak şifrelenip depolandığından, yeni bir kasa oluştururken veya yeni eklediğinizde düzenli olarak yedekleme yapmanız gerekir. kasanıza bilgiler, şifre yöneticisi vb ... \n \n * Yedeklemeler yalnızca şifreli veriler içerdiğinden, yedeklemelerinizi istediğiniz yere kaydedebilirsiniz, ancak çevrimiçi bulut hizmetlerinin herhangi birinin deposu olarak kullanılmasını önermiyoruz hassas veriler ... Sadece RSA şifrelemesi bugün olduğu gibi hala kırılmaz olduğu için, yarının hala kırılmayacağı anlamına gelmez. \n \n * Parolalar farklı olduğu sürece farklı kasalar için aynı kasa adını kullanabilirsiniz! Veya kasa adları farklı olduğu sürece aynı şifreyi kullanın. Kasa adınızın ve şifrenizin kombinasyonu kasaya erişim sağlar. \n \n * Mevcut kasa adı ve şifre kombinasyonunu kullanarak yeni bir kasa oluşturursanız, DigiSafeGuard yeni bir kasa oluşturulmuş gibi davranır. Bu bir hata değil, güvenlik önlemidir! Bir kasanın var olduğuna dair bir uyarı olmayacak. \n \n * Kasa adları da şifrelenecek. Bir bilgisayar korsanı bu cihaza fiziksel olarak erişebilse bile, hiçbir veriyi yanal olarak göremez, aklınıza gelebilecek her bilgi parçası, kaydetmeden önce kasa adları, irtibat adları, şifreler vb. Gibi şifrelenir ... \n \n * Kullanılan şifreleme, belirli işlemler için AES ile birlikte RSA şifrelemesine dayanır ve Android işletim sisteminin kilit depolanmasına dayanmaz. Bu, şifreleme ve şifre çözme işlemlerini yavaşlatır ve çok daha sınırlı ve daha az kullanıcı dostu çalışır, ancak bu kasayı orada bilinen diğer tüm uygulamalardan farklı kılan daha yüksek bir güvenlik düzeyi sağlar. RSA 4096 bit şifreleme, günümüzde en güvenli ve kırılmaz şifreleme yöntemi olarak bilinir. DigiSafeGuard, maksimum güvenlik düşünülerek tasarlandı ve ne yazık ki, bu bazen daha az kullanıcı dostu veya daha yavaş çalışmaya neden olabilir. Ancak, şimdiye kadar oluşturulmuş en güvenli kasaya güvenebilirsiniz. \n \n * DigiSafeGuard 2 farklı şekilde kullanılabilir. Çevrimiçi ve çevrimdışı mod. \n \n Çevrimiçi mod: \n İnternet erişimi olan normal akıllı telefonunuzdaki bu uygulamayı (DigiSafeGuard) yükleyip çalıştırdığınızda, internet ekranına uzaktan erişimi olan herkesin görsel olarak görünen bilgileri görebildiğinden, bilgisayar korsanlarına maruz kalırsınız. senin için uygun. DigiSafeGuard, kriptografiyi en güvenli şekilde kullanmak için tasarlanmış olmasına rağmen, sır bilgilerinizi yazarken bir hacker\'ın ekranınızı izlemeyeceğini garanti edemez. \n \n Çevrimdışı mod: \n Bu uygulamayı, Internet bağlantısı olmayan başka bir android cihaza da yükleyebilirsiniz, örneğin, artık kullanmadığınız eski bir akıllı telefon. Bu, DigiSafeGuard\'ı, hiç bir saldırganın kasa bilgilerinize uzaktan erişemeyeceğinden% 100 emin olabileceğiniz kadar güvenli bir hale getirir. DigisafeGuard\'ı çevrimdışı modda kullanırken, mesaj ve diğer verileri göndermek ve almak için QRcode veri aktarma yöntemini kullanabilirsiniz.</string>
-    <string name="Creating_new_encryption_keys">Creating new encryption keys...</string>
-    <string name="New_Vault_Creation">Yeni Kasa Oluşturulması</string>
-    <string name="Your_new_vault_has_been_created">Yeni kasanız oluşturuldu!</string>
-    <string name="Vault_Public_Address">Kasa Public Adresiniz</string>
-    <string name="Close_The_Vault">Kasayı kapat</string>
-    <string name="Crypto_Wallet">Kripto Cüzdanı</string>
-    <string name="Archive_Manager">Arşiv Yöneticisi</string>
-    <string name="Passwords_Manager">Şifre Yöneticisi</string>
-    <string name="Read_a_Message">Mesajları okuyun</string>
-    <string name="Send_a_Message">Bir mesaj yollayın</string>
-    <string name="Contact_Manager">Kişilerim Yöneticisi</string>
-    <string name="Not_a_valid_message">Uygun bir mesaj değil!</string>
-    <string name="SCU_DSG_under_construction">Hem DigiSafeGuard hem de Securypto Blockchain hala yoğun bir gelişme altında. Bu özellik ne yazık ki henüz hazır değil.</string>
-    <string name="Manual_Input">Elle giriş</string>
-    <string name="Read_from_Clipboard">Panodan oku</string>
-    <string name="Read_by_QR_Code">QR Koduyla okuyun</string>
-    <string name="Info">Bilgi</string>
-    <string name="lang_not_ready">Bu dil henüz hazır değil. Tercüme konusunda yardım almak isterseniz, lütfen telegram kanalımızda bizimle iletişime geçin veya dev@securypto.io adresine e-posta gönderin.</string>
-    <string name="Show_Record">Kayıt Göster</string>
-    <string name="Credentials">Kimlik bilgileri</string>
-    <string name="Description">Açıklama</string>
-    <string name="Username">Kullanıcı adı</string>
-    <string name="data_wipe_confim">Bilgiler silenecek, Emin misiniz?</string>
-    <string name="Add_New_Credentials">Yeni bir kimlik bilgisi ekle</string>
-    <string name="data_saved">Bilgiler kaydedildi!</string>
-    <string name="no_passwd_manager_data">Şifre Yöneticiniz boş.</string>
-    <string name="Restarting_QR_Dance">QR Dance yeniden başlatılıyor ...</string>
-    <string name="Anonymous_Transfer">İsimsiz Transfer</string>
-    <string name="MSG_SCU_send">Gelecekte, mesajlarınızı Anonim olarak Securypto Blockchain kullanarak gönderebilirsiniz. Ancak Securypto Blockchain hala ağır gelişme aşamasında ve henüz hazır değil. Şu an için whatsapp, gmail, telegram vb. gibi güvenli olmayan diğer kanalları kullanabilirsiniz.</string>
-    <string name="Your_archive_is_empty">Arşiviniz boş.</string>
-    <string name="Search">Ara...</string>
-    <string name="Select_an_Archive">Bir arşiv seç.</string>
-    <string name="Text_and_Notes">Metin ve Notlar</string>
-    <string name="Audio_Files">Ses Dosyaları</string>
-    <string name="Pictures">Resimler</string>
-    <string name="Save_as">Farklı kaydet...</string>
-    <string name="Name_cant_be_empty">İsim boş bırakılamaz.</string>
-    <string name="Coudnt_take_a_picture">Resim çekilemez!</string>
-    <string name="Recording">Kayıt alınıyor...</string>
-    <string name="Stop_Recording">Kaydı Durdur.</string>
-    <string name="MSG_contact">Bu kasanın henüz bir bağlantısı yok. \n \n * Bir mesaj göndermek için alıcının kasa adresine ihtiyacınız var. \n \n Kolay Mod: \n 1. Kişinize genel kasa adresi için sor. \n 2. Mesajına tıklayın ve DigiSafeGuard ile paylaşın, DSG kasa adresini otomatik olarak tanıyacak ve sizin için aktaracaktır. \n \n Uzman Modu: \n 1. Kişinize genel kasa adresini sorun. \n 2. Kişiyi içe aktar üzerine tıklayın. \n 3. Kasa adresini QR kodunu tarayarak kasa adresini alın veya adresini düz bir metin olarak aldıysanız panoyu kullanarak el ile içe aktarın. \n \n \n * Kolay ve Uzman modu arasında istediğiniz sıklıkta geçiş yapabilirsiniz. Güvenlik seviyelerinde hiçbir şekilde bir uzlaşma yoktur. Uzman modunu kullanmak size seçim için daha fazla seçenek verecektir. Çalışma modu, Ayarlar sayfasından değiştirilebilir. \n \n * Bunu her temas için sadece bir kez yapmanız gerekir. \n \n * Kişi adı olarak ne istersen onu seçebilirsin. Tüm kişi adları da şifrelenir ve bir bilgisayar korsanı cihazınıza fiziksel olarak erişirse görünmez.</string>
-    <string name="Picture">Resim</string>
-    <string name="Show_contact_address">İletişim adresini göster</string>
-    <string name="File">Dosya</string>
-    <string name="Voice_Message">Sesli Mesaj</string>
-    <string name="Text_Message">Kısa mesaj</string>
-    <string name="Encrypte_the_message">Mesajı şifrele</string>
-    <string name="Decrypte_the_message">Mesajın şifresini çöz</string>
-    <string name="Encrypte_and_Save_in_Archive">Şifrele ve Arşivde Kaydet</string>
-    <string name="Subject_Must_be_unique">Konu ... (Benzersiz olmalı)</string>
-    <string name="Subject_cant_be_empty">Konu kısmı boş bırakılamaz.</string>
-    <string name="Description...">Açıklama...</string>
-    <string name="Password...">Şifre...</string>
-    <string name="Username...">Kulalnıcı adı...</string>
-    <string name="Vault_Name...">Kasa ismi...</string>
-    <string name="Vault_Password...">Kasa şifresi...</string>
-    <string name="Scanning...">Taranıyor...</string>
-    <string name="Exist">Mevcut! Bu kaydı geçersiz kılmak istiyor musunuz?</string>
-    <string name="Screenshot">Ekran Görüntüsü</string>
-    <string name="Screenshot_confim">Ekran görüntüsü özelliğini etkinleştirmek, diğer uygulamaların ekranınızı görmesine izin verir! DigiSafeGuard\'ı çevrimdışı modda kullanmıyorsanız, bu seçeneğe kullanmanızı tavsiye etmeyiz.</string>
 
 </resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

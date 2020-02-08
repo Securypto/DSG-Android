@@ -123,8 +123,6 @@
 
         <activity android:name="io.securypto.dsgv1.filemanagerdsg" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
 
-        <activity android:name="io.securypto.dsgv1.scu_wallet" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
-
         <activity android:name="io.securypto.dsgv1.walletspage" android:parentActivityName="io.securypto.dsgv1.login_succes" android:screenOrientation="portrait"></activity>
 
 
