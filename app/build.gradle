@@ -6,8 +6,8 @@ android {
         applicationId "io.securypto.dsgv1"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 33
-        versionName "3.30"
+        versionCode 35
+        versionName "3.35"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }

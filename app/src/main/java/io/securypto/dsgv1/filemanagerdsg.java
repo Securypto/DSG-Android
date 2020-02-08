@@ -2,11 +2,16 @@ package io.securypto.dsgv1;
 
 
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import io.securypto.DSGV1.R;
 
@@ -14,6 +19,7 @@ public class filemanagerdsg extends AppCompatActivity {
 
     Button button ;
     Intent intent ;
+    private static final int buffer = 1024;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +57,18 @@ public class filemanagerdsg extends AppCompatActivity {
                     String PathHolder = data.getData().getPath();
 
                     Toast.makeText(filemanagerdsg.this, PathHolder , Toast.LENGTH_LONG).show();
+
+
+                    // Toast.makeText(backup.this, zipfiledest, Toast.LENGTH_SHORT).show();
+
+                    //convert array
+                    //List<String> listValue = new ArrayList<>();
+                    //listValue.add(getFilesDir()+"/"+PathHolder );
+                    //String[] listValue2 = listValue.toArray(new String[listValue.size()]);
+                    //final String zipfiledest = getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/DigisafeGuard_Backup_test.zip";
+
+                    //babak.zip(listValue2, zipfiledest, buffer);
+
 
                 }
                 break;

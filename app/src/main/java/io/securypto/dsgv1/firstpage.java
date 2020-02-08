@@ -897,8 +897,8 @@ if(!"".equals(inhoudfile)) {
         Intent myIntent2sh = new Intent(getBaseContext(),   help.class);
         startActivity(myIntent2sh);
 
-  //      Intent myIntent2sh = new Intent(getBaseContext(),   filemanagerdsg.class);
- //       startActivity(myIntent2sh);
+ //       Intent myIntent2sh = new Intent(getBaseContext(),   filemanagerdsg.class);
+ //      startActivity(myIntent2sh);
 
 
            //   Intent myIntent2sh = new Intent(getBaseContext(),   cryptowallet.class);
